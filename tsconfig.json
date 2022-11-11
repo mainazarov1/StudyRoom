@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "../../Front/it-academy/drag/ListTask"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
