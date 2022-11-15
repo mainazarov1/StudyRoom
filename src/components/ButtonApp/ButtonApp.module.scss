@@ -1,0 +1,13 @@
+@import "./../../styles/variables.scss";
+.button {
+	padding: 10px 20px;
+	background: $white-color;
+	border: 1px solid $primary-color;
+	border-radius: $border-radius-base;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	& svg {
+		font-size: 24px;
+	}
+}
