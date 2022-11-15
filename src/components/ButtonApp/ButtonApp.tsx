@@ -6,10 +6,11 @@ type Props = {
 	label?: string;
 	icon?: JSX.Element;
 	onClick?: () => void;
+
 }
-export const ButtonApp: FC<Props> = ({label, ...rest}) => {
+export const ButtonApp: FC<Props> = ({ label, ...rest }) => {
 	return (
-		<Button className={styles.button }
+		<Button className={styles.button}
 			style={
 				{
 					borderRadius: label ? '4px' : '50%',
@@ -17,7 +18,7 @@ export const ButtonApp: FC<Props> = ({label, ...rest}) => {
 				}
 			}
 			{...rest}
-			
+
 		>
 			{label}
 		</Button>
