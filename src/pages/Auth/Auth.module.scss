@@ -1,0 +1,19 @@
+@import './../../styles/variables.scss';
+.auth {
+	width: 100%;
+	min-width: 360px;
+	height: 100vh;
+	min-height: 650px;
+	background-size: 108vw 110vh;
+	background-position: center center;
+	background-image: url('./../../assets/images/Green_School_Board_PNG_Clipart_Image.png');
+	padding: 50px 25px;
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		max-width: 500px;
+		margin: 0 auto;
+		height: 100%;
+	}
+}
