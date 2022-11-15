@@ -1,16 +1,18 @@
 import { FC, ReactNode } from 'react';
 import { Button } from 'antd';
-
+import classNames from 'classnames';
 import styles from './ButtonApp.module.scss';
-type Props = {
-	label?: string;
+
+type ButtonAppProps = {
+	label?: string | null;
 	icon?: JSX.Element;
 	onClick?: () => void;
-
+	classNameProp?: any;
 }
-export const ButtonApp: FC<Props> = ({ label, ...rest }) => {
+
+export const ButtonApp: FC<ButtonAppProps> = ({ label, classNameProp, ...rest }) => {
 	return (
-		<Button className={styles.button}
+		<Button className={classNames(classNameProp, styles.button)}
 			style={
 				{
 					borderRadius: label ? '4px' : '50%',
@@ -18,9 +20,8 @@ export const ButtonApp: FC<Props> = ({ label, ...rest }) => {
 				}
 			}
 			{...rest}
-
 		>
 			{label}
-		</Button>
+		</Button >
 	)
 }
