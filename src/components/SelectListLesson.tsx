@@ -1,26 +1,22 @@
 import React from 'react';
 import { Select } from 'antd';
 
+interface IprposObj {
+  value: string,
+  label: string,
+}
+interface IProps {
+  option: IprposObj[],
+}
 
-const SelectListLesson: React.FC = () => {
-  const handleChange = (value: string) => {
-    console.log(value);
-  };
-
-  const optionList = [
-    { value: 'jack', label: 'Jack',},
-    { value: 'lucy', label: 'Lucy',},
-    { value: 'disabled', label: 'Disabled',},
-    { value: 'Yiminghe', label: 'yiminghe',},
-  ];
+const SelectListLesson: React.FC<IProps> = ({option}) => {
 
   return (
     <Select
       defaultValue="Все курсы"
       style={{ width: 340, margin: '0 0 24px 24px' }}
       size="large"
-      onChange={handleChange}
-      options={optionList}
+      options={option}
     />
   );
 };
