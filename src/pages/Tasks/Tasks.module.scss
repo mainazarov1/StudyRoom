@@ -1,0 +1,20 @@
+@import "./../../styles/variables.scss";
+
+.main {
+   max-width: 47.5rem;
+   margin-top: 1.5rem;
+}
+
+.navigation {
+   &__link {
+      color: $primary-color;
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.0107142857em;
+      border: none;
+      margin-bottom: 1rem;
+      &:hover {
+         background-color: $border-color-base;
+      }
+   }
+}

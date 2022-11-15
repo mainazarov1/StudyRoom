@@ -36,21 +36,14 @@
 			"warn",
 			"single"
 		],
-<<<<<<< HEAD
 		"indent": [
 			"warn",
 			2
 		],
-=======
->>>>>>> e231572b55ed54bbdc1aeedd6954858d369fa444
 		"semi": [
 			"warn",
 			"always"
 		],
-<<<<<<< HEAD
-=======
-		
->>>>>>> e231572b55ed54bbdc1aeedd6954858d369fa444
 		"no-duplicate-imports": "error",
 		"import/order": [
 			"warn",

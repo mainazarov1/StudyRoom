@@ -1,28 +1,4 @@
-span.text {
-   font-size: 0.875rem;
-   color: #2962ff;
-}
-
-.text {
-   margin-left: 5px;
-}
-
-.home__card {
-   position: relative;
-   border: 0.0625rem solid #dadce0;
-   border-radius: 8px;
-   flex-direction: column;
-   height: 18.375rem;
-   overflow: hidden;
-   text-align: left;
-   display: flex;
-   justify-content: space-between;
-}
-
 .card {
-   &__row {
-      margin-top: 24px;
-   }
    &__info {
       padding: 1rem 1rem 0.75rem;
       box-sizing: border-box;
@@ -95,16 +71,18 @@ span.text {
          letter-spacing: 0.00625em;
          font-weight: 400;
          &:hover {
-            background-color: yellow;
             background: rgb(24, 144, 55);
          }
+      }
+      &__divider {
+         background-color: #838181;
       }
    }
    &__menu {
       background-color: #ffff;
       overflow: hidden;
       overflow-y: auto;
-      max-height: calc(100vh - 119px);
+      max-height: calc(100vh - 199px);
       box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
       &:hover {
          background-color: #fff;
@@ -128,6 +106,18 @@ span.text {
          }
       }
    }
+}
+
+.home__card {
+   position: relative;
+   border: 0.0625rem solid #dadce0;
+   border-radius: 8px;
+   flex-direction: column;
+   height: 18.375rem;
+   overflow: hidden;
+   text-align: left;
+   display: flex;
+   justify-content: space-between;
 }
 
 div.card__item {

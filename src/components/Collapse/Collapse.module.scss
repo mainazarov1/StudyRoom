@@ -1,0 +1,91 @@
+@import "../../styles/variables.scss";
+
+.collapse {
+   background-color: $white-color;
+   &__head {
+      &__wrap {
+         padding: 5px 10px 6px 14px;
+         z-index: 5000;
+      }
+      &__icon {
+         fill: $white-color;
+         &__wrap {
+            width: 36px;
+            height: 36px;
+            background-color: $primary-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+         }
+      }
+      &__subtitle {
+         font-size: 14px;
+         font-weight: 600;
+         color: #3c4043;
+      }
+      &__term {
+         color: rgba(0, 0, 0, 0.549);
+         padding-right: 0.25rem;
+         margin-right: -0.25rem;
+         font-size: 12px;
+      }
+      &__dropdown {
+         width: 45px;
+         height: 40px;
+         // display: none;
+      }
+   }
+   div &__title {
+      font-weight: 400;
+      margin-bottom: 0;
+      &__wrap {
+         border-bottom: 1px solid rgb(66, 133, 244);
+         border-radius: 0.5rem;
+         cursor: pointer;
+         transition: 0.3s;
+         padding: 1.5rem;
+         box-sizing: border-box;
+         &:hover {
+            border-bottom: 1px solid rgb(232, 240, 254);
+            background-color: rgb(232, 240, 254);
+         }
+      }
+   }
+   &__panel {
+   }
+   &__elipsis {
+      transition: 0.3s;
+      padding: 5px;
+      &:hover {
+         background-color: rgba(25, 103, 210, 0.08);
+         border-radius: 50%;
+      }
+   }
+   &__content {
+      max-height: 40vh;
+      overflow: auto;
+      border-top: 1px solid rgba(0, 0, 0, 0.549);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.549);
+      &__wrap {
+         padding: 1rem 1.5rem;
+      }
+   }
+}
+
+.task {
+   &__points {
+      color: rgba(0, 0, 0, 0.549);
+   }
+}
+
+.test {
+   padding: 0;
+}
+
+div.ant-collapse-item-active {
+   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+   border-radius: 0.5rem;
+   overflow: hidden;
+   border-top: none;
+}
