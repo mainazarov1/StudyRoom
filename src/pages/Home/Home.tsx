@@ -173,13 +173,13 @@ export const Home: React.FC = () => {
                   {(provided, snapshot) => {
                      return (
                         <>
-                           <Row 
-                           {...provided.droppableProps} 
-                           ref={provided.innerRef} 
-                           justify={'space-between'} 
-                           gutter={[0, 24]} 
-                           className={s.card__row} 
-                           style={getListStyle(snapshot.isDraggingOver)}
+                           <Row
+                              {...provided.droppableProps}
+                              ref={provided.innerRef}
+                              justify={'space-between'}
+                              gutter={[0, 12]}
+                              className={s.card__row}
+                              style={getListStyle(snapshot.isDraggingOver)}
                            >
                               {content.map((el, index) => (
                                  <Card provided={provided} key={el.id} {...el} index={index} />

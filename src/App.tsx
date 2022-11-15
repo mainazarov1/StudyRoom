@@ -10,8 +10,8 @@ import Tasks from './pages/Tasks/Tasks';
 function App() {
   return (
     <div className="App">
-      <Tasks />
-      {/* <Home /> */}
+      {/* <Tasks /> */}
+      <Home />
       {/* <Auth /> */}
       {/* <CourseCard /> */}
     </div>)
