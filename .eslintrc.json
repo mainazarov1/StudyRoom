@@ -36,11 +36,14 @@
 			"warn",
 			"single"
 		],
+		"indent": [
+			"warn",
+			2
+		],
 		"semi": [
 			"warn",
 			"always"
 		],
-		
 		"no-duplicate-imports": "error",
 		"import/order": [
 			"warn",
@@ -69,7 +72,8 @@
 					".js",
 					".jsx",
 					".ts",
-					".tsx"
+					".tsx",
+					".d.ts"
 				]
 			}
 		}
