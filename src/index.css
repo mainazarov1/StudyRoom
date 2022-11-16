@@ -1,9 +1,8 @@
-@import 'the-new-css-reset/css/reset.css';
+@import "the-new-css-reset/css/reset.css";
 
-body{
-	font-family: 'Open Sans', sans-serif;
-	
+body {
+	font-family: "Open Sans", sans-serif;
 }
-button{
+button {
 	cursor: pointer;
 }
