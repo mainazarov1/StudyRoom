@@ -1,0 +1,41 @@
+.wrapper {
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+
+  .wrapper_img {
+    height: 240px;
+    background-color: blue;
+    background-size: cover;
+    position: relative;
+
+    .wrapper_heading {
+      padding: 16px 24px;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+      .heading {
+        color: white;
+        font-size: 2.25rem;
+        margin: 0;
+      }
+
+      .description {
+        font-size: 1.375rem;
+      }
+    }
+
+    .icon {
+      position: absolute;
+      display: inline-block;
+      bottom: 12px;
+      right: 12px;
+      color: white;
+      font-size: 24px;
+    }
+  }
+}

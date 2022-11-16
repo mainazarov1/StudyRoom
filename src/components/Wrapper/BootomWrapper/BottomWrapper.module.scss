@@ -1,0 +1,18 @@
+.bottom_block {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+
+  b {
+    padding-right: 5px;
+  }
+
+  .bottom_block_icon {
+    padding: 15px;
+    border-radius: 50%;
+  }
+
+  .bottom_block_icon:hover {
+    background-color: rgba(0, 0, 0, 0.161);
+  }
+}
