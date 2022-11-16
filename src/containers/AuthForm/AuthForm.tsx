@@ -10,15 +10,16 @@ export const AuthForm: React.FC = () => {
   const { Title } = Typography;
 
   return (
-    <Form className={styles.authForm}>
-      <Title className={styles.authForm__title} level={2}>
+    <Form layout='vertical' className={styles.authForm}>
+      <Title className={styles.authForm__title} level={3}>
         StudyRoom
       </Title>
-      <Title className={styles.authForm__subtitle} level={2}>
+      <Title className={styles.authForm__subtitle} level={4}>
         Use your Google Account
       </Title>
-      <InputApp label='Email' name='username' placeholder='...example@gmail.com' />
-      <InputAppPass label='Password' name='password' placeholder='...password' />
+      <Divider />
+      <InputApp label='Email' name='username' placeholder='...example@gmail.com' required={true} />
+      <InputAppPass label='Password' name='password' placeholder='...password' required={true} />
       <Divider />
       <Form.Item>
         <Button className={styles.authFormButton} icon={<GoogleOutlined />}>
