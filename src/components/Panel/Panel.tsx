@@ -8,7 +8,7 @@ const { Panel } = Collapse;
 interface IArrList {
   title?: string,
   description?: string,
-  lesson?: string,
+  state?: string,
   color?: string,
 }
 
@@ -46,7 +46,11 @@ const PanelItem:FC<IProps> = ({arr, heading}) => {
                 title={item.title}
                 description={item.description}
               />
-              <span className={s.title_lesson} style={{width: 200, textAlign: 'center'}} >{item.lesson}</span><br />
+              <span style={{width: 200, textAlign: 'center'}} >
+                <span>hello</span>
+                <br />
+                {item.state}
+              </span>
             </List.Item>
           )}
         />
