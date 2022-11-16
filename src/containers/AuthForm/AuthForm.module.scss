@@ -1,0 +1,36 @@
+@import './../../styles/variables.scss';
+
+.authForm{
+	width: 100%;
+	margin: 0 auto;
+	padding: 2.5rem 2rem;
+	background: #fff;
+	border-radius: .5rem;
+	// box-shadow: 0 0 10px rgba(0,0,0,.2);
+	box-shadow: $box-shadow-base;
+	.authForm__title{
+		font-size: 1.5rem;
+		color: $primary-color;
+		text-align: center;
+	}
+	.authForm__subtitle{
+		font-size: 1rem;
+		color: $text-color-secondary;
+		text-align: center;
+	}
+}
+.authFormButton{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	border: 1px solid $primary-color;
+	border-radius: .3rem;
+	padding: .3rem 1.2rem;
+	height: 50px;
+	& span:first-child{
+		margin-right: 1rem;
+		font-size: 1.5rem;
+		color: $error-color;
+	}
+}
