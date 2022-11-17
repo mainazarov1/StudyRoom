@@ -33,7 +33,7 @@ interface IHeaderProps {
     children: JSX.Element,
 }
 
-const Header: React.FC<IHeaderProps> = ({ children }) => {
+export const Header: React.FC<IHeaderProps> = ({ children }) => {
     const [collapsed, setCollapsed] = useState(true);
     return (
         <div className='header'>
@@ -95,5 +95,3 @@ const Header: React.FC<IHeaderProps> = ({ children }) => {
         </div >
     );
 };
-
-export default Header;
