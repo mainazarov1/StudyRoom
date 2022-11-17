@@ -38,8 +38,8 @@ export const Header: React.FC<IHeaderProps> = ({ children }) => {
     return (
         <div className='header'>
             <Layout className='layout-wrapper'>
-                <Sider className='site-sider' width={300} trigger={null} collapsedWidth={0} collapsible collapsed={collapsed}>
-                </Sider>
+                {/* <Sider className='site-sider' width={300} trigger={null} collapsedWidth={0} collapsible collapsed={collapsed}>
+                </Sider> */}
                 <Layout className='site-layout'>
                     <div className='header-wrapper'>
                         <div className='header-wrapper-left'>

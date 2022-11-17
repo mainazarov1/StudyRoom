@@ -30,7 +30,7 @@ let leftTrigger = {
 export const LayoutApp: FC = () => {
   return (
     <Layout>
-      <Sider>Sider</Sider>
+      {/* <Sider>Sider</Sider> */}
       <Layout>
       <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={middleItems}  rightComponent={<RightComponent />}/>} />
         <Layout>
