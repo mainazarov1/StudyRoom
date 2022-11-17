@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
+
+// import Drawers from '../SideBar/Drawer';
 import { HeaderLogoPlus } from '../../components/HeaderComponents/HeaderLogoPlus/HeaderLogoPlus';
 import RightComponent from '../../components/HeaderComponents/RightCoponent/RightComponent';
-const { Header, Sider } = Layout;
 import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
 
@@ -30,7 +31,7 @@ let middleItemsTeacher = [
   },
   {
     title: 'Задания',
-    path: '/term'
+    path: '/taskList'
   },
   {
     title: 'Пользователи',
@@ -71,7 +72,7 @@ let tasks = [
 
 let leftTrigger = {
   title: 'dwaaw',
-  path: '/logo'
+  path: '/main'
 }
 
 const isTeacher = false;
@@ -86,7 +87,9 @@ export const LayoutApp: FC = () => {
       <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems}  rightComponent={<RightComponent />}/>} />        <Layout>
           <Outlet />
         </Layout>
-      </Layout>
-    </Layout>
+    </>
+    //   {/* </Layout>
+    // </Layout>
+    // </Layout> */}
   );
 };

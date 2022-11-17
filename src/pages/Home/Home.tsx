@@ -153,7 +153,6 @@ export const Home: React.FC = () => {
   });
   return (
     <Layout>
-      {/* <Header>Header</Header> */}
       <Content style={{ padding: '1.5rem', background: 'white' }}>
         <Space className={s.space} align='center' size='middle'>
           {fastLinks.map((item) => {

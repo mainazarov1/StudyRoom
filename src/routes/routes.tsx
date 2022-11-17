@@ -7,7 +7,8 @@ import { LayoutApp } from '../containers/LayoutApp/LayoutApp';
 import {
   AUTH_PAGE,
   MAIN_PAGE,
-  // TAPE_PAGE,
+  FEED_PAGE,
+  TASK_LIST,
   // TASKS_PAGE,
   // USERS_PAGE,
   // RATING_PAGE
