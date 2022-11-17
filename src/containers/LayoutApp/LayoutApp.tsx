@@ -11,7 +11,7 @@ import 'antd/dist/antd.css';
 let middleItems = [
   {
     title: 'Лента',
-    path: '/appointed'
+    path: '/course'
   },
   {
     title: 'Задания',

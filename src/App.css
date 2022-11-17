@@ -28,13 +28,13 @@ main {
    border-radius: 0.5rem;
 }
 
-.header {
+/* .header {
    background-color: #1e90ff;
    padding: 0.9rem;
    color: #fff;
    font-size: 0.9rem;
    border-radius: 0.3rem 0.3rem 0 0;
-}
+} */
 
 .item-card {
    width: 8rem;
