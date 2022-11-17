@@ -32,8 +32,7 @@ const ModalSettings:FC = () => {
       <Modal
         className={s.modal}
         title='Настроить вид'
-        style={{width: 1000, left: "50%", transform: 'translate(-50%)'
-      }}
+        width={800}
         open={open}
         onCancel={handleCancel}
         footer={[

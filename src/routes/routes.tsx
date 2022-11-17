@@ -15,6 +15,8 @@ import {
 } from '../utils/path/path';
 import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/HeaderTest';
 import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
+import Feed from '../pages/Feed';
+import TaskListAssigned from '../pages/TaskListAssigned';
 
 interface RouterData {
   id?: string;
@@ -38,30 +40,33 @@ const MainRoutes = () => {
 
     /* Роуты для теста компонента Header */
     {
-      path: 'not-reviewed',
+      id: useId(),
+      path: '/not-reviewed',
       component: <HeaderTest />
     },
     {
-      path: 'tasks',
+      id: useId(),
+      path: '/tasks',
       component: <RightComponent />
     },
     {
-      path: 'course',
+      id: useId(),
+      path: '/course',
       component: <div />
-    }
+    },
 
     /* --------------------- */
     
-    // {
-    // 	id: useId(),
-    // 	path: TAPE_PAGE,
-    // 	component: <Tape />
-    // },
-    // {
-    // 	id: useId(),
-    // 	path: TASKS_PAGE,
-    // 	component: <Tasks />
-    // },
+    {
+    	id: useId(),
+    	path: FEED_PAGE,
+    	component: <Feed />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST,
+    	component: <TaskListAssigned />
+    },
     // {
     // 	id: useId(),
     // 	path: USERS_PAGE,
