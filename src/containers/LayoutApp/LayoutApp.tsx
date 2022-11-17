@@ -1,14 +1,12 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Layout } from 'antd';
-import { HeaderLogoPlus } from '../../components/Header/HeaderLogoPlus/HeaderLogoPlus';
-import RightComponent from '../../components/Header/RightCoponent/RightComponent';
+import { HeaderLogoPlus } from '../../components/HeaderComponents/HeaderLogoPlus/HeaderLogoPlus';
+import RightComponent from '../../components/HeaderComponents/RightCoponent/RightComponent';
 const { Header, Sider } = Layout;
-import Header from './components/Header/Header';
+import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
-import { HeaderLogoPlus } from './components/Header/HeaderLogoPlus/HeaderLogoPlus';
-import { HeaderTest } from './components/Header/HeaderLogoPlus/HeaderTest';
-import RightComponent from './components/Header/RightCoponent/RightComponent';
+
 
 let middleItems = [
   {
@@ -34,8 +32,7 @@ export const LayoutApp: FC = () => {
     <Layout>
       <Sider>Sider</Sider>
       <Layout>
-      <Header children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={middleItems}  rightComponent={<RightComponent />}/>} />
-
+      <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={middleItems}  rightComponent={<RightComponent />}/>} />
         <Layout>
           <Outlet />
         </Layout>
