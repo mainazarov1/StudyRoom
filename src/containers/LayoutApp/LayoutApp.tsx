@@ -82,14 +82,12 @@ export const LayoutApp: FC = () => {
   console.log(location)
   return (
     <Layout>
-      {/* <Sider>Sider</Sider> */}
       <Layout>
-      <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems}  rightComponent={<RightComponent />}/>} />        <Layout>
+        <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems} rightComponent={<RightComponent />} />} />
+        <Layout>
           <Outlet />
         </Layout>
-    </>
-    //   {/* </Layout>
-    // </Layout>
-    // </Layout> */}
+      </Layout>
+    </Layout>
   );
 };
