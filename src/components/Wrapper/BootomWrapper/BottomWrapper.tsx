@@ -1,8 +1,5 @@
 import { FC, useState } from 'react';
-
-// import { Tooltip } from 'antd';
-// import { ExpandOutlined } from '@ant-design/icons';
-import ModalCode from '../../ModalCode/ModalCode';
+import ModalCode from '../../FeedModals/ModalCode/ModalCode';
 
 import s from './BottomWrapper.module.scss';
 

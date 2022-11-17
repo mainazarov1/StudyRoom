@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { ExclamationCircleOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 
-import ModalSettings from '../modalSettings/ModalSettings';
+import ModalSettings from '../FeedModals/modalSettings/ModalSettings';
 
 import BottomWrapper from './BootomWrapper/BottomWrapper';
 import s from './Wrapper.module.scss';
