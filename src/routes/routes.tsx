@@ -8,11 +8,13 @@ import {
   AUTH_PAGE,
   MAIN_PAGE,
   FEED_PAGE,
+  TASK_LIST,
   // TASKS_PAGE,
   // USERS_PAGE,
   // RATING_PAGE
 } from '../utils/path/path';
 import Feed from '../pages/Feed';
+import TaskListAssigned from '../pages/TaskListAssigned';
 
 interface RouterData {
   id?: string;
@@ -36,6 +38,11 @@ const MainRoutes = () => {
     	id: useId(),
     	path: FEED_PAGE,
     	component: <Feed />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST,
+    	component: <TaskListAssigned />
     },
     // {
     // 	id: useId(),

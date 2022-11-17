@@ -1,7 +1,6 @@
 import { Button, Modal, message, Row, Upload } from 'antd';
 import { useState, FC } from 'react';
 import { EditOutlined, PictureOutlined, UploadOutlined } from '@ant-design/icons';
-
 import s from './ModalSettings.module.scss';
 
 const ModalSettings:FC = () => {
@@ -33,6 +32,8 @@ const ModalSettings:FC = () => {
       <Modal
         className={s.modal}
         title='Настроить вид'
+        style={{width: 1000, left: "50%", transform: 'translate(-50%)'
+      }}
         open={open}
         onCancel={handleCancel}
         footer={[

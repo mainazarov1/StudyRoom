@@ -20,10 +20,10 @@ const Drawers: React.FC = () => {
   ]);
 
   const [ListTeacherCurs, setListTeacherCurs] = useState<IList[]>([
-    {name: 'B', id: '12',  descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
-    {name: 'B', id: '13',  descirption: 'react dev', title: 'Back-end', color: '#f56a00'},
-    {name: 'B', id: '14',  descirption: 'Django', title: 'Data-scinse', color: '#f56a00'},
-    {name: 'B', id: '15',  descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
+    {name: 'B', id: '12', descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
+    {name: 'B', id: '13', descirption: 'react dev', title: 'Back-end', color: '#f56a00'},
+    {name: 'B', id: '14', descirption: 'Django', title: 'Data-scinse', color: '#f56a00'},
+    {name: 'B', id: '15', descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
     {name: 'B', id: '16', descirption: 'react dev', title:'Front-end',  color: '#f56a00'},
   ]);
 

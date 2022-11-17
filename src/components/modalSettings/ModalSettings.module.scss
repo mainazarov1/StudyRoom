@@ -15,13 +15,14 @@
 }
 
 .modal {
-  div{
-    width: 800px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
-    position: relative;
-  }
+  // div:last-child {
+  //   width: 800px;
+  //   left: 50%;
+  //   top: 50%;
+  //   transform: translate(-50%);
+  //   position: relative;
+  // }
+
   div:first-child {
     padding: 0 24px;
   }
