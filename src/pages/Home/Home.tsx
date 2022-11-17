@@ -5,7 +5,7 @@ import { Layout, Row, Space, Typography } from 'antd';
 import { Card } from '../../components/Card/Card';
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Link } = Typography;
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
@@ -151,9 +151,9 @@ export const Home: React.FC = () => {
     overflow: 'auto',
     flexWrap: 'wrap',
   });
+
   return (
     <Layout>
-      <Header>Header</Header>
       <Content style={{ padding: '1.5rem', background: 'white' }}>
         <Space className={s.space} align='center' size='middle'>
           {fastLinks.map((item) => {

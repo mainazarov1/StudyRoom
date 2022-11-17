@@ -1,0 +1,19 @@
+.sider {
+   &__list {
+      flex-shrink: 0;
+      margin: 0 -1.5rem -1.5rem -1.5rem;
+      overflow: hidden;
+      padding: 3.375rem 3.375rem 0.5rem 1.5rem;
+      width: 10.125rem;
+   }
+   &__item {
+   }
+   &__link {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      padding-right: 1.5rem;
+      padding-left: 0.75rem;
+      flex-grow: 1;
+   }
+}
