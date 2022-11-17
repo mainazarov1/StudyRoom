@@ -12,6 +12,8 @@ import {
   // USERS_PAGE,
   // RATING_PAGE
 } from '../utils/path/path';
+import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/HeaderTest';
+import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 
 interface RouterData {
   id?: string;
@@ -26,11 +28,30 @@ const MainRoutes = () => {
     //   path: AUTH_PAGE,
     //   component: <Auth />,
     // },
+
+    /* Роуты для теста компонента Header */
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
+
+    /* Роуты для теста компонента Header */
+    {
+      path: 'not-reviewed',
+      component: <HeaderTest />
+    },
+    {
+      path: 'tasks',
+      component: <RightComponent />
+    },
+    {
+      path: 'course',
+      component: <div />
+    }
+
+    /* --------------------- */
+    
     // {
     // 	id: useId(),
     // 	path: TAPE_PAGE,
