@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import {  Drawer, Space, Menu, Avatar } from 'antd';
-import MenuAside from './MenuAside';
+import {  Drawer, Space } from 'antd';
+
 import { IList } from '../../core/types/ListType';
+
+import MenuAside from './MenuAside';
 
 
 const Drawers: React.FC = () => {

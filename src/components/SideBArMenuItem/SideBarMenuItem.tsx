@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Space, Menu, Avatar } from 'antd';
+
 import {IList} from '../../core/types/ListType';
 
 interface IProps {

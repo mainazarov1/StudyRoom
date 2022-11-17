@@ -1,7 +1,8 @@
 import { Button, Modal, Tooltip, message } from 'antd';
 import { useState, FC } from 'react';
-import s from './ModalCode.module.scss'; 
 import { ExpandOutlined, CopyOutlined } from '@ant-design/icons';
+
+import s from './ModalCode.module.scss'; 
 
 const ModalCode:FC = () => {
   const [open, setOpen] = useState(false);

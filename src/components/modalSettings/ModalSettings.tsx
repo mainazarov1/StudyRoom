@@ -1,6 +1,7 @@
-import { Button, Modal, message, Row } from 'antd';
+import { Button, Modal, message, Row, Upload } from 'antd';
 import { useState, FC } from 'react';
 import { EditOutlined, PictureOutlined, UploadOutlined } from '@ant-design/icons';
+
 import s from './ModalSettings.module.scss';
 
 const ModalSettings:FC = () => {
@@ -59,7 +60,9 @@ const ModalSettings:FC = () => {
             <span className={s.text}>Выберите фото обложки</span>
             <div className={s.modal_btns}>
               <Button icon={<PictureOutlined />} >Выбрать фотографию</Button>
-              <Button icon={<UploadOutlined />} >Загрузить фото</Button>
+              {/* <Upload className={s.upload_btn}> */}
+                <Button icon={<UploadOutlined />} >Загрузить фото</Button>
+              {/* </Upload> */}
             </div>
           </div>
           <div className={s.color_block}>

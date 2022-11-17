@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import s from '../styles/ListTask.module.scss'
+
+import s from '../styles/ListTask.module.scss';
 import SelectListLesson from '../components/SelectListLesson';
 import PanelItem from '../components/Panel/Panel';
 

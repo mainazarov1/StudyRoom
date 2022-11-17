@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import s from './FeedContent.module.scss';
 
 const FeedContent:FC = () => {

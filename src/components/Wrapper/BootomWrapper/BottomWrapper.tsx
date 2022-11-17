@@ -1,8 +1,10 @@
 import { FC, useState } from 'react';
+
 // import { Tooltip } from 'antd';
 // import { ExpandOutlined } from '@ant-design/icons';
-import s from './BottomWrapper.module.scss';
 import ModalCode from '../../ModalCode/ModalCode';
+
+import s from './BottomWrapper.module.scss';
 
 const BottomWrapper:FC = () => {
   const [ code, setCode] = useState('tq7kdvd');

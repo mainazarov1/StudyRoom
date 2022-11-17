@@ -1,7 +1,8 @@
 import React, {FC, useState} from 'react';
 import { Collapse, Avatar, List, Button } from 'antd';
 import { DownOutlined, SnippetsOutlined } from '@ant-design/icons';
-import s from './PanelItem.module.scss'
+
+import s from './PanelItem.module.scss';
 
 const { Panel } = Collapse;
 

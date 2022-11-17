@@ -7,11 +7,12 @@ import { LayoutApp } from '../containers/LayoutApp/LayoutApp';
 import {
   AUTH_PAGE,
   MAIN_PAGE,
-  // TAPE_PAGE,
+  FEED_PAGE,
   // TASKS_PAGE,
   // USERS_PAGE,
   // RATING_PAGE
 } from '../utils/path/path';
+import Feed from '../pages/Feed';
 
 interface RouterData {
   id?: string;
@@ -31,11 +32,11 @@ const MainRoutes = () => {
       path: MAIN_PAGE,
       component: <Home />,
     },
-    // {
-    // 	id: useId(),
-    // 	path: TAPE_PAGE,
-    // 	component: <Tape />
-    // },
+    {
+    	id: useId(),
+    	path: FEED_PAGE,
+    	component: <Feed />
+    },
     // {
     // 	id: useId(),
     // 	path: TASKS_PAGE,

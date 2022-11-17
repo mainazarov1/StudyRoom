@@ -1,9 +1,11 @@
 import React, { FC, useState } from 'react';
-import s from './Wrapper.module.scss';
 import { ExclamationCircleOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
-import BottomWrapper from './BootomWrapper/BottomWrapper';
+
 import ModalSettings from '../modalSettings/ModalSettings';
+
+import BottomWrapper from './BootomWrapper/BottomWrapper';
+import s from './Wrapper.module.scss';
 
 const Wrapper:FC = () => {
   const [showData, setShowData] = useState(false);
