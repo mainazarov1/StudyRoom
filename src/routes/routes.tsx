@@ -30,7 +30,6 @@ const MainRoutes = () => {
     //   component: <Auth />,
     // },
 
-    /* Роуты для теста компонента Header */
     {
       id: useId(),
       path: MAIN_PAGE,
