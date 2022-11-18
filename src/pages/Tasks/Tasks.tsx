@@ -30,30 +30,6 @@ const Disk = (
   </svg>
 );
 
-const data = [
-  {
-    id: '1',
-    tag: 'Back End тестовые задания',
-    title: 'Социальная сеть',
-    points: 50,
-    deadLine: 'Срок сдачи: 22 июл. 2023 г',
-    timePublication: 'Опубликовано 10:19',
-    htmlContent: 'Какой-то хтмл контент',
-    isTeacher: true,
-    countComments: 2,
-  },
-  {
-    id: '2',
-    title: 'Социальная сеть',
-    points: 50,
-    deadLine: 'Срок сдачи: 22 июл. 2023 г',
-    timePublication: 'Опубликовано 10:19',
-    htmlContent: 'Какой-то хтмл контент',
-    isTeacher: true,
-    countComments: 2,
-  },
-];
-
 const dataWithTags = [
   {
     id: '1',
