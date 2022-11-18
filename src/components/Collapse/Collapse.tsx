@@ -7,7 +7,6 @@ import s from './Collapse.module.scss';
 import type { MenuProps } from 'antd';
 
 const isTeacher = true;
-const isMove = true;
 
 const headerDropdownStudentItems: MenuProps['items'] = [
   { label: 'Копировать ссылку', key: 'item-1' }, // remember to pass the key prop
@@ -23,28 +22,33 @@ const headerDropdownSeacherItems: MenuProps['items'] = [
 ];
 
 interface CollapseProps {
-   children: ReactNode
+  children: ReactNode;
+  isTeacher: boolean;
+  tag: string;
 }
 
-const CollapseComponent: FC<CollapseProps> = ({ children }) => {
+const CollapseComponent:FC<CollapseProps> = ({ children, isTeacher, tag }) => {
   return (
     <div className={s.collapse__wrap}>
       <Row className={s.collapse__title__wrap} justify={'space-between'} align={'middle'}>
         <Typography.Title className={s.collapse__title} level={2}>
-          <Typography.Link href='#'>
-                  Back тестовые задания
-          </Typography.Link>
+          <Typography.Link href='#'>{tag}</Typography.Link>
         </Typography.Title>
-        <Dropdown dropdownRender={(menus) => (
-          <div>
-            {menus}
-          </div>
-        )} placement={'bottomRight'} trigger={['click']} menu={{ items: isTeacher ? headerDropdownSeacherItems : headerDropdownStudentItems }}>
-          <EllipsisOutlined className={s.collapse__elipsis} style={{ fontSize: '30px', color: 'rgb(25,103,210)' }} color='green' />
+        <Dropdown
+          dropdownRender={(menus) => <div>{menus}</div>}
+          placement={'bottomRight'}
+          trigger={['click']}
+          menu={{ items: isTeacher ? headerDropdownSeacherItems : headerDropdownStudentItems }}
+        >
+          <EllipsisOutlined
+            className={s.collapse__elipsis}
+            style={{ fontSize: '30px', color: 'rgb(25,103,210)' }}
+            color='green'
+          />
         </Dropdown>
       </Row>
       {children}
-    </div >
+    </div>
   );
 };
 

@@ -13,8 +13,9 @@
       letter-spacing: 0.0107142857em;
       border: none;
       margin-bottom: 1rem;
+      box-shadow: none;
       &:hover {
-         background-color: $border-color-base;
+         background-color: $hover-bg;
       }
    }
 }
@@ -62,8 +63,8 @@
          padding: 1.5rem;
          box-sizing: border-box;
          &:hover {
-            border-bottom: 1px solid rgb(232, 240, 254);
-            background-color: rgb(232, 240, 254);
+            border-bottom: 1px solid $hover-bg;
+            background-color: $hover-bg;
          }
       }
    }
@@ -105,7 +106,7 @@
       transition: 0.3s !important;
       border-radius: 4px;
       &:hover {
-         background-color: rgb(232, 240, 254);
+         background-color: $hover-bg;
       }
    }
 }
@@ -120,7 +121,7 @@
       .ant-collapse-header {
          margin-bottom: -4px;
          &:hover {
-            background-color: rgb(232, 240, 254);
+            background-color: $hover-bg;
             border-radius: 0.5rem;
          }
       }
@@ -138,6 +139,9 @@
 }
 
 .task {
+   &__layout {
+      justify-content: center;
+   }
    &__points {
       color: rgba(0, 0, 0, 0.549);
    }

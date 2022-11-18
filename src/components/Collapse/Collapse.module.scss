@@ -47,8 +47,8 @@
          padding: 1.5rem;
          box-sizing: border-box;
          &:hover {
-            border-bottom: 1px solid rgb(232, 240, 254);
-            background-color: rgb(232, 240, 254);
+            border-bottom: 1px solid $hover-bg;
+            background-color: $hover-bg;
          }
       }
    }
