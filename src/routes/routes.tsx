@@ -17,6 +17,7 @@ import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/Header
 import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import Grade from '../pages/Grade/Grade';
 
 interface RouterData {
   id?: string;
@@ -38,16 +39,21 @@ const MainRoutes = () => {
       component: <Home />,
     },
 
+    {
+      id: useId(),
+      path: '/grade',
+      component: <Grade />
+    },
     /* Роуты для теста компонента Header */
     {
       id: useId(),
       path: '/not-reviewed',
-      component: <HeaderTest />
+      component: <div />
     },
     {
       id: useId(),
       path: '/tasks',
-      component: <RightComponent />
+      component: <div />
     },
     {
       id: useId(),
