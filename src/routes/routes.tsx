@@ -10,11 +10,12 @@ import {
   FEED_PAGE,
   TASK_LIST,
   // TASKS_PAGE,
-  // USERS_PAGE,
+  USERS_PAGE,
   // RATING_PAGE
 } from '../utils/path/path';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import { Users } from '../pages/Users/Users';
 
 interface RouterData {
   id?: string;
@@ -49,11 +50,11 @@ const MainRoutes = () => {
     // 	path: TASKS_PAGE,
     // 	component: <Tasks />
     // },
-    // {
-    // 	id: useId(),
-    // 	path: USERS_PAGE,
-    // 	component: <Users />
-    // },
+    {
+    	id: useId(),
+    	path: USERS_PAGE,
+    	component: <Users />
+    },
     // {
     // 	id: useId(),
     // 	path: RATING_PAGE,
