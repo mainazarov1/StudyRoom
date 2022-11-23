@@ -12,11 +12,11 @@ import 'antd/dist/antd.css';
 let middleItems = [
   {
     title: 'Лента',
-    path: '/course'
+    path: '/feed'
   },
   {
     title: 'Задания',
-    path: '/term'
+    path: '/tasks'
   },
   {
     title: 'Пользователи',
@@ -27,11 +27,11 @@ let middleItems = [
 let middleItemsTeacher = [
   {
     title: 'Лента',
-    path: '/appointed'
+    path: '/feed'
   },
   {
     title: 'Задания',
-    path: '/taskList'
+    path: '/tasks'
   },
   {
     title: 'Пользователи',
@@ -57,15 +57,15 @@ let notReviewed = [
 let tasks = [
   {
     title: 'Назначено',
-    path: '/ttq'
+    path: '/taskListAssigned'
   },
   {
     title: 'Пропущен срок сдачи',
-    path: '/gasd'
+    path: '/taskListCompleted'
   },
   {
     title: 'Выполнено',
-    path: '/kokp'
+    path: '/taskListMissed'
   }
 ]
 

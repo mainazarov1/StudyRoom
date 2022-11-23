@@ -1,0 +1,10 @@
+.icon {
+  font-size: 20px;
+} 
+
+.icon:hover {
+  padding: 14px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.141);
+  transform: translate(14px)
+}

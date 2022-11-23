@@ -8,7 +8,9 @@ import {
   AUTH_PAGE,
   MAIN_PAGE,
   FEED_PAGE,
-  TASK_LIST,
+  TASK_LIST_COMPLETED,
+  TASK_LIST_MISSED,
+  TASK_LIST_ASSIGNED,
   // TASKS_PAGE,
   // USERS_PAGE,
   // RATING_PAGE
@@ -17,6 +19,8 @@ import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/Header
 import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
+import TaskListCompleted from '../pages/TaskListCompleted';
 
 interface RouterData {
   id?: string;
@@ -64,8 +68,18 @@ const MainRoutes = () => {
     },
     {
     	id: useId(),
-    	path: TASK_LIST,
+    	path: TASK_LIST_COMPLETED,
     	component: <TaskListAssigned />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_MISSED,
+    	component: <TaskListMissedDeadline />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_ASSIGNED,
+    	component: <TaskListCompleted />
     },
     // {
     // 	id: useId(),

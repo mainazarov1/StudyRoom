@@ -1,6 +1,6 @@
 import { Button, Modal, Row } from 'antd';
 import { useState, FC } from 'react';
-import { EditOutlined, PictureOutlined, UploadOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import s from './ModalSettings.module.scss';
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
@@ -28,7 +28,7 @@ const ModalSettings:FC = () => {
       </Button>
       <Modal
         width={800}
-        className={s.modal}
+        className={s.modal}taskListAssigned
         title='Настроить вид'
         open={open}
         onCancel={handleCancel}
@@ -64,7 +64,8 @@ const ModalSettings:FC = () => {
             <p className={s.color_title}>Выберите цвет темы</p>
             <Row justify={'space-between'} className={s.colors} >
               {
-                colorArr.map(item => (<span 
+                colorArr.map(item => (
+                <span 
                   className={s.color_sircl}
                   key={item} 
                   style={{ background: `${item}`, width: 64, height: 64, borderRadius: '50%'}}
