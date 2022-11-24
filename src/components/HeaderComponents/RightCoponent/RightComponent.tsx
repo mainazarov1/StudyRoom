@@ -2,6 +2,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps, Tooltip } from 'antd';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ConditionAgreement from '../../../containers/ConditionAgreement/ConditionAgreement';
 
 
 const items: MenuProps['items'] = [
@@ -10,7 +11,8 @@ const items: MenuProps['items'] = [
     key: '0',
   },
   {
-    label: 'Создать курс',
+    // label: 'Создать курс',
+    label: <ConditionAgreement />,
     key: '1',
   }
 ];

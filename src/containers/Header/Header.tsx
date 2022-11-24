@@ -29,7 +29,7 @@ const itemsMenu: MenuProps['items'] = [
 ];
 
 interface IHeaderProps {
-    children: JSX.Element,
+  children: JSX.Element,
 }
 
 export const Header: React.FC<IHeaderProps> = ({ children }) => {

@@ -9,7 +9,7 @@ interface IInputAppProps {
 }
 export const InputApp = ({ label, name, placeholder, required }: IInputAppProps) => {
   return (
-    <Form.Item required={required} className={styles.inputAppLabel} label={label} name={name}>
+    <Form.Item required={required} className={styles.inputAppLabel} label={label} name={name} >
       <Input className={styles.inputApp} placeholder={placeholder} autoComplete='off' />
     </Form.Item>
   );
