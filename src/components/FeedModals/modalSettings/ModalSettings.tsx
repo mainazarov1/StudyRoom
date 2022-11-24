@@ -1,17 +1,14 @@
-import { Button, Modal, message, Row, Upload } from 'antd';
+import { Button, Modal, Row } from 'antd';
 import { useState, FC } from 'react';
-import { EditOutlined, PictureOutlined, UploadOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 import s from './ModalSettings.module.scss';
+import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
+import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
 
 const ModalSettings:FC = () => {
   const [open, setOpen] = useState(false);
   const colorArr = ['#1967d2', '#1e8e3e', '#e52592', '#e8710a', '#129eaf', '#9334e6', '#4285f4', '#5f6368'];
-  const [ code, setCode] = useState('tq7kdvd');
-
-  const info = () => {
-    message.info('Ссылка скопирована ');
-  };
-
+  
   const showModal = () => {
     setOpen(true);
   };
@@ -30,10 +27,9 @@ const ModalSettings:FC = () => {
         Настроить
       </Button>
       <Modal
-        className={s.modal}
+        width={800}
+        className={s.modal}taskListAssigned
         title='Настроить вид'
-        style={{width: 1000, left: "50%", transform: 'translate(-50%)'
-      }}
         open={open}
         onCancel={handleCancel}
         footer={[
@@ -60,17 +56,16 @@ const ModalSettings:FC = () => {
           <div className={s.body}>
             <span className={s.text}>Выберите фото обложки</span>
             <div className={s.modal_btns}>
-              <Button icon={<PictureOutlined />} >Выбрать фотографию</Button>
-              {/* <Upload className={s.upload_btn}> */}
-                <Button icon={<UploadOutlined />} >Загрузить фото</Button>
-              {/* </Upload> */}
+              <ModalSettingsImg />
+              <ModalUploadImg />
             </div>
           </div>
           <div className={s.color_block}>
             <p className={s.color_title}>Выберите цвет темы</p>
             <Row justify={'space-between'} className={s.colors} >
               {
-                colorArr.map(item => (<span 
+                colorArr.map(item => (
+                <span 
                   className={s.color_sircl}
                   key={item} 
                   style={{ background: `${item}`, width: 64, height: 64, borderRadius: '50%'}}

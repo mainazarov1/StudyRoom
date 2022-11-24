@@ -11,13 +11,19 @@ import {
   // TAPE_PAGE,
   FEED_PAGE,
   TASK_LIST,
+  TASK_LIST_COMPLETED,
+  TASK_LIST_MISSED,
+  TASK_LIST_ASSIGNED,
   // TASKS_PAGE,
   // USERS_PAGE,
   // RATING_PAGE
 } from '../utils/path/path';
 import Tasks from '../pages/Tasks/Tasks';
+import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
+import TaskListCompleted from '../pages/TaskListCompleted';
 
 interface RouterData {
   id?: string;
@@ -32,15 +38,27 @@ const MainRoutes = () => {
     //   path: AUTH_PAGE,
     //   component: <Auth />,
     // },
+
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
-    // {
-    //   id: useId(),
-    //   path: TAPE_PAGE,
-    //   component: <Tape />,
+
+    /* Роуты для теста компонента Header */
+    {
+      id: useId(),
+      path: '/tasks',
+      component: <RightComponent />,
+    },
+    {
+      id: useId(),
+      path: '/course',
+      component: <div />,
+    },
+
+    /* --------------------- */
+
     {
       id: useId(),
       path: FEED_PAGE,
