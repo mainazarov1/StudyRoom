@@ -46,11 +46,11 @@ const MainRoutes = () => {
     },
 
     /* Роуты для теста компонента Header */
-    {
-      id: useId(),
-      path: '/tasks',
-      component: <RightComponent />,
-    },
+    // {
+    //   id: useId(),
+    //   path: '/tasks',
+    //   component: <RightComponent />,
+    // },
     {
       id: useId(),
       path: '/course',

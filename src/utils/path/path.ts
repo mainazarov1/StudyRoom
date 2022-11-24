@@ -5,6 +5,7 @@ const TASKS_PAGE = '/tasks';
 const TASK_LIST_ASSIGNED = '/taskListAssigned'
 const TASK_LIST_COMPLETED = '/taskListCompleted'
 const TASK_LIST_MISSED = '/taskListMissed'
+const TASK_LIST = '/taskList'
 const USERS_PAGE = '/users';
 const RATING_PAGE = '/rating';
 
@@ -17,5 +18,6 @@ export {
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
   USERS_PAGE,
-  RATING_PAGE 
+  RATING_PAGE,
+  TASK_LIST
 };

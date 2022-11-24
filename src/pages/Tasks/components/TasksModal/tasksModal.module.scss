@@ -1,0 +1,38 @@
+@import "../../../../styles/variables.scss";
+
+.modal {
+   &__wrap {
+      height: auto;
+      min-height: 100vh;
+      div div.ant-modal-close button {
+         position: absolute !important;
+         left: 0;
+         top: 50px;
+         transform: translateY(-50%);
+      }
+   }
+   &__input {
+      color: $secondary-color;
+      min-height: 6.25rem;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid $primary-color;
+      border-radius: 0.3rem;
+      &::placeholder {
+         color: $text-color-secondary;
+      }
+      & input::placeholder {
+         color: $text-color-secondary;
+      }
+   }
+   &__content {
+      width: 60rem;
+      box-sizing: border-box;
+      margin-bottom: 1.5rem;
+      min-width: 0;
+      overflow: visible;
+      padding: 1.5rem;
+      background-color: #fff;
+      border: 0.0625rem solid #dadce0;
+      border-radius: 0.5rem;
+   }
+}

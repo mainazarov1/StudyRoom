@@ -17,6 +17,8 @@ const userProfileSvg = (
     <path d='M12 13c1.94 0 3.5-1.56 3.5-3.5S13.94 6 12 6 8.5 7.56 8.5 9.5 10.06 13 12 13zm0-5c.83 0 1.5.67 1.5 1.5S12.83 11 12 11s-1.5-.67-1.5-1.5S11.17 8 12 8z'></path>
   </svg>
 );
+
+
 const Disk = (
   <svg
     enableBackground='new 0 0 24 24'
@@ -104,19 +106,20 @@ const Tasks = () => {
         </Row>
         <div>
           {dataWithoutTags.map((item) => {
-            return <TaskItem {...item} />;
+            return <TaskItem key={item.id} {...item} />;
           })}
 
           {dataWithTags.map((item) => {
             return (
-              <CollapseComponent isTeacher={item?.isTeacher} tag={item?.tag}>
-                <TaskItem {...item} />
+              <CollapseComponent key={item.id} isTeacher={item?.isTeacher} tag={item?.tag}>
+                <TaskItem key={item.id} {...item} />
               </CollapseComponent>
             );
           })}
         </div>
       </Content>
     </Layout>
+
   );
 };
 
