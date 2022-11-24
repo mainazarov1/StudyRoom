@@ -31,9 +31,9 @@ const Disk = (
 const Tasks = () => {
   return (
     <Layout>
-      <Header>Header</Header>
+      {/* <Header>Header</Header> */}
       <Layout>
-        <Sider>Sider</Sider>
+        {/* <Sider>Sider</Sider> */}
         <Content className={s.main}>
           <Row justify={'space-between'}>
             <ButtonApp
