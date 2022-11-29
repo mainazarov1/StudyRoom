@@ -5,7 +5,7 @@ import { Layout, Row, Space, Typography } from 'antd';
 import { Card } from '../../components/Card/Card';
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Link } = Typography;
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
@@ -151,6 +151,7 @@ export const Home: React.FC = () => {
     overflow: 'auto',
     flexWrap: 'wrap',
   });
+
   return (
     <Layout>
       <Content style={{ padding: '1.5rem', background: 'white' }}>
@@ -179,7 +180,7 @@ export const Home: React.FC = () => {
                     style={getListStyle(snapshot.isDraggingOver)}
                   >
                     {content.map((el, index) => (
-                      <Card provided={provided} key={el.id} {...el} index={index} />
+                      <Card key={el.id} {...el} index={index} />
                     ))}
                   </Row>
                   {provided.placeholder}

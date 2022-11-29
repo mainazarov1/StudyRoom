@@ -1,9 +1,10 @@
+import { SecurityScanTwoTone } from '@ant-design/icons';
 import { Modal } from 'antd';
 import React, { useState } from 'react';
 import s from './FullScreenModal.module.scss';
 
 interface Iprops {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   closebtn: React.ReactNode;
   open: boolean;
   children: React.ReactNode;

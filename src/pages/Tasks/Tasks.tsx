@@ -1,13 +1,15 @@
-import { Layout, Row, Space, Typography } from 'antd';
+import { Layout, Row, Space } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
-import Collapse from '../../components/Collapse/Collapse';
+import CollapseComponent from '../../components/Collapse/Collapse';
 
-const { Header, Footer, Sider, Content } = Layout;
-const { Link } = Typography;
+import TaskItem from './TaskItem';
+
+const { Content } = Layout;
 
 import s from './Tasks.module.scss';
+import SiderComponent from './components/Sider/Sider';
 
 const userProfileSvg = (
   <svg focusable='false' fill='inherit' width='18' height='18' viewBox='0 0 24 24'>
@@ -28,37 +30,92 @@ const Disk = (
   </svg>
 );
 
+const dataWithTags = [
+  {
+    id: '1',
+    tag: 'Back End тестовые задания',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+  {
+    id: '2',
+    tag: 'Back End тестовые задания',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+];
+
+const dataWithoutTags = [
+  {
+    id: '1',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+  {
+    id: '2',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+];
+
 const Tasks = () => {
   return (
-    <Layout>
-      {/* <Header>Header</Header> */}
-      <Layout>
-        {/* <Sider>Sider</Sider> */}
-        <Content className={s.main}>
-          <Row justify={'space-between'}>
+    <Layout className={s.task__layout}>
+      <SiderComponent />
+      <Content style={{ width: 'calc(100 % - 2 * 1.5rem)' }} className={s.main}>
+        <Row justify={'space-between'}>
+          <ButtonApp
+            classNameProp={s.navigation__link}
+            label={'Открыть свой профиль'}
+            icon={userProfileSvg}
+          />
+          <Space>
             <ButtonApp
               classNameProp={s.navigation__link}
-              label={'Открыть свой профиль'}
-              icon={userProfileSvg}
+              label={'Google календарь'}
+              icon={<CalendarOutlined />}
             />
-            <Space>
-              <ButtonApp
-                classNameProp={s.navigation__link}
-                label={'Google календарь'}
-                icon={Disk}
-              />
-              <ButtonApp
-                classNameProp={s.navigation__link}
-                label={'Папка курса на диске'}
-                icon={<CalendarOutlined />}
-              />
-            </Space>
-          </Row>
-          <div>
-            <Collapse />
-          </div>
-        </Content>
-      </Layout>
+            <ButtonApp
+              classNameProp={s.navigation__link}
+              label={'Папка курса на диске'}
+              icon={Disk}
+            />
+          </Space>
+        </Row>
+        <div>
+          {dataWithoutTags.map((item) => {
+            return <TaskItem {...item} />;
+          })}
+
+          {dataWithTags.map((item) => {
+            return (
+              <CollapseComponent isTeacher={item?.isTeacher} tag={item?.tag}>
+                <TaskItem {...item} />
+              </CollapseComponent>
+            );
+          })}
+        </div>
+      </Content>
     </Layout>
   );
 };

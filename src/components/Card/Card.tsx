@@ -54,39 +54,22 @@ const handleMenuClick = (e: MenuInfo) => {
 };
 
 const teacherMenuItems = (
-  <Menu className={s.card__menu} onClick={handleMenuClick}>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Переместить
-    </Menu.Item>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Копировать ссылку
-    </Menu.Item>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Изменить
-    </Menu.Item>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Копировать
-    </Menu.Item>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Архивировать
-    </Menu.Item>
-  </Menu>
+  <Menu className={s.card__menu} onClick={handleMenuClick} >
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Переместить</Menu.Item>
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Копировать ссылку</Menu.Item>
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Изменить</Menu.Item>
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Копировать</Menu.Item>
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Архивировать</Menu.Item>
+  </ Menu>
 );
 
 const studentMenuItems = (
-  <Menu className={s.card__menu} onClick={handleMenuClick}>
-    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>
-      Переместить
-    </Menu.Item>
-    <Menu.Item className={s.card__dropdown__item} key={'Покинуть курс'}>
-      Покинуть курс
-    </Menu.Item>
+  <Menu className={s.card__menu} onClick={handleMenuClick} >
+    <Menu.Item className={s.card__dropdown__item} key={'Переместить'}>Переместить</Menu.Item>
+    <Menu.Item className={s.card__dropdown__item} key={'Покинуть курс'}>Покинуть курс</Menu.Item>
     <Menu.Divider className={s.card__dropdown__divider} />
-    <Menu.Item className={s.card__dropdown__item} key={'Пожаловаться'}>
-      {' '}
-      Пожаловаться
-    </Menu.Item>
-  </Menu>
+    <Menu.Item className={s.card__dropdown__item} key={'Пожаловаться'}> Пожаловаться</Menu.Item>
+  </ Menu>
 );
 
 const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
@@ -96,119 +79,69 @@ const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
   // change background colour if dragging
   background: 'white',
   boxShadow: isDragging ? '' : '',
-  width: '18.75rem',
-
   // styles we need to apply on draggables
   ...draggableStyle,
 });
 
-export const Card = ({
-  id,
-  background,
-  craetorAvatar,
-  title,
-  chapter,
-  creator,
-  isTeacher,
-  index,
-}: CardProps) => {
+export const Card = ({ id, background, craetorAvatar, title, chapter, creator, isTeacher, index }: CardProps) => {
   return (
-    <Col className={s.card__item}>
-      <Draggable draggableId={id} index={index}>
-        {(provided, snapshot) => (
-          <Col
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-            style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
-          >
-            <div className={s.home__card}>
-              <div className={s.card__top}>
-                <div
-                  style={{ background: background == '' ? '' : 'orange' }}
-                  className={s.card__info}
-                >
-                  <Title
-                    className={s.card__title__wrap}
-                    style={{ display: 'flex', justifyContent: 'space-between' }}
-                    level={2}
-                  >
-                    <Link className={s.card__top__link} href=''>
-                      <Title className={s.card__title} level={2}>
-                        {' '}
-                        {title}{' '}
-                      </Title>
-                      <Text className={s.card__chapter}> {chapter} </Text>
-                    </Link>
-                    <Dropdown
-                      destroyPopupOnHide={true}
-                      trigger={['click']}
-                      className={s.card__dropdown}
-                      overlay={isTeacher ? teacherMenuItems : studentMenuItems}
-                    >
-                      <EllipsisOutlined />
-                    </Dropdown>
-                  </Title>
-                  <div>
-                    <Text className={s.card__creator}> {creator} </Text>
-                  </div>
+    <Draggable draggableId={id} index={index}>
+      {(provided, snapshot) => (
+        <Col
+          className={s.card__item}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          style={getItemStyle(
+            snapshot.isDragging,
+            provided.draggableProps.style
+          )}
+        >
+          <div className={s.home__card}>
+            {console.log(provided.draggableProps.style)}
+            <div className={s.card__top}>
+              <div style={{ background: background == '' ? '' : 'orange' }} className={s.card__info}>
+                <Title className={s.card__title__wrap} style={{ display: 'flex', justifyContent: 'space-between' }} level={2}>
+                  <Link className={s.card__top__link} href="">
+                    <Title className={s.card__title} level={2}> {title} </Title>
+                    <Text className={s.card__chapter}> {chapter} </Text>
+                  </Link>
+                  <Dropdown destroyPopupOnHide={true} trigger={['click']} className={s.card__dropdown} overlay={isTeacher ? teacherMenuItems : studentMenuItems} ><EllipsisOutlined /></Dropdown>
+                </Title>
+                <div>
+                  <Text className={s.card__creator}> {creator} </Text>
                 </div>
               </div>
-              <div className={s.card__avatar__wrap}>
-                {isTeacher ? null : (
-                  <Avatar
-                    className={s.card__avatar}
-                    src={craetorAvatar}
-                    style={{ backgroundColor: 'orange', verticalAlign: 'middle' }}
-                    size='large'
-                  />
-                )}
-              </div>
-              <Row gutter={20} align={'middle'} justify={'end'} className={s.card__bottom}>
-                <Col>
-                  <div className={s.card__icon__wrap}>
-                    {isTeacher == true ? (
-                      <Tooltip
-                        className={s.card__tooltip}
-                        color='#3C4043'
-                        overlayInnerStyle={{ color: '#D6D8DB' }}
-                        overlayStyle={{ borderRadius: '4px', width: '200px' }}
-                        title={`Открыть журнал успеваемости по курсу ${title}`}
-                      >
-                        <StatisticIcon className={s.card__icon} style={{ color: 'black' }} />
-                      </Tooltip>
-                    ) : (
-                      <Tooltip
-                        className={s.card__tooltip}
-                        color='#3C4043'
-                        overlayInnerStyle={{ color: '#D6D8DB' }}
-                        overlayStyle={{ borderRadius: '4px', width: '200px' }}
-                        title={`Открыть работу: ${title}`}
-                      >
-                        <ProfileIcon className={s.card__icon} style={{ color: 'black' }} />
-                      </Tooltip>
-                    )}
-                  </div>
-                </Col>
-                <Col>
-                  <div className={s.card__icon__wrap}>
-                    <Tooltip
-                      className={s.card__tooltip}
-                      color='#3C4043'
-                      overlayInnerStyle={{ color: '#D6D8DB' }}
-                      overlayStyle={{ borderRadius: '4px', width: '200px' }}
-                      autoAdjustOverflow={true}
-                      title={`Открыть папку курса ${title} ${chapter} на Google Диске`}
-                    >
-                      <FolderIcon className={s.card__icon} style={{ color: 'black' }} />
-                    </Tooltip>
-                  </div>
-                </Col>
-              </Row>
             </div>
-          </Col>
-        )}
-      </Draggable>
-    </Col>
+            <div className={s.card__avatar__wrap}>
+              {isTeacher ? null : <Avatar className={s.card__avatar} src={craetorAvatar} style={{ backgroundColor: 'orange', verticalAlign: 'middle' }} size="large" />}
+            </div>
+            <Row gutter={20} align={'center'} justify={'end'} className={s.card__bottom}>
+              <Col>
+                <div className={s.card__icon__wrap}>
+                  {isTeacher == true ?
+                    <Tooltip className={s.card__tooltip} color='#3C4043' overlayInnerStyle={{ color: '#D6D8DB' }} overlayStyle={{ borderRadius: '4px', width: '200px' }} title={`Открыть журнал успеваемости по курсу ${title}`}>
+                      <StatisticIcon className={s.card__icon} style={{ color: 'black' }} />
+                    </Tooltip> :
+                    <Tooltip className={s.card__tooltip} color='#3C4043' overlayInnerStyle={{ color: '#D6D8DB' }} overlayStyle={{ borderRadius: '4px', width: '200px' }} title={`Открыть работу: ${title}`}>
+                      <ProfileIcon className={s.card__icon} style={{ color: 'black' }} />
+                    </Tooltip>
+                  }
+                </div>
+              </Col>
+              <Col>
+                <div className={s.card__icon__wrap}>
+                  <Tooltip className={s.card__tooltip} color='#3C4043' overlayInnerStyle={{ color: '#D6D8DB' }} overlayStyle={{ borderRadius: '4px', width: '200px' }} autoAdjustOverflow={true} title={`Открыть папку курса ${title} ${chapter} на Google Диске`}>
+                    <FolderIcon className={s.card__icon} style={{ color: 'black' }} />
+                  </Tooltip>
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </Col>
+      )}
+    </ Draggable>
+
   );
 };
+

@@ -7,16 +7,12 @@ import { LayoutApp } from '../containers/LayoutApp/LayoutApp';
 import {
   AUTH_PAGE,
   MAIN_PAGE,
+  TASKS_PAGE,
   FEED_PAGE,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
-  TASKS_PAGE,
-  // USERS_PAGE,
-  // RATING_PAGE
 } from '../utils/path/path';
-import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/HeaderTest';
-import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
@@ -42,25 +38,29 @@ const MainRoutes = () => {
       path: MAIN_PAGE,
       component: <Home />,
     },
+    // {
+    //   id: useId(),
+    //   path: TAPE_PAGE,
+    //   component: <Tape />,
     {
-    	id: useId(),
-    	path: FEED_PAGE,
-    	component: <Feed />
+      id: useId(),
+      path: FEED_PAGE,
+      component: <Feed />,
     },
     {
     	id: useId(),
     	path: TASK_LIST_COMPLETED,
+    	component: <TaskListCompleted />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_ASSIGNED,
     	component: <TaskListAssigned />
     },
     {
     	id: useId(),
     	path: TASK_LIST_MISSED,
-    	component: <TaskListMissedDeadline />
-    },
-    {
-    	id: useId(),
-    	path: TASK_LIST_ASSIGNED,
-    	component: <TaskListCompleted />
+    	component: <TaskListMissedDeadline/>
     },
     {
     	id: useId(),

@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+.referring_course {
+  height: 80px;
+  padding: 16px;
+  box-shadow: $box-shadow-base;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  .main_input{
+
+    .text {
+      transition: 0.1s;
+    }
+
+    .text:hover {
+      color: $primary-color !important;
+    }
+  }
+
+}
+.referring_course_messedge {
+  padding: 24px;
+  box-shadow: $box-shadow-base !important;
+  border-radius: 12px;
+
+  .referring_course_heading {
+    font-weight: 500;
+  }
+
+  .form {
+    .drop_block{
+      display: flex;
+      gap: 24px;
+
+      .course_list {
+        background-color: #f8f9fa;
+        padding: 16px 16px;
+        border-radius: 5px;
+  
+      }
+  
+      .course_list:hover {
+        background-color: #f2f3f4
+      }
+    }
+  }
+
+}
