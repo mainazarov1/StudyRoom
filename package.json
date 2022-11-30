@@ -27,7 +27,8 @@
 		"react-router-dom": "^6.4.3",
 		"react-yup": "^1.24.1",
 		"sass": "^1.56.1",
-		"the-new-css-reset": "^1.7.3"
+		"the-new-css-reset": "^1.7.3",
+		"yarn": "^1.22.19"
 	},
 	"devDependencies": {
 		"@types/react": "^18.0.24",
