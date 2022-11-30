@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Col, Collapse, Dropdown, MenuProps, Row, Space, Typography } from 'antd';
 import Icon, { CommentOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
@@ -19,8 +19,6 @@ const fileSvg = () => (
 const FileIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={fileSvg} {...props} />
 );
-
-const isTeacher = true;
 
 const taskDropdownStudents: MenuProps['items'] = [
   { label: 'Копировать ссылку', key: 'item-1' }, // remember to pass the key prop
@@ -50,7 +48,7 @@ const TaskItem: FC<TaskItemProps> = ({
   countComments,
 }) => {
   const [key, setKey] = useState<string | string[]>();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const taskDropdownTeacher: MenuProps['items'] = [
     {
@@ -70,8 +68,6 @@ const TaskItem: FC<TaskItemProps> = ({
   };
 
   const handleClick = () => {
-    console.log('adadawd');
-
     setIsOpen(true);
   };
 
@@ -342,9 +338,13 @@ const TaskItem: FC<TaskItemProps> = ({
           </div>
         </Panel>
       </Collapse>
-      {isOpen && (
-        <TasksModal open={isOpen} handleClose={handleClose} />
-      )}
+      <TasksModal
+        open={isOpen}
+        handleClose={handleClose}
+        id={id}
+        title={title}
+        htmlContent={htmlContent}
+      />
     </>
   );
 };
