@@ -10,3 +10,25 @@ button {
 p {
 	margin: 0;
 }
+
+ul, ol {
+	list-style: initial;
+	padding: 15px
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 24px
+}
+
+em {
+	font-style: italic;
+}
+
+u {
+	text-decoration: underline;
+}
+
+s {
+	text-decoration: line-through;
+}

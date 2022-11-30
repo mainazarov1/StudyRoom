@@ -2,13 +2,16 @@ import { DownOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Checkbox, Dropdown, Menu,  Space } from 'antd';
 import { FC, useState } from 'react';
 import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
+import { Tiptap } from '../TextArea/TextAreaComponent';
 import s from './ReferToCourse.module.scss'
+import type { MenuProps } from 'antd';
 
 
 const ReferToCourse: FC = () => {
-  const [isMessages, setIsMessages] = useState<boolean>(false)
+  const [isMessages, setIsMessages] = useState<boolean>(true)
   const [courseDropOpen, setCourseDropOpen] = useState<boolean>(false)
   const [studentDropOpen, setStudentDropOpen] = useState<boolean>(false)
+  const [messageValue, setMessages] = useState('')
   const handleChange = () => setIsMessages(!isMessages)
   const {name, title, descirption} = {
     name: 'Beksultan Bakytbekov',
@@ -16,11 +19,32 @@ const ReferToCourse: FC = () => {
     descirption: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
   }  
 
+  console.log(messageValue)
+
+  const onMenuClick: MenuProps['onClick'] = (e) => {
+    console.log('click', e);
+  };
+  
+  const items = [
+    {
+      key: '1',
+      label: 'Опубликовать',
+    },
+    {
+      key: '2',
+      label: 'Добавить в расписание',
+    },
+    {
+      key: '3',
+      label: 'Сохранить черновик',
+    },
+  ];
+
+
   const substringText = (text: string, num: number) => {
     let newText = text.length >= num ? text.substring(0, num) : text;
     return newText
   }
-
   const menu = (
     <Menu
       items={[
@@ -141,13 +165,21 @@ const ReferToCourse: FC = () => {
                 </Space>
               </Dropdown>
             </div>
-            <div>
+            <Tiptap setStateShow={setMessages} /> 
+            <div className={s.btns} >
               <Button
                 type="text"
                 onClick={handleChange}
               >
                 Отмена
               </Button>
+              <Dropdown.Button 
+                onClick={handleChange}
+                type='primary'
+                menu={{ items, onClick: onMenuClick }}
+              >
+                Публиковать
+              </Dropdown.Button>
             </div>
           </form>
         </div>

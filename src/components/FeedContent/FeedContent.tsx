@@ -40,11 +40,9 @@ const FeedContent:FC = () => {
           isTeacher
           &&
           <div className={s.course_code} >
-            <h2>
-              <b>
-                Код курса
-              </b>
-            </h2>
+            <h2 className={s.block_heading} >
+              Код курса
+            </h2 >
             <Dropdown menu={{ items }}>
               <Space size='large'>
                 <MoreOutlined 
@@ -57,11 +55,9 @@ const FeedContent:FC = () => {
           </div>
         }
         <div className={s.upcoming_tasks}>
-          <h2>
-            <b>
-              Предстояшие
-            </b>
-          </h2>
+          <h2 className={s.block_heading} >
+            Предстояшие
+          </h2 >
           <p>
             У вас нет заданий, которые нужно сдать на следующей неделе.
           </p>

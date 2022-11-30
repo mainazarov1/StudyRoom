@@ -47,6 +47,17 @@
         background-color: #f2f3f4
       }
     }
+
+    .btns {
+      width: 100%;
+      display: flex;
+      gap: 24px;
+      justify-content: end;
+      
+      div {
+        width: min-content;
+      }
+    }
   }
 
 }
