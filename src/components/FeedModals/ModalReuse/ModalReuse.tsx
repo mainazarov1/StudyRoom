@@ -3,12 +3,9 @@ import { Modal, Button } from 'antd';
 import s from './ModalReuse.module.scss';
 import { RetweetOutlined } from '@ant-design/icons';
 import DataTaskList from '../../DataTaskList/DataTaskList';
+import ModalComponents from '../../modal/Modal';
 
-interface IProps {
-  title?: string,
-}
-
-const ModalReuse:FC<IProps> = ({ title }) => {
+const ModalReuse:FC = () => {
   const [open, setOpen] = useState(false);
   
   const showModal = () => {
@@ -22,9 +19,12 @@ const ModalReuse:FC<IProps> = ({ title }) => {
     <>
       <RetweetOutlined 
         className={s.retween_icon} 
-        onClick={showModal}
+        onClick={(e) => {
+          e.stopPropagation()
+          showModal()
+        }}
       />
-      <Modal
+      <ModalComponents 
         width={800}
         className={s.modal}
         title={`Выберите курс`}
@@ -50,7 +50,7 @@ const ModalReuse:FC<IProps> = ({ title }) => {
         ]}
       >
         <DataTaskList />
-      </Modal>
+      </ModalComponents>
     </>
   );
 };

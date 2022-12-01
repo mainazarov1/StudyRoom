@@ -21,14 +21,14 @@ const RightComponent = () => {
   };
   
   const items: MenuProps['items'] = [
-  {
-    label: <span onClick={showModal} >Присоединиться</span>,
-    key: '0',
-  },
-  {
-    label: <ConditionAgreement />,
-    key: '1',
-  }
+    {
+      label: <span onClick={showModal} >Присоединиться</span>,
+      key: '0',
+    },
+    {
+      label: <ConditionAgreement />,
+      key: '1',
+    }
   ];
   return (
     <div>
@@ -40,8 +40,8 @@ const RightComponent = () => {
         </Dropdown>
       </Tooltip>
       <FullScreenModal 
-        title={<span><CloseOutlined onClick={handleCancel} /> Присоединиться</span>}
-        closebtn={<Button type='primary' onClick={handleCancel} style={{marginRight: 24}}>Присоединиться</Button>}
+          title={<span><CloseOutlined onClick={handleCancel} />Присоединиться</span>}
+        closebtn={<Button type='primary' onClick={handleCancel } style={{marginRight: 24}}>Присоединиться</Button>}
         open={isModalOpen}
       >
         <div className={s.body_blocks} >

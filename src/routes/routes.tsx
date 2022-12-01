@@ -8,22 +8,17 @@ import {
   AUTH_PAGE,
   MAIN_PAGE,
   TASKS_PAGE,
-  // TAPE_PAGE,
   FEED_PAGE,
   TASK_LIST,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
-  // TASKS_PAGE,
-  // USERS_PAGE,
-  // RATING_PAGE
 } from '../utils/path/path';
-import Tasks from '../pages/Tasks/Tasks';
-import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
 import TaskListCompleted from '../pages/TaskListCompleted';
+import Tasks from '../pages/Tasks/Tasks';
 
 interface RouterData {
   id?: string;
@@ -44,40 +39,34 @@ const MainRoutes = () => {
       path: MAIN_PAGE,
       component: <Home />,
     },
-
-    /* Роуты для теста компонента Header */
     // {
     //   id: useId(),
-    //   path: '/tasks',
-    //   component: <RightComponent />,
-    // },
-    {
-      id: useId(),
-      path: '/course',
-      component: <div />,
-    },
-
-    /* --------------------- */
-
+    //   path: TAPE_PAGE,
+    //   component: <Tape />,
     {
       id: useId(),
       path: FEED_PAGE,
       component: <Feed />,
     },
     {
-      id: useId(),
-      path: TASK_LIST,
-      component: <TaskListAssigned />,
+    	id: useId(),
+    	path: TASK_LIST_COMPLETED,
+    	component: <TaskListCompleted />
     },
-    // {
-    // 	id: useId(),
-    // 	path: TASKS_PAGE,
-    // 	component: <Tasks />
-    // },
     {
-      id: useId(),
-      path: TASKS_PAGE,
-      component: <Tasks />,
+    	id: useId(),
+    	path: TASK_LIST_ASSIGNED,
+    	component: <TaskListAssigned />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_MISSED,
+    	component: <TaskListMissedDeadline/>
+    },
+    {
+    	id: useId(),
+    	path: TASKS_PAGE,
+    	component: <Tasks />
     },
     // {
     // 	id: useId(),

@@ -1,11 +1,11 @@
-import React, { FC, useState } from 'react';
-import { UserOutlined, MoreOutlined, LinkOutlined, CopyOutlined, RetweetOutlined, RollbackOutlined, CloseSquareOutlined } from '@ant-design/icons';
-import { Avatar, Dropdown, Button, Space } from 'antd';
+import { FC, useState } from 'react';
+import { MoreOutlined, LinkOutlined, CopyOutlined, RollbackOutlined, CloseSquareOutlined } from '@ant-design/icons';
+import { Dropdown, Button, Space } from 'antd';
 import type { MenuProps } from 'antd';
 import s from './FeedContent.module.scss';
 import ModalCode from '../FeedModals/ModalCode/ModalCode';
-import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
 import AssignedTask from '../AssignedTasks/AssignedTask';
+import ReferToCourse from '../ReferToCourse/ReferToCourse';
 
 const items: MenuProps['items'] = [
   {
@@ -31,19 +31,18 @@ const items: MenuProps['items'] = [
 ];
 
 const FeedContent:FC = () => {
-  const [isTeacher, setISTeacher] = useState(false);
+  const isTeacher = true;
+
   return (
     <div className={s.feed_contebt} >
       <div className={s.feed_left} >
         {
-          !isTeacher
+          isTeacher
           &&
           <div className={s.course_code} >
-            <h2>
-              <b>
-                Код курса
-              </b>
-            </h2>
+            <h2 className={s.block_heading} >
+              Код курса
+            </h2 >
             <Dropdown menu={{ items }}>
               <Space size='large'>
                 <MoreOutlined 
@@ -56,11 +55,9 @@ const FeedContent:FC = () => {
           </div>
         }
         <div className={s.upcoming_tasks}>
-          <h2>
-            <b>
-              Предстояшие
-            </b>
-          </h2>
+          <h2 className={s.block_heading} >
+            Предстояшие
+          </h2 >
           <p>
             У вас нет заданий, которые нужно сдать на следующей неделе.
           </p>
@@ -72,13 +69,7 @@ const FeedContent:FC = () => {
         </div>
       </div>
       <div className={s.feed_rigth} >
-        <div className={s.referring_course}>
-          <div>
-            <Avatar style={{ backgroundColor: '#a0c3ff',marginRight: 16}} icon={<UserOutlined style={{color: '#4374e0'}} />} />
-            <span>Обратиться к курсу</span>
-          </div>
-          <ModalReuse title={"StudyRoom"} />
-        </div>
+        <ReferToCourse />
         <AssignedTask />
       </div>
     </div>

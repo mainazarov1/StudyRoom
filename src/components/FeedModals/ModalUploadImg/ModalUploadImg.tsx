@@ -1,9 +1,10 @@
 import {FC, useState } from 'react';
-import { Button, Modal, Tabs } from 'antd';;
+import { Button,} from 'antd';;
 import { UploadOutlined } from '@ant-design/icons';
 import DragUploadImg from '../../DragUploadImg/DragUploadImg';
+import ModalComponents from '../../modal/Modal';
 
-const ModalUploadImg = () => {
+const ModalUploadImg: FC = () => {
   const [open, setOpen] = useState(false);
   const showModal = () => {
     setOpen(true);
@@ -15,14 +16,14 @@ const ModalUploadImg = () => {
   return (
     <>
       <Button icon={<UploadOutlined />} onClick={showModal} >Загрузить фото</Button>
-      <Modal
+      <ModalComponents
         width={1000}
         title='Выбрать тему'
         open={open}
         onCancel={handleCancel}
       >
         <DragUploadImg />
-      </Modal>
+      </ModalComponents>
     </>
   );
 };

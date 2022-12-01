@@ -12,6 +12,11 @@
       border: 1px #dadce0 solid;
       position: relative;
       margin-bottom: 24px;
+      font-size: 20px;
+
+      .block_heading {
+        font-size: 16px;
+      }
 
       .drop_icon {
         position: absolute;
@@ -27,10 +32,6 @@
         border-radius: 50%;
         background-color: #e1e1e1;
       }
-
-      .course_cod {
-        font-size: 20px;
-      }
     }
 
     .upcoming_tasks {
@@ -38,33 +39,14 @@
       border-radius: 12px;
       border: 1px #dadce0 solid;
       font-size: 14px;
+
+      .block_heading {
+        font-size: 16px;
+      }
     }
   }
 
   .feed_rigth {
     width: 100%;
-    
-    .referring_course {
-      height: 80px;
-      padding: 16px;
-      box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      // .retween_icon {
-      //   font-size: 20px;
-      // }
-
-      // .retween_icon:hover {
-      //   font-size: 20px;
-      //   padding: 12px;
-      //   background-color: #e1e1e1;
-      //   border-radius: 50%;
-      //   transform: translateX(12px);
-      // }
-    } 
   }
-
 }

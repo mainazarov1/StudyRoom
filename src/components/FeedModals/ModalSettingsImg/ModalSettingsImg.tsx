@@ -1,8 +1,9 @@
 import {FC, useState } from 'react';
-import { Button, Modal, Tabs } from 'antd';;
+import { Button, Tabs } from 'antd';;
 import { PictureOutlined } from '@ant-design/icons';
 import s from './ModalSettingsImg.module.scss';
 import ChoosePhoto from '../../ChoosePhoto/ChoosePhoto';
+import ModalComponents from '../../modal/Modal';
 
 const ModalSettingsImg:FC = () => {
   const [open, setOpen] = useState(false);
@@ -40,7 +41,7 @@ const ModalSettingsImg:FC = () => {
   return (
     <>
       <Button icon={<PictureOutlined />} onClick={showModal} >Выбрать фотографию</Button>
-      <Modal
+      <ModalComponents 
         width={1400}
         className={s.modal}
         title='Выбрать тему'
@@ -60,10 +61,9 @@ const ModalSettingsImg:FC = () => {
             <ChoosePhoto  arr={arrImg.slice(0,3)}/>
           </Tabs.TabPane>
         </Tabs>
-        
-      </Modal>
+      </ModalComponents>
     </>
-  );
+  )
 };
 
 export default ModalSettingsImg;
