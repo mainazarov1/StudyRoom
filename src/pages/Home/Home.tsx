@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import { CalendarTwoTone, FolderTwoTone, ReconciliationTwoTone } from '@ant-design/icons';
 import { Layout, Row, Space, Typography } from 'antd';
 
 import { Card } from '../../components/Card/Card';
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 const { Link } = Typography;
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
@@ -134,7 +134,7 @@ export const Home: React.FC = () => {
     },
   ]);
 
-  const onDragComplete = (result) => {
+  const onDragComplete = (result: any) => {
     if (!result.destination) return;
     const arr = [...content];
 
@@ -146,24 +146,24 @@ export const Home: React.FC = () => {
     setContent(arr);
   };
 
-  const getListStyle = (isDraggingOver) => ({
+  const getListStyle = (isDraggingOver: boolean): CSSProperties => ({
     display: 'flex',
     overflow: 'auto',
     flexWrap: 'wrap',
   });
+
   return (
     <Layout>
       <Content style={{ padding: '1.5rem', background: 'white' }}>
         <Space className={s.space} align='center' size='middle'>
-          {fastLinks.map((item) => {
-            if (item.roots <= isTeacher) {
-              return (
+          {fastLinks.map(
+            (item) =>
+              item.roots <= isTeacher && (
                 <Link className={s.link} key={item.key} href={item.link}>
                   <ButtonApp icon={item.icon} label={item.title} classNameProp={s.text} />
                 </Link>
-              );
-            }
-          })}
+              ),
+          )}
         </Space>
         <DragDropContext onDragEnd={onDragComplete}>
           <Droppable droppableId='drag-drop-list' direction='horizontal'>
@@ -179,7 +179,7 @@ export const Home: React.FC = () => {
                     style={getListStyle(snapshot.isDraggingOver)}
                   >
                     {content.map((el, index) => (
-                      <Card provided={provided} key={el.id} {...el} index={index} />
+                      <Card key={el.id} {...el} index={index} />
                     ))}
                   </Row>
                   {provided.placeholder}

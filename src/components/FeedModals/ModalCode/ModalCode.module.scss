@@ -1,0 +1,48 @@
+.bottom_block_icon {
+  padding: 15px;
+  border-radius: 50%;
+  color: rgb(23,78,166);
+}
+
+.bottom_block_icon:hover {
+  background-color: rgba(0, 0, 0, 0.161);
+}
+
+.name {
+  float: left;
+  vertical-align: 50%;
+  font-weight: 600;
+  font-size: 20px;
+  color: rgb(23,78,166);
+}
+
+.modal_content {
+  font-size: 100px;
+  color: rgb(23,78,166);
+  text-align: center;
+}
+
+.fullscreen_code {
+  font-size: 20vw;
+  font-weight: 400;
+  line-height: 1;
+  padding: 1.5rem 0;
+  text-align: center;
+  color: rgb(23,78,166);  
+}
+
+.fullscreen_line {
+  width: 95vw;
+  height: 5px;
+  background-color: rgb(23,78,166);
+}
+
+.fullscreen_footer {
+  width: 95vw;
+  display: flex;
+  justify-content: space-between;
+  
+  .fullscreen_name {
+    color: rgb(23,78,166);
+  }
+}

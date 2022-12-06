@@ -15,23 +15,16 @@
 }
 
 .modal {
-  // div:last-child {
-  //   width: 800px;
-  //   left: 50%;
-  //   top: 50%;
-  //   transform: translate(-50%);
-  //   position: relative;
-  // }
-
-  div:first-child {
-    padding: 0 24px;
+  div {
+    border: none;
   }
+
   div:nth-child(3) {
     display: flex;
     flex-direction: column;
     
     .modal_body {
-      padding: 16px 24px 0;
+      padding: 16px 0 0;
       
       .body {
         display: flex;
@@ -44,24 +37,13 @@
         .modal_btns {
           display: flex;
           gap: 10px;
-          width: initial;
-          left: initial;
-          top: initial;
-          transform: initial;
-
-          .upload_btn {
-            width: initial;
-          }
         }
       }
 
       .color_block {
         display: flex;
         flex-direction: column;
-        padding: 0 24px;
-        .colors {
-          padding: 0 24px;
-        }
+        
       }
     }
   }

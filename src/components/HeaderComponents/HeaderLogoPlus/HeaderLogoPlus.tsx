@@ -5,45 +5,50 @@ import Title from 'antd/lib/typography/Title';
 import { Link, NavLink, Route } from 'react-router-dom';
 
 interface ImiddleItems {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IleftTrigger {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IHeaderLogoPlusProps {
-    rightComponent?: JSX.Element,
-    leftTrigger: IleftTrigger,
-    middleItems: ImiddleItems[]
+  rightComponent?: JSX.Element;
+  leftTrigger: IleftTrigger;
+  middleItems: ImiddleItems[];
 }
 
-
-export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, middleItems, rightComponent }) => {
+export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
+  leftTrigger,
+  middleItems,
+  rightComponent,
+}) => {
   return (
     <>
       <div className='item'>
-        <Title className="item-title" style={{ margin: 0 }} level={4}> {leftTrigger.path ? <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>  : leftTrigger.title} </Title>
+        <Title className='item-title' style={{ margin: 0 }} level={4}>
+          {' '}
+          {leftTrigger.path ? (
+            <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>
+          ) : (
+            leftTrigger.title
+          )}{' '}
+        </Title>
       </div>
       <div className='header-middle'>
         {middleItems.map((item) => (
-          <div
-            className='header-middle-item'>
+          <div key={item.title} className='header-middle-item'>
             <Title style={{ margin: 0 }} level={5}>
-              <NavLink to={item.path} className={({ isActive }) =>
-                isActive ? 'active' : ''
-              }>{item.title}
+              <NavLink to={item.path} className={({ isActive }) => (isActive ? 'active' : '')}>
+                {item.title}
               </NavLink>
             </Title>
           </div>
         ))}
       </div>
-      {rightComponent && <div className='item right-item'>
-        {rightComponent}
-      </div>}
-
+      {rightComponent && <div className='item right-item'>{rightComponent}</div>}
     </>
   );
 };

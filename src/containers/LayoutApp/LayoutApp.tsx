@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Layout } from 'antd';
 
 // import Drawers from '../SideBar/Drawer';
@@ -16,31 +16,78 @@ let middleItems = [
   },
   {
     title: 'Задания',
-    path: '/taskList'
+    path: '/tasks'
   },
   {
     title: 'Пользователи',
-    path: '/main'
+    path: '/performed',
   }
 ]
+
+let middleItemsTeacher = [
+  {
+    title: 'Лента',
+    path: '/feed'
+  },
+  {
+    title: 'Задания',
+    path: '/tasks'
+  },
+  {
+    title: 'Пользователи',
+    path: '/performed',
+  },
+  {
+    title: 'Оценка',
+    path: '/aw',
+  }
+]
+
+let notReviewed = [
+  {
+    title: 'Непроверенные задания',
+    path: '/asd'
+  },
+  {
+    title: 'Проверенные',
+    path: '/dsa'
+  }
+]
+
+let tasks = [
+  {
+    title: 'Назначено',
+    path: '/taskListAssigned'
+  },
+  {
+    title: 'Пропущен срок сдачи',
+    path: '/taskListCompleted'
+  },
+  {
+    title: 'Выполнено',
+    path: '/taskListMissed'
+  }
+]
+
 
 let leftTrigger = {
   title: 'dwaaw',
   path: '/main'
 }
+
+const isTeacher = false;
+
 export const LayoutApp: FC = () => {
+  const location = useLocation();
+  console.log(location)
   return (
-    // <Layout>
-    //   <Layout>
-    //   <Layout>
-    <>
-      <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={middleItems}  rightComponent={<RightComponent />}/>} />
+    <Layout>
+      <Layout>
+        <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems} rightComponent={<RightComponent />} />} />
         <Layout>
           <Outlet />
         </Layout>
-    </>
-    //   {/* </Layout>
-    // </Layout>
-    // </Layout> */}
+      </Layout>
+    </Layout>
   );
 };

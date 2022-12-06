@@ -1,13 +1,15 @@
-import { Layout, Row, Space, Typography } from 'antd';
+import { Layout, Row, Space } from 'antd';
 import { CalendarOutlined } from '@ant-design/icons';
 
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
-import Collapse from '../../components/Collapse/Collapse';
+import CollapseComponent from '../../components/Collapse/Collapse';
 
-const { Header, Footer, Sider, Content } = Layout;
-const { Link } = Typography;
+import TaskItem from './TaskItem';
+
+const { Content } = Layout;
 
 import s from './Tasks.module.scss';
+import SiderComponent from './components/Sider/Sider';
 
 const userProfileSvg = (
   <svg focusable='false' fill='inherit' width='18' height='18' viewBox='0 0 24 24'>
@@ -15,6 +17,7 @@ const userProfileSvg = (
     <path d='M12 13c1.94 0 3.5-1.56 3.5-3.5S13.94 6 12 6 8.5 7.56 8.5 9.5 10.06 13 12 13zm0-5c.83 0 1.5.67 1.5 1.5S12.83 11 12 11s-1.5-.67-1.5-1.5S11.17 8 12 8z'></path>
   </svg>
 );
+
 const Disk = (
   <svg
     enableBackground='new 0 0 24 24'
@@ -28,37 +31,90 @@ const Disk = (
   </svg>
 );
 
+const dataWithTags = [
+  {
+    id: '1',
+    tag: 'Back End тестовые задания',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+  {
+    id: '2',
+    tag: 'Back End тестовые задания',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+];
+
+const dataWithoutTags = [
+  {
+    id: '1',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+  {
+    id: '2',
+    title: 'Социальная сеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+];
+
 const Tasks = () => {
   return (
-    <Layout>
-      <Header>Header</Header>
-      <Layout>
-        <Sider>Sider</Sider>
-        <Content className={s.main}>
-          <Row justify={'space-between'}>
+    <Layout className={s.task__layout}>
+      <SiderComponent />
+      <Content style={{ width: 'calc(100 % - 2 * 1.5rem)' }} className={s.main}>
+        <Row justify={'space-between'}>
+          <ButtonApp
+            classNameProp={s.navigation__link}
+            label='Открыть свой профиль'
+            icon={userProfileSvg}
+          />
+          <Space>
             <ButtonApp
               classNameProp={s.navigation__link}
-              label={'Открыть свой профиль'}
-              icon={userProfileSvg}
+              label={'Google календарь'}
+              icon={<CalendarOutlined />}
             />
-            <Space>
-              <ButtonApp
-                classNameProp={s.navigation__link}
-                label={'Google календарь'}
-                icon={Disk}
-              />
-              <ButtonApp
-                classNameProp={s.navigation__link}
-                label={'Папка курса на диске'}
-                icon={<CalendarOutlined />}
-              />
-            </Space>
-          </Row>
-          <div>
-            <Collapse />
-          </div>
-        </Content>
-      </Layout>
+            <ButtonApp
+              classNameProp={s.navigation__link}
+              label={'Папка курса на диске'}
+              icon={Disk}
+            />
+          </Space>
+        </Row>
+        <div>
+          {dataWithoutTags.map((item) => (
+            <TaskItem key={item.id} {...item} />
+          ))}
+
+          {dataWithTags.map((item) => (
+            <CollapseComponent key={item.id} isTeacher={item?.isTeacher} tag={item?.tag}>
+              <TaskItem key={item.id} {...item} />
+            </CollapseComponent>
+          ))}
+        </div>
+      </Content>
     </Layout>
   );
 };

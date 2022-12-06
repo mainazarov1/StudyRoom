@@ -7,15 +7,22 @@ import { LayoutApp } from '../containers/LayoutApp/LayoutApp';
 import {
   AUTH_PAGE,
   MAIN_PAGE,
+  TASKS_PAGE,
   FEED_PAGE,
   TASK_LIST,
-  // TASKS_PAGE,
+  TASK_LIST_COMPLETED,
+  TASK_LIST_MISSED,
+  TASK_LIST_ASSIGNED,
   USERS_PAGE,
-  // RATING_PAGE
 } from '../utils/path/path';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
+import TaskListCompleted from '../pages/TaskListCompleted';
+import Tasks from '../pages/Tasks/Tasks';
+import Grade from '../pages/Grade/Grade';
 import { Users } from '../pages/Users/Users';
+
 
 interface RouterData {
   id?: string;
@@ -30,11 +37,45 @@ const MainRoutes = () => {
     //   path: AUTH_PAGE,
     //   component: <Auth />,
     // },
+
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
+    // {
+    //   id: useId(),
+    //   path: TAPE_PAGE,
+    //   component: <Tape />,
+    {
+      id: useId(),
+      path: FEED_PAGE,
+      component: <Feed />,
+    },
+    {
+      id: useId(),
+      path: '/grade',
+      component: <Grade />
+    },
+    /* Роуты для теста компонента Header */
+    // {
+    //   id: useId(),
+    //   path: '/not-reviewed',
+    //   component: <div />
+    // },
+    // {
+    //   id: useId(),
+    //   path: '/tasks',
+    //   component: <div />
+    // },
+    // {
+    //   id: useId(),
+    //   path: '/course',
+    //   component: <div />
+    // },
+
+    /* --------------------- */
+    
     {
     	id: useId(),
     	path: FEED_PAGE,
@@ -42,19 +83,29 @@ const MainRoutes = () => {
     },
     {
     	id: useId(),
-    	path: TASK_LIST,
+    	path: TASK_LIST_COMPLETED,
+    	component: <TaskListCompleted />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_ASSIGNED,
     	component: <TaskListAssigned />
+    },
+    {
+    	id: useId(),
+    	path: TASK_LIST_MISSED,
+    	component: <TaskListMissedDeadline/>
+    },
+    {
+    	id: useId(),
+    	path: TASKS_PAGE,
+    	component: <Tasks />
     },
     // {
     // 	id: useId(),
-    // 	path: TASKS_PAGE,
-    // 	component: <Tasks />
+    // 	path: USERS_PAGE,
+    // 	component: <Users />
     // },
-    {
-    	id: useId(),
-    	path: USERS_PAGE,
-    	component: <Users />
-    },
     // {
     // 	id: useId(),
     // 	path: RATING_PAGE,
