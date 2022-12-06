@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useRevalidator } from 'react-router-dom';
 
 import { Home } from '../pages/Home/Home';
 import { Auth } from '../pages/Auth/Auth';
@@ -17,6 +17,7 @@ import { HeaderTest } from '../components/HeaderComponents/HeaderLogoPlus/Header
 import RightComponent from '../components/HeaderComponents/RightCoponent/RightComponent';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
+import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
 
 interface RouterData {
   id?: string;
@@ -67,6 +68,11 @@ const MainRoutes = () => {
     	path: TASK_LIST,
     	component: <TaskListAssigned />
     },
+    {
+      id: useId(),
+      path: '/unverified-tasks',
+      component: <UnverifiedTasks />
+    }
     // {
     // 	id: useId(),
     // 	path: USERS_PAGE,
