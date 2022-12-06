@@ -18,6 +18,7 @@ import RightComponent from '../components/HeaderComponents/RightCoponent/RightCo
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
 import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
+import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
 
 interface RouterData {
   id?: string;
@@ -72,6 +73,11 @@ const MainRoutes = () => {
       id: useId(),
       path: '/unverified-tasks',
       component: <UnverifiedTasks />
+    },
+    {
+      id: useId(),
+      path: '/verified-tasks',
+      component: <VerifiedTasks />
     }
     // {
     // 	id: useId(),
