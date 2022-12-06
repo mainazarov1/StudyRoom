@@ -82,25 +82,23 @@ const MenuBar:FC<any> = ({ editor }) => {
 };
 interface IProps {
   setStateShow: (arm: string ) => void
+  content: string;
 }
 
-export const Tiptap:FC<IProps> = ({setStateShow}) => {
+export const Tiptap: FC<IProps> = ({ setStateShow, content }) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
-    content: ``,
+    content: content,
 
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
-      setStateShow(html)
+      setStateShow(html);
     },
   });
 
   return (
     <div className={s.textEditor}>
-      <EditorContent 
-        editor={editor}  
-        className={s.editor_content}
-      />
+      <EditorContent editor={editor} className={s.editor_content} />
       <MenuBar editor={editor} />
     </div>
   );

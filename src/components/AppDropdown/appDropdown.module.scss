@@ -1,0 +1,27 @@
+.modal {
+   &__name {
+      letter-spacing: 0.01785714em;
+      font-size: 0.875rem;
+      font-weight: 600;
+      line-height: 1.25rem;
+      color: #5f6368;
+   }
+   &__menuItem {
+      padding: 0;
+   }
+   &__checkbox {
+      padding: 5px 12px;
+   }
+}
+
+.course_list {
+   cursor: pointer;
+   background-color: #f8f9fa;
+   padding: 16px 16px;
+   border-radius: 5px;
+   margin-bottom: 1rem;
+}
+
+.course_list:hover {
+   background-color: #f2f3f4;
+}

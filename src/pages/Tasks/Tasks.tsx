@@ -18,7 +18,6 @@ const userProfileSvg = (
   </svg>
 );
 
-
 const Disk = (
   <svg
     enableBackground='new 0 0 24 24'
@@ -88,7 +87,7 @@ const Tasks = () => {
         <Row justify={'space-between'}>
           <ButtonApp
             classNameProp={s.navigation__link}
-            label={'Открыть свой профиль'}
+            label='Открыть свой профиль'
             icon={userProfileSvg}
           />
           <Space>
@@ -105,21 +104,18 @@ const Tasks = () => {
           </Space>
         </Row>
         <div>
-          {dataWithoutTags.map((item) => {
-            return <TaskItem key={item.id} {...item} />;
-          })}
+          {dataWithoutTags.map((item) => (
+            <TaskItem key={item.id} {...item} />
+          ))}
 
-          {dataWithTags.map((item) => {
-            return (
-              <CollapseComponent key={item.id} isTeacher={item?.isTeacher} tag={item?.tag}>
-                <TaskItem key={item.id} {...item} />
-              </CollapseComponent>
-            );
-          })}
+          {dataWithTags.map((item) => (
+            <CollapseComponent key={item.id} isTeacher={item?.isTeacher} tag={item?.tag}>
+              <TaskItem key={item.id} {...item} />
+            </CollapseComponent>
+          ))}
         </div>
       </Content>
     </Layout>
-
   );
 };
 
