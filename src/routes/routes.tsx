@@ -19,6 +19,7 @@ import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
 import TaskListCompleted from '../pages/TaskListCompleted';
 import Tasks from '../pages/Tasks/Tasks';
+import Grade from '../pages/Grade/Grade';
 
 interface RouterData {
   id?: string;
@@ -47,6 +48,35 @@ const MainRoutes = () => {
       id: useId(),
       path: FEED_PAGE,
       component: <Feed />,
+    },
+    {
+      id: useId(),
+      path: '/grade',
+      component: <Grade />
+    },
+    /* Роуты для теста компонента Header */
+    // {
+    //   id: useId(),
+    //   path: '/not-reviewed',
+    //   component: <div />
+    // },
+    // {
+    //   id: useId(),
+    //   path: '/tasks',
+    //   component: <div />
+    // },
+    // {
+    //   id: useId(),
+    //   path: '/course',
+    //   component: <div />
+    // },
+
+    /* --------------------- */
+    
+    {
+    	id: useId(),
+    	path: FEED_PAGE,
+    	component: <Feed />
     },
     {
     	id: useId(),
