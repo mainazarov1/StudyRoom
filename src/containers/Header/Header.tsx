@@ -6,6 +6,7 @@ import type { MenuProps } from 'antd';
 
 import './styles/header.scss';
 import { Link, NavLink } from 'react-router-dom';
+
 import Drawers from '../SideBar/Drawer';
 
 const { Header: HeaderA, Sider } = Layout;
@@ -52,7 +53,7 @@ export const Header: React.FC<IHeaderProps> = ({ children }) => {
             <div className='header-wrapper-right'>
               <div className='item right-item'>
                 <Dropdown
-                  overlayStyle={{ width: "327px" }}
+                  overlayStyle={{ width: '327px' }}
                   menu={{ items: itemsMenu }}
                   trigger={['click']}
                   dropdownRender={menu => (
@@ -64,26 +65,26 @@ export const Header: React.FC<IHeaderProps> = ({ children }) => {
                         <Title style={{ marginBottom: '0' }} level={5}>Фамилия Имя</Title>
                         <Text type="secondary"> Адрес почты</Text>
                       </div>
-                        <Divider style={{ margin: 0 }} />
-                          {menu}
-                        <Divider style={{ margin: 0 }} />
-                        <Space style={{ padding: 8 }}>
-                          <Button className='header-inner-avatar-exit' type="default">Выйти</Button>
-                        </Space>
+                      <Divider style={{ margin: 0 }} />
+                      {menu}
+                      <Divider style={{ margin: 0 }} />
+                      <Space style={{ padding: 8 }}>
+                        <Button className='header-inner-avatar-exit' type="default">Выйти</Button>
+                      </Space>
                     </div>
                   )}
                 >
-                <Link to="#" onClick={e => e.preventDefault()}>
-                  <Space>
-                    <Tooltip zIndex={1} title="Аккаунт">
-                      <Avatar src="https://joeschmoe.io/api/v1/random" icon={<UserOutlined />} />
-                    </Tooltip>
-                  </Space>
-                </Link>
+                  <Link to="#" onClick={e => e.preventDefault()}>
+                    <Space>
+                      <Tooltip zIndex={1} title="Аккаунт">
+                        <Avatar src="https://joeschmoe.io/api/v1/random" icon={<UserOutlined />} />
+                      </Tooltip>
+                    </Space>
+                  </Link>
                 </Dropdown>
-                </div>
               </div>
             </div>
+          </div>
         </Layout >
       </Layout >
     </div >

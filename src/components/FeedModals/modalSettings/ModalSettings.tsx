@@ -1,10 +1,12 @@
 import { Button, Modal, Row } from 'antd';
 import { useState, FC } from 'react';
 import { CheckOutlined, EditOutlined } from '@ant-design/icons';
-import s from './ModalSettings.module.scss';
+
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
 import ModalComponents from '../../modal/Modal';
+
+import s from './ModalSettings.module.scss';
 
 interface IColor {
   color: string;
@@ -14,7 +16,7 @@ interface IColor {
 
 const ModalSettings:FC = () => {
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState(1)
+  const [activeId, setActiveId] = useState(1);
   const [colorArr, setColorArr] = useState<IColor[]>([
     {color: '#1967d2', id: 1, active: true}, 
     {color: '#1e8e3e', id: 2, active: false}, 
@@ -27,9 +29,9 @@ const ModalSettings:FC = () => {
   ]);
 
   const handleClick = (ID: number) => {
-    setActiveId(ID)
-    colorArr.map(({id, active}) => ID === id ? active = true : active = false)
-  }
+    setActiveId(ID);
+    colorArr.map(({id, active}) => ID === id ? active = true : active = false);
+  };
   
   const showModal = () => {
     setOpen(true);
@@ -87,21 +89,21 @@ const ModalSettings:FC = () => {
             <Row justify={'space-between'} className={s.colors} >
               {
                 colorArr.map(item => (
-                <span 
-                  key={item.id} 
-                  onClick={() => handleClick(item.id)}
-                  style={{
-                    background: `${item.color}`, 
-                    width: 64, 
-                    height: 64,
-                    borderRadius: '50%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}
-                >
-                  {item.active && <CheckOutlined style={{color: '#fff', fontSize: 30  }} /> }
-                </span>))
+                  <span 
+                    key={item.id} 
+                    onClick={() => handleClick(item.id)}
+                    style={{
+                      background: `${item.color}`, 
+                      width: 64, 
+                      height: 64,
+                      borderRadius: '50%',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                    }}
+                  >
+                    {item.active && <CheckOutlined style={{color: '#fff', fontSize: 30  }} /> }
+                  </span>))
               }
             </Row>
           </div>

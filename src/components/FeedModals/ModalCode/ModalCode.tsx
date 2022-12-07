@@ -2,14 +2,15 @@ import { Button, Tooltip, message } from 'antd';
 import { useState, FC } from 'react';
 import { ExpandOutlined, CopyOutlined, CloseOutlined, CompressOutlined } from '@ant-design/icons';
 
-import s from './ModalCode.module.scss'; 
 import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal';
 import ModalComponents from '../../modal/Modal';
 
+import s from './ModalCode.module.scss'; 
+
 const ModalCode:FC = () => {
   const [open, setOpen] = useState(false);
-  const [fullScreenModal, setFullScreenModal] = useState(false)
-  const code = 'tq7kdvd'
+  const [fullScreenModal, setFullScreenModal] = useState(false);
+  const code = 'tq7kdvd';
 
   const info = () => {
     message.info('Ссылка скопирована ');

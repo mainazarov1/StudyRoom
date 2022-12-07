@@ -1,5 +1,6 @@
 import { Modal, ModalProps } from 'antd';
 import React, { useState } from 'react';
+
 import s from './FullScreenModal.module.scss';
 
 interface Iprops extends ModalProps {
@@ -20,7 +21,7 @@ const FullScreenModal: React.FC<Iprops> = ({ title, closebtn, open, children, ..
         width={'100vw'}
         footer={null}
         bodyStyle={{
-          minHeight: `calc(100vh - 55px)`,
+          minHeight: 'calc(100vh - 55px)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

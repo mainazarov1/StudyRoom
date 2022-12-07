@@ -162,7 +162,7 @@ const TaskItem: FC<TaskItemProps> = ({
             <Row style={{ marginTop: '1rem' }}>
               <div>
                 {htmlContent}
-                <span>
+                {/* <span>
                   Необходимо создать приложение - аналог ленты в социальной сети, которое будет
                   работать со специально созданным API. Описание API находится далее по тексту.
                   <br />
@@ -329,7 +329,7 @@ const TaskItem: FC<TaskItemProps> = ({
                       инструментами.
                     </li>
                   </ul>
-                </span>
+                </span> */}
               </div>
             </Row>
           </div>

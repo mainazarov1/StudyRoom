@@ -2,11 +2,11 @@ import { Dropdown, Row, Col, Typography, Avatar, Tooltip, Menu } from 'antd';
 import Icon, { EllipsisOutlined } from '@ant-design/icons';
 import { MenuInfo } from 'rc-menu/lib/interface';
 import { Draggable } from 'react-beautiful-dnd';
+import { useState } from 'react';
 
 import s from './style.module.scss';
 
 import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-import { useState } from 'react';
 
 const { Title, Link, Text } = Typography;
 

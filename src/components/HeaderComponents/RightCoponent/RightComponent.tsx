@@ -3,9 +3,11 @@ import { Button, Dropdown, MenuProps, Tooltip } from 'antd';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import ConditionAgreement from '../../../containers/ConditionAgreement/ConditionAgreement';
 import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal';
 import { InputApp } from '../../InputApp/InputApp';
+
 import s from './FigthComponent.module.scss';
 
 
@@ -40,7 +42,7 @@ const RightComponent = () => {
         </Dropdown>
       </Tooltip>
       <FullScreenModal 
-          title={<span><CloseOutlined onClick={handleCancel} />Присоединиться</span>}
+        title={<span><CloseOutlined onClick={handleCancel} />Присоединиться</span>}
         closebtn={<Button type='primary' onClick={handleCancel } style={{marginRight: 24}}>Присоединиться</Button>}
         open={isModalOpen}
       >

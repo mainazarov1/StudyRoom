@@ -1,9 +1,11 @@
 import {FC, useState } from 'react';
 import { Button, Tabs } from 'antd';;
 import { PictureOutlined } from '@ant-design/icons';
-import s from './ModalSettingsImg.module.scss';
+
 import ChoosePhoto from '../../ChoosePhoto/ChoosePhoto';
 import ModalComponents from '../../modal/Modal';
+
+import s from './ModalSettingsImg.module.scss';
 
 const ModalSettingsImg:FC = () => {
   const [open, setOpen] = useState(false);
@@ -63,7 +65,7 @@ const ModalSettingsImg:FC = () => {
         </Tabs>
       </ModalComponents>
     </>
-  )
+  );
 };
 
 export default ModalSettingsImg;

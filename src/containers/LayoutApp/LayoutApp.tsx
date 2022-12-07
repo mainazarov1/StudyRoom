@@ -9,7 +9,7 @@ import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
 
 
-let middleItems = [
+const middleItems = [
   {
     title: 'Лента',
     path: '/feed'
@@ -22,9 +22,9 @@ let middleItems = [
     title: 'Пользователи',
     path: '/performed',
   }
-]
+];
 
-let middleItemsTeacher = [
+const middleItemsTeacher = [
   {
     title: 'Лента',
     path: '/feed'
@@ -41,9 +41,9 @@ let middleItemsTeacher = [
     title: 'Оценка',
     path: '/aw',
   }
-]
+];
 
-let notReviewed = [
+const notReviewed = [
   {
     title: 'Непроверенные задания',
     path: '/asd'
@@ -52,9 +52,9 @@ let notReviewed = [
     title: 'Проверенные',
     path: '/dsa'
   }
-]
+];
 
-let tasks = [
+const tasks = [
   {
     title: 'Назначено',
     path: '/taskListAssigned'
@@ -67,19 +67,19 @@ let tasks = [
     title: 'Выполнено',
     path: '/taskListMissed'
   }
-]
+];
 
 
-let leftTrigger = {
+const leftTrigger = {
   title: 'dwaaw',
   path: '/main'
-}
+};
 
 const isTeacher = false;
 
 export const LayoutApp: FC = () => {
   const location = useLocation();
-  console.log(location)
+  console.log(location);
   return (
     <Layout>
       <Layout>

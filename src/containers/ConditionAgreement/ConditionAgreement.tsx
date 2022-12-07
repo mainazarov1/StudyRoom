@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-import s from './ConditionAgreement.module.scss';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Button, Modal } from 'antd';
 import Checkbox from 'antd/es/checkbox';
+
 import CourseAdditionForm from '../CourseAdditionForm/CourseAdditionForm';
+
+import s from './ConditionAgreement.module.scss';
+
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 const style = {
   borderRadius : 5,
   backgroundColor: '#0000000f',
-  width: "100%",
-  padding: "16px 24px",
+  width: '100%',
+  padding: '16px 24px',
   alignItems: 'center', 
   gap: 12
-}
+};
 
 const ConditionAgreement:React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -27,7 +30,7 @@ const ConditionAgreement:React.FC = () => {
   };
 
   const onChange = (e: CheckboxChangeEvent) => {
-    setIsChecked(e.target.checked)
+    setIsChecked(e.target.checked);
   };
 
   return (

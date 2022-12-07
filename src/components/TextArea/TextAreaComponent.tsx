@@ -1,8 +1,7 @@
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Underline from "@tiptap/extension-underline";
-import { FC, useState } from "react";
-import s from './TextAreaComponent.module.scss'
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import Underline from '@tiptap/extension-underline';
+import { FC, useState } from 'react';
 import { 
   BoldOutlined,
   FontSizeOutlined,
@@ -11,8 +10,10 @@ import {
   StrikethroughOutlined,
   UnderlineOutlined,
   UnorderedListOutlined 
-} from "@ant-design/icons";
-import parse from 'html-react-parser'
+} from '@ant-design/icons';
+import parse from 'html-react-parser';
+
+import s from './TextAreaComponent.module.scss';
 
 
 const MenuBar:FC<any> = ({ editor }) => {
@@ -26,28 +27,28 @@ const MenuBar:FC<any> = ({ editor }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBold().run()}
-          className={editor.isActive("bold") ? s.is_active : null}
+          className={editor.isActive('bold') ? s.is_active : null}
         >
           <BoldOutlined />
         </button>
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={editor.isActive("italic") ? s.is_active : null}
+          className={editor.isActive('italic') ? s.is_active : null}
         >
           <ItalicOutlined />
         </button>
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleUnderline().run()}
-          className={editor.isActive("underline") ? s.is_active : null}
+          className={editor.isActive('underline') ? s.is_active : null}
         >
           <UnderlineOutlined />
         </button>
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleStrike().run()}
-          className={editor.isActive("strike") ? s.is_active : null}
+          className={editor.isActive('strike') ? s.is_active : null}
         >
           <StrikethroughOutlined />
         </button>
@@ -57,7 +58,7 @@ const MenuBar:FC<any> = ({ editor }) => {
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
           className={
-            editor.isActive("heading", { level: 2 }) ? s.is_active : null
+            editor.isActive('heading', { level: 2 }) ? s.is_active : null
           }
         >
           <FontSizeOutlined />
@@ -65,14 +66,14 @@ const MenuBar:FC<any> = ({ editor }) => {
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleBulletList().run()}
-          className={editor.isActive("bulletList") ? s.is_active : null}
+          className={editor.isActive('bulletList') ? s.is_active : null}
         >
           <UnorderedListOutlined />
         </button>
         <button
           type="button"
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
-          className={editor.isActive("orderedList") ? s.is_active : null}
+          className={editor.isActive('orderedList') ? s.is_active : null}
         >
           <OrderedListOutlined />
         </button>

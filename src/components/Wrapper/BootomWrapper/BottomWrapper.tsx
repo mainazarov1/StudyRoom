@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+
 import ModalCode from '../../FeedModals/ModalCode/ModalCode';
 
 import s from './BottomWrapper.module.scss';

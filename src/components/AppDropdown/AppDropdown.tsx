@@ -2,6 +2,7 @@ import { DownOutlined, TeamOutlined } from '@ant-design/icons';
 import { Avatar, Checkbox, Dropdown, Menu, Space, Typography } from 'antd';
 import MenuItem from 'antd/lib/menu/MenuItem';
 import React, { FC, ReactNode } from 'react';
+
 import s from './appDropdown.module.scss';
 
 const { Paragraph } = Typography;

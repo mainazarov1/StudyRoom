@@ -1,25 +1,28 @@
 import { DownOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Checkbox, Dropdown, Menu,  Space } from 'antd';
 import { FC, useState } from 'react';
+
 import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
 import { Tiptap } from '../TextArea/TextAreaComponent';
-import s from './ReferToCourse.module.scss'
+
+import s from './ReferToCourse.module.scss';
+
 import type { MenuProps } from 'antd';
 
 
 const ReferToCourse: FC = () => {
-  const [isMessages, setIsMessages] = useState<boolean>(true)
-  const [courseDropOpen, setCourseDropOpen] = useState<boolean>(false)
-  const [studentDropOpen, setStudentDropOpen] = useState<boolean>(false)
-  const [messageValue, setMessages] = useState('')
-  const handleChange = () => setIsMessages(!isMessages)
+  const [isMessages, setIsMessages] = useState<boolean>(true);
+  const [courseDropOpen, setCourseDropOpen] = useState<boolean>(false);
+  const [studentDropOpen, setStudentDropOpen] = useState<boolean>(false);
+  const [messageValue, setMessages] = useState('');
+  const handleChange = () => setIsMessages(!isMessages);
   const {name, title, descirption} = {
     name: 'Beksultan Bakytbekov',
     title: 'Discovery Studio',
     descirption: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-  }  
+  };  
 
-  console.log(messageValue)
+  console.log(messageValue);
 
   const onMenuClick: MenuProps['onClick'] = (e) => {
     console.log('click', e);
@@ -42,9 +45,9 @@ const ReferToCourse: FC = () => {
 
 
   const substringText = (text: string, num: number) => {
-    let newText = text.length >= num ? text.substring(0, num) : text;
-    return newText
-  }
+    const newText = text.length >= num ? text.substring(0, num) : text;
+    return newText;
+  };
   const menu = (
     <Menu
       items={[
@@ -124,65 +127,65 @@ const ReferToCourse: FC = () => {
     <>
       {
         isMessages 
-        ?
-        <div className={s.referring_course} >
-          <div 
-            className={s.main_input}
-            onClick={handleChange} 
-          >
-            <Avatar style={{ backgroundColor: '#a0c3ff',marginRight: 16}} icon={<UserOutlined style={{color: '#4374e0'}} />} />
-            <span className={s.text} >Обратиться к курсу</span>
+          ?
+          <div className={s.referring_course} >
+            <div 
+              className={s.main_input}
+              onClick={handleChange} 
+            >
+              <Avatar style={{ backgroundColor: '#a0c3ff',marginRight: 16}} icon={<UserOutlined style={{color: '#4374e0'}} />} />
+              <span className={s.text} >Обратиться к курсу</span>
+            </div>
+            <ModalReuse />
           </div>
-          <ModalReuse />
-        </div>
-        :
-        <div className={s.referring_course_messedge} >
-          <h2 className={s.referring_course_heading} >Для кого</h2>
-          <form className={s.form} >
-            <div className={s.drop_block} >
-              <Dropdown
-                overlay={menu} 
-                trigger={['click']}
-                open={courseDropOpen}
-                onOpenChange={() => setCourseDropOpen(!courseDropOpen)}
-                className={s.course_list}
-              >
-                <Space>
+          :
+          <div className={s.referring_course_messedge} >
+            <h2 className={s.referring_course_heading} >Для кого</h2>
+            <form className={s.form} >
+              <div className={s.drop_block} >
+                <Dropdown
+                  overlay={menu} 
+                  trigger={['click']}
+                  open={courseDropOpen}
+                  onOpenChange={() => setCourseDropOpen(!courseDropOpen)}
+                  className={s.course_list}
+                >
+                  <Space>
                   StudyRoom
-                  <DownOutlined />
-                </Space>
-              </Dropdown>
-              <Dropdown
-                overlay={menuStudent} 
-                trigger={['click']}
-                open={studentDropOpen}
-                onOpenChange={() => setStudentDropOpen(!studentDropOpen)}
-                className={s.course_list}
-              >
-                <Space>
+                    <DownOutlined />
+                  </Space>
+                </Dropdown>
+                <Dropdown
+                  overlay={menuStudent} 
+                  trigger={['click']}
+                  open={studentDropOpen}
+                  onOpenChange={() => setStudentDropOpen(!studentDropOpen)}
+                  className={s.course_list}
+                >
+                  <Space>
                   Все учащиеся
-                  <DownOutlined />
-                </Space>
-              </Dropdown>
-            </div>
-            <Tiptap setStateShow={setMessages} /> 
-            <div className={s.btns} >
-              <Button
-                type="text"
-                onClick={handleChange}
-              >
+                    <DownOutlined />
+                  </Space>
+                </Dropdown>
+              </div>
+              <Tiptap setStateShow={setMessages} /> 
+              <div className={s.btns} >
+                <Button
+                  type="text"
+                  onClick={handleChange}
+                >
                 Отмена
-              </Button>
-              <Dropdown.Button 
-                onClick={handleChange}
-                type='primary'
-                menu={{ items, onClick: onMenuClick }}
-              >
+                </Button>
+                <Dropdown.Button 
+                  onClick={handleChange}
+                  type='primary'
+                  menu={{ items, onClick: onMenuClick }}
+                >
                 Публиковать
-              </Dropdown.Button>
-            </div>
-          </form>
-        </div>
+                </Dropdown.Button>
+              </div>
+            </form>
+          </div>
       }
     </>
   );

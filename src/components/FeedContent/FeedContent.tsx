@@ -1,11 +1,14 @@
 import { FC, useState } from 'react';
 import { MoreOutlined, LinkOutlined, CopyOutlined, RollbackOutlined, CloseSquareOutlined } from '@ant-design/icons';
 import { Dropdown, Button, Space } from 'antd';
-import type { MenuProps } from 'antd';
-import s from './FeedContent.module.scss';
+
 import ModalCode from '../FeedModals/ModalCode/ModalCode';
 import AssignedTask from '../AssignedTasks/AssignedTask';
 import ReferToCourse from '../ReferToCourse/ReferToCourse';
+
+import s from './FeedContent.module.scss';
+
+import type { MenuProps } from 'antd';
 
 const items: MenuProps['items'] = [
   {

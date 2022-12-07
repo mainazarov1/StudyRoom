@@ -2,10 +2,10 @@ const AUTH_PAGE = '/';
 const MAIN_PAGE = '/main';
 const FEED_PAGE = '/feed';
 const TASKS_PAGE = '/tasks';
-const TASK_LIST_ASSIGNED = '/taskListAssigned'
-const TASK_LIST_COMPLETED = '/taskListCompleted'
-const TASK_LIST_MISSED = '/taskListMissed'
-const TASK_LIST = '/taskList'
+const TASK_LIST_ASSIGNED = '/taskListAssigned';
+const TASK_LIST_COMPLETED = '/taskListCompleted';
+const TASK_LIST_MISSED = '/taskListMissed';
+const TASK_LIST = '/taskList';
 const USERS_PAGE = '/users';
 const RATING_PAGE = '/rating';
 

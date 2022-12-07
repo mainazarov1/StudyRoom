@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
 import { Modal, Button } from 'antd';
-import s from './ModalReuse.module.scss';
 import { RetweetOutlined } from '@ant-design/icons';
+
 import DataTaskList from '../../DataTaskList/DataTaskList';
 import ModalComponents from '../../modal/Modal';
+
+import s from './ModalReuse.module.scss';
 
 const ModalReuse:FC = () => {
   const [open, setOpen] = useState(false);
@@ -20,14 +22,14 @@ const ModalReuse:FC = () => {
       <RetweetOutlined 
         className={s.retween_icon} 
         onClick={(e) => {
-          e.stopPropagation()
-          showModal()
+          e.stopPropagation();
+          showModal();
         }}
       />
       <ModalComponents 
         width={800}
         className={s.modal}
-        title={`Выберите курс`}
+        title={'Выберите курс'}
         open={open}
         onCancel={handleCancel}
         footer={[

@@ -1,7 +1,8 @@
 import { FC, useState } from 'react';
 import { Menu } from 'antd';
 import { HomeOutlined, CalendarOutlined, ReadOutlined, UnorderedListOutlined, FileSyncOutlined, SettingOutlined } from '@ant-design/icons';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+
 import SideBarMenuItem from '../../components/SideBArMenuItem/SideBarMenuItem';
 import { IList } from '../../core/types/ListType';
 

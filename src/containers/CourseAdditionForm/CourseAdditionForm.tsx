@@ -1,7 +1,9 @@
 import { Button, Modal, Form, Typography, Divider  } from 'antd';
 import React, { useState } from 'react';
+
 import { InputApp } from '../../components/InputApp/InputApp';
 import { InputAppPass } from '../../components/InputApp/InputAppPass';
+
 import s from './CourseAdditionForm.module.scss';
 
 interface IPrps {
@@ -29,8 +31,8 @@ const CourseAdditionForm:React.FC<IPrps> = ({isChecked, closeModal}) => {
         type='link' 
         disabled={!isChecked} 
         onClick={() => {
-          closeModal()
-          showModal()
+          closeModal();
+          showModal();
         }}
       >
         Продолжить
