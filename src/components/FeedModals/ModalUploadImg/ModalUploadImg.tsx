@@ -1,6 +1,7 @@
-import {FC, useState } from 'react';
-import { Button,} from 'antd';;
+import { FC, useState } from 'react';
+import { Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+
 import DragUploadImg from '../../DragUploadImg/DragUploadImg';
 import ModalComponents from '../../modal/Modal';
 
@@ -15,13 +16,10 @@ const ModalUploadImg: FC = () => {
   };
   return (
     <>
-      <Button icon={<UploadOutlined />} onClick={showModal} >Загрузить фото</Button>
-      <ModalComponents
-        width={1000}
-        title='Выбрать тему'
-        open={open}
-        onCancel={handleCancel}
-      >
+      <Button icon={<UploadOutlined />} onClick={showModal}>
+        Загрузить фото
+      </Button>
+      <ModalComponents width={1000} title='Выбрать тему' open={open} onCancel={handleCancel}>
         <DragUploadImg />
       </ModalComponents>
     </>

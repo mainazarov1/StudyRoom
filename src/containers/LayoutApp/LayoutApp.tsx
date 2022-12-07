@@ -8,30 +8,29 @@ import RightComponent from '../../components/HeaderComponents/RightCoponent/Righ
 import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
 
-
-let middleItems = [
+const middleItems = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
   },
   {
     title: 'Пользователи',
     path: '/performed',
-  }
-]
+  },
+];
 
-let middleItemsTeacher = [
+const middleItemsTeacher = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
   },
   {
     title: 'Пользователи',
@@ -40,50 +39,67 @@ let middleItemsTeacher = [
   {
     title: 'Оценка',
     path: '/aw',
-  }
-]
+  },
+];
 
-let notReviewed = [
+const notReviewed = [
   {
     title: 'Непроверенные задания',
-    path: '/asd'
+    path: '/asd',
   },
   {
     title: 'Проверенные',
-    path: '/dsa'
-  }
-]
+    path: '/dsa',
+  },
+];
 
-let tasks = [
+const tasks = [
   {
     title: 'Назначено',
-    path: '/taskListAssigned'
+    path: '/taskListAssigned',
   },
   {
     title: 'Пропущен срок сдачи',
-    path: '/taskListCompleted'
+    path: '/taskListCompleted',
   },
   {
     title: 'Выполнено',
-    path: '/taskListMissed'
-  }
-]
+    path: '/taskListMissed',
+  },
+];
 
-
-let leftTrigger = {
+const leftTrigger = {
   title: 'dwaaw',
-  path: '/main'
-}
+  path: '/main',
+};
 
 const isTeacher = false;
 
 export const LayoutApp: FC = () => {
   const location = useLocation();
-  console.log(location)
+  console.log(location);
   return (
     <Layout>
       <Layout>
-        <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems} rightComponent={<RightComponent />} />} />
+        <MainHeader
+          children={
+            <HeaderLogoPlus
+              leftTrigger={leftTrigger}
+              middleItems={
+                location.pathname == '/main'
+                  ? []
+                  : location.pathname == '/not-reviewed'
+                  ? notReviewed
+                  : location.pathname == '/tasks'
+                  ? tasks
+                  : isTeacher
+                  ? middleItemsTeacher
+                  : middleItems
+              }
+              rightComponent={<RightComponent />}
+            />
+          }
+        />
         <Layout>
           <Outlet />
         </Layout>

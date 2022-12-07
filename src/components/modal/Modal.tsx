@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Modal} from 'antd';
+import { Modal } from 'antd';
 
 interface ModalFuncProps {
   children?: React.ReactNode;
-  className?: string
+  className?: string;
   open?: boolean;
   onCancel?: () => void;
   centered?: boolean;
@@ -12,12 +12,8 @@ interface ModalFuncProps {
   title?: string;
 }
 
-const ModalComponents:FC<ModalFuncProps> = (props) => {
-  return (
-    <Modal {...props} >
-      {props.children}
-    </Modal>
-  );
+const ModalComponents: FC<ModalFuncProps> = (props) => {
+  return <Modal {...props}>{props.children}</Modal>;
 };
 
 export default ModalComponents;

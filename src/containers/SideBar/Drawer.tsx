@@ -1,30 +1,29 @@
 import React, { useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import {  Drawer, Space } from 'antd';
+import { Drawer, Space } from 'antd';
 
 import { IList } from '../../core/types/ListType';
 
 import MenuAside from './MenuAside';
-
 
 const Drawers: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const showDrawer = () => setOpen(true);
   const onClose = () => setOpen(false);
   const [ListCurs, setListCurs] = useState<IList[]>([
-    {name: 'B', id: '6',  descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
-    {name: 'B', id: '7',  descirption: 'react dev', title: 'Back-end', color: '#f56a00'},
-    {name: 'B', id: '8',  descirption: 'Django', title: 'Data-scinse', color: '#f56a00'},
-    {name: 'B', id: '9',  descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
-    {name: 'B', id: '10', descirption: 'react dev', title:'Front-end',  color: '#f56a00'},
+    { name: 'B', id: '6', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
+    { name: 'B', id: '7', descirption: 'react dev', title: 'Back-end', color: '#f56a00' },
+    { name: 'B', id: '8', descirption: 'Django', title: 'Data-scinse', color: '#f56a00' },
+    { name: 'B', id: '9', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
+    { name: 'B', id: '10', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
   ]);
 
   const [ListTeacherCurs, setListTeacherCurs] = useState<IList[]>([
-    {name: 'B', id: '12', descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
-    {name: 'B', id: '13', descirption: 'react dev', title: 'Back-end', color: '#f56a00'},
-    {name: 'B', id: '14', descirption: 'Django', title: 'Data-scinse', color: '#f56a00'},
-    {name: 'B', id: '15', descirption: 'react dev', title: 'Front-end', color: '#f56a00'},
-    {name: 'B', id: '16', descirption: 'react dev', title:'Front-end',  color: '#f56a00'},
+    { name: 'B', id: '12', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
+    { name: 'B', id: '13', descirption: 'react dev', title: 'Back-end', color: '#f56a00' },
+    { name: 'B', id: '14', descirption: 'Django', title: 'Data-scinse', color: '#f56a00' },
+    { name: 'B', id: '15', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
+    { name: 'B', id: '16', descirption: 'react dev', title: 'Front-end', color: '#f56a00' },
   ]);
 
   return (
@@ -32,13 +31,7 @@ const Drawers: React.FC = () => {
       <Space>
         <MenuOutlined onClick={showDrawer} />
       </Space>
-      <Drawer
-        title="StudyRoom"
-        placement="left"
-        closable={false}
-        onClose={onClose}
-        open={open}
-      >
+      <Drawer title='StudyRoom' placement='left' closable={false} onClose={onClose} open={open}>
         <MenuAside listStudenCurs={ListCurs} ListTeacherCurs={ListTeacherCurs} onClose={onClose} />
       </Drawer>
     </>

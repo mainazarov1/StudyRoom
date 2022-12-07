@@ -23,7 +23,6 @@ import Tasks from '../pages/Tasks/Tasks';
 import Grade from '../pages/Grade/Grade';
 import { Users } from '../pages/Users/Users';
 
-
 interface RouterData {
   id?: string;
   path: string;
@@ -55,7 +54,7 @@ const MainRoutes = () => {
     {
       id: useId(),
       path: '/grade',
-      component: <Grade />
+      component: <Grade />,
     },
     /* Роуты для теста компонента Header */
     // {
@@ -75,37 +74,37 @@ const MainRoutes = () => {
     // },
 
     /* --------------------- */
-    
+
     {
-    	id: useId(),
-    	path: FEED_PAGE,
-    	component: <Feed />
+      id: useId(),
+      path: FEED_PAGE,
+      component: <Feed />,
     },
     {
-    	id: useId(),
-    	path: TASK_LIST_COMPLETED,
-    	component: <TaskListCompleted />
+      id: useId(),
+      path: TASK_LIST_COMPLETED,
+      component: <TaskListCompleted />,
     },
     {
-    	id: useId(),
-    	path: TASK_LIST_ASSIGNED,
-    	component: <TaskListAssigned />
+      id: useId(),
+      path: TASK_LIST_ASSIGNED,
+      component: <TaskListAssigned />,
     },
     {
-    	id: useId(),
-    	path: TASK_LIST_MISSED,
-    	component: <TaskListMissedDeadline/>
+      id: useId(),
+      path: TASK_LIST_MISSED,
+      component: <TaskListMissedDeadline />,
     },
     {
-    	id: useId(),
-    	path: TASKS_PAGE,
-    	component: <Tasks />
+      id: useId(),
+      path: TASKS_PAGE,
+      component: <Tasks />,
     },
-    // {
-    // 	id: useId(),
-    // 	path: USERS_PAGE,
-    // 	component: <Users />
-    // },
+    {
+      id: useId(),
+      path: USERS_PAGE,
+      component: <Users />,
+    },
     // {
     // 	id: useId(),
     // 	path: RATING_PAGE,

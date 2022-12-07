@@ -3,10 +3,12 @@ import { Avatar, Button, Checkbox, Dropdown, Input, Select, Space } from 'antd';
 import { Option } from 'antd/lib/mentions';
 import MenuItem from 'antd/lib/menu/MenuItem';
 import React, { FC, useState } from 'react';
+
 import AppDropdown from '../../../../components/AppDropdown/AppDropdown';
 import { InputApp } from '../../../../components/InputApp/InputApp';
 import { Tiptap } from '../../../../components/TextArea/TextAreaComponent';
 import FullScreenModal from '../../../../containers/FullScreenModal/FullScreenModal';
+
 import style from './tasksModal.module.scss';
 
 interface TasksModapProps {
@@ -79,7 +81,7 @@ const TasksModal: FC<TasksModapProps> = ({ open, handleClose, id, title, htmlCon
       bodyStyle={{
         alignItems: 'stretch',
         flexDirection: 'row',
-        minHeight: `calc(100vh - 55px)`,
+        minHeight: 'calc(100vh - 55px)',
         display: 'flex',
         padding: 0,
         flexGrow: 1,
