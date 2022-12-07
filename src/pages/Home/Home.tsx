@@ -36,7 +36,7 @@ const fastLinks = [
     key: 2,
     icon: <FolderTwoTone twoToneColor='#2962ff' />,
     title: 'Непроверенные задани',
-    link: '/unverifiedЕasks',
+    link: '/unverified-tasks',
     admin: true,
     roots: 1,
   },

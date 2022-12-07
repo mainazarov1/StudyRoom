@@ -32,7 +32,7 @@ const MenuAside:FC<IProps> = ( { listStudenCurs, ListTeacherCurs, onClose }) => 
           <>
             <Divider />
             <Menu.Item key='11' icon={<ReadOutlined />} onClick={onClose} >
-              <NavLink to='/taskList'>
+              <NavLink to='/unverified-tasks'>
                 <span>Не проверенные задание</span>
               </NavLink>
             </Menu.Item>

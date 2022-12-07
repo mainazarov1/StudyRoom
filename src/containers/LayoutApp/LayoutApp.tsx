@@ -50,19 +50,6 @@ let middleItemsTeacher = [
   }
 ]
 
-let notReviewed = [
-  {
-    title: 'Непроверенные задания',
-    path: '/asd',
-    id: 1,
-  },
-  {
-    title: 'Проверенные',
-    path: '/dsa',
-    id: 2,
-  }
-]
-
 let tasks = [
   {
     title: 'Назначено',
@@ -81,6 +68,19 @@ let tasks = [
   }
 ]
 
+let unverifiedPage = [
+  {
+    title: 'Непроверенные задания',
+    path: '/unverified-tasks',
+    id: 1,
+  },
+  {
+    title: 'Проверенные',
+    path: '/verified-tasks', 
+    id: 2,
+  },
+]
+
 
 let leftTrigger = {
   title: 'dwaaw',
@@ -97,8 +97,6 @@ export const LayoutApp: FC = () => {
   const handleNavLink = () => {
 
     switch(pathname) {
-      case '/not-reviewed':
-        return notReviewed;
       case '/taskListCompleted':
         return tasks;
       case '/taskListAssigned':
@@ -113,6 +111,10 @@ export const LayoutApp: FC = () => {
         return middleItemsTeacher;
       case '/evaluatioons':
         return middleItemsTeacher;
+      case '/unverified-tasks':
+        return unverifiedPage;
+      case '/verified-tasks':
+        return unverifiedPage;
       default:
         return [];
     }
@@ -125,7 +127,9 @@ export const LayoutApp: FC = () => {
           <HeaderLogoPlus 
             leftTrigger={leftTrigger}
             middleItems={handleNavLink} 
-            rightComponent={<RightComponent />} 
+            rightComponent={
+              <RightComponent />
+            } 
           />
         </MainHeader>
         <Layout>
