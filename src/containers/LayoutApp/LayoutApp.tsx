@@ -45,7 +45,7 @@ let middleItemsTeacher = [
   },
   {
     title: 'Оценка',
-    path: '/evaluatioons',
+    path: '/grade',
     id: 4,
   }
 ]
@@ -83,7 +83,7 @@ let unverifiedPage = [
 
 
 let leftTrigger = {
-  title: 'dwaaw',
+  title: 'StudyRoom',
   path: '/main',
   id: 1,
 }
@@ -103,13 +103,13 @@ export const LayoutApp: FC = () => {
         return tasks;
       case '/taskListMissed': 
         return tasks;
+      case '/grade':
+        return middleItemsTeacher
       case '/tasks' :
         return middleItemsTeacher;
       case '/feed' :
         return middleItemsTeacher;
       case '/performed': 
-        return middleItemsTeacher;
-      case '/evaluatioons':
         return middleItemsTeacher;
       case '/unverified-tasks':
         return unverifiedPage;

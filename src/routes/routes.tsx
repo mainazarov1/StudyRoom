@@ -9,6 +9,7 @@ import {
   MAIN_PAGE,
   TASKS_PAGE,
   FEED_PAGE,
+  TASK_LIST,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
@@ -20,6 +21,7 @@ import TaskListCompleted from '../pages/TaskListCompleted';
 import Tasks from '../pages/Tasks/Tasks';
 import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
 import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
+import Grade from '../pages/Grade/Grade';
 
 interface RouterData {
   id?: string;
@@ -48,6 +50,16 @@ const MainRoutes = () => {
       id: useId(),
       path: FEED_PAGE,
       component: <Feed />,
+    },
+    {
+      id: useId(),
+      path: '/grade',
+      component: <Grade />
+    },
+    {
+    	id: useId(),
+    	path: FEED_PAGE,
+    	component: <Feed />
     },
     {
     	id: useId(),

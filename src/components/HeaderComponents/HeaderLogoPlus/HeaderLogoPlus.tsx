@@ -5,13 +5,13 @@ import Title from 'antd/lib/typography/Title';
 import { Link, NavLink, Route } from 'react-router-dom';
 
 interface ImiddleItems {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IleftTrigger {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IHeaderLogoPlusProps {
@@ -26,7 +26,14 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, mi
   return (
     <>
       <div className='item'>
-        <Title className="item-title" style={{ margin: 0 }} level={4}> {leftTrigger.path ? <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>  : leftTrigger.title} </Title>
+        <Title className='item-title' style={{ margin: 0 }} level={4}>
+          {' '}
+          {leftTrigger.path ? (
+            <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>
+          ) : (
+            leftTrigger.title
+          )}{' '}
+        </Title>
       </div>
       <div className='header-middle'>
         {arr.map((item) => (
@@ -42,10 +49,7 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, mi
           </div>
         ))}
       </div>
-      {rightComponent && <div className='item right-item'>
-        {rightComponent}
-      </div>}
-
+      {rightComponent && <div className='item right-item'>{rightComponent}</div>}
     </>
   );
 };
