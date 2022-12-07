@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Menu } from 'antd';
+import { Divider, Menu } from 'antd';
 import { HomeOutlined, CalendarOutlined, ReadOutlined, UnorderedListOutlined, FileSyncOutlined, SettingOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom'
 import SideBarMenuItem from '../../components/SideBArMenuItem/SideBarMenuItem';
@@ -30,7 +30,7 @@ const MenuAside:FC<IProps> = ( { listStudenCurs, ListTeacherCurs, onClose }) => 
         isTeacher 
           ?
           <>
-            <hr style={{ height: 1, margin: '10px 0', backgroundColor: '#f0f0f0' } }/>
+            <Divider />
             <Menu.Item key='11' icon={<ReadOutlined />} onClick={onClose} >
               <NavLink to='/taskList'>
                 <span>Не проверенные задание</span>
@@ -45,16 +45,18 @@ const MenuAside:FC<IProps> = ( { listStudenCurs, ListTeacherCurs, onClose }) => 
           : 
           null
       }
-      <hr style={ { height: 1, margin: '10px 0', backgroundColor: '#f0f0f0' } }/>
+      <Divider/>
       <Menu.Item key='3' icon={<UnorderedListOutlined />} onClick={onClose}  >
-        <span>Список Заданий</span>
+        <NavLink to='/taskListAssigned'>
+          <span>Список Заданий</span>
+        </NavLink>
       </Menu.Item>
       {
         listStudenCurs?.map((item) => (
           <SideBarMenuItem key={item.id} item={item} />
         ))
       }
-      <hr style={ {height: 1, margin: '10px 0', backgroundColor: '#f0f0f0'} }/>
+      <Divider/>
       <Menu.Item key='4' icon={<FileSyncOutlined />} onClick={onClose} >
         <span>Архив заданий</span>
       </Menu.Item>

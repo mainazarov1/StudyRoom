@@ -12,78 +12,122 @@ import 'antd/dist/antd.css';
 let middleItems = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
+    id: 1,
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
+    id: 2,
   },
   {
     title: 'Пользователи',
     path: '/performed',
+    id: 3,
   }
 ]
 
 let middleItemsTeacher = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
+    id: 1,
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
+    id: 2,
   },
   {
     title: 'Пользователи',
     path: '/performed',
+    id: 3,
   },
   {
     title: 'Оценка',
-    path: '/aw',
+    path: '/evaluatioons',
+    id: 4,
   }
 ]
 
 let notReviewed = [
   {
     title: 'Непроверенные задания',
-    path: '/asd'
+    path: '/asd',
+    id: 1,
   },
   {
     title: 'Проверенные',
-    path: '/dsa'
+    path: '/dsa',
+    id: 2,
   }
 ]
 
 let tasks = [
   {
     title: 'Назначено',
-    path: '/taskListAssigned'
+    path: '/taskListAssigned',
+    id: 1,
   },
   {
     title: 'Пропущен срок сдачи',
-    path: '/taskListCompleted'
+    path: '/taskListCompleted',
+    id: 2,
   },
   {
     title: 'Выполнено',
-    path: '/taskListMissed'
+    path: '/taskListMissed',
+    id: 3,
   }
 ]
 
 
 let leftTrigger = {
   title: 'dwaaw',
-  path: '/main'
+  path: '/main',
+  id: 1,
 }
 
-const isTeacher = false;
+const isTeacher = true;
 
 export const LayoutApp: FC = () => {
-  const location = useLocation();
-  console.log(location)
+  const {pathname} = useLocation();
+  console.log(pathname)
+
+  const handleNavLink = () => {
+
+    switch(pathname) {
+      case '/not-reviewed':
+        return notReviewed;
+      case '/taskListCompleted':
+        return tasks;
+      case '/taskListAssigned':
+        return tasks;
+      case '/taskListMissed': 
+        return tasks;
+      case '/tasks' :
+        return middleItemsTeacher;
+      case '/feed' :
+        return middleItemsTeacher;
+      case '/performed': 
+        return middleItemsTeacher;
+      case '/evaluatioons':
+        return middleItemsTeacher;
+      default:
+        return [];
+    }
+  }
+
   return (
     <Layout>
       <Layout>
-        <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems} rightComponent={<RightComponent />} />} />
+        <MainHeader >
+          <HeaderLogoPlus 
+            leftTrigger={leftTrigger}
+            middleItems={handleNavLink} 
+            rightComponent={<RightComponent />} 
+          />
+        </MainHeader>
         <Layout>
           <Outlet />
         </Layout>
