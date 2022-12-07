@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useRevalidator } from 'react-router-dom';
 
 import { Home } from '../pages/Home/Home';
 import { Auth } from '../pages/Auth/Auth';
@@ -19,6 +19,8 @@ import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
 import TaskListCompleted from '../pages/TaskListCompleted';
 import Tasks from '../pages/Tasks/Tasks';
+import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
+import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
 import Grade from '../pages/Grade/Grade';
 
 interface RouterData {
@@ -54,25 +56,6 @@ const MainRoutes = () => {
       path: '/grade',
       component: <Grade />
     },
-    /* Роуты для теста компонента Header */
-    // {
-    //   id: useId(),
-    //   path: '/not-reviewed',
-    //   component: <div />
-    // },
-    // {
-    //   id: useId(),
-    //   path: '/tasks',
-    //   component: <div />
-    // },
-    // {
-    //   id: useId(),
-    //   path: '/course',
-    //   component: <div />
-    // },
-
-    /* --------------------- */
-    
     {
     	id: useId(),
     	path: FEED_PAGE,
@@ -98,6 +81,16 @@ const MainRoutes = () => {
     	path: TASKS_PAGE,
     	component: <Tasks />
     },
+    {
+      id: useId(),
+      path: '/unverified-tasks',
+      component: <UnverifiedTasks />
+    },
+    {
+      id: useId(),
+      path: '/verified-tasks',
+      component: <VerifiedTasks />
+    }
     // {
     // 	id: useId(),
     // 	path: USERS_PAGE,

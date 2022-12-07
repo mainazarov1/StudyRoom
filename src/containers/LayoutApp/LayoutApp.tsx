@@ -12,78 +12,126 @@ import 'antd/dist/antd.css';
 const middleItems = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
+    id: 1,
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
+    id: 2,
   },
   {
     title: 'Пользователи',
     path: '/performed',
+    id: 3,
   }
 ];
 
 const middleItemsTeacher = [
   {
     title: 'Лента',
-    path: '/feed'
+    path: '/feed',
+    id: 1,
   },
   {
     title: 'Задания',
-    path: '/tasks'
+    path: '/tasks',
+    id: 2,
   },
   {
     title: 'Пользователи',
     path: '/performed',
+    id: 3,
   },
   {
     title: 'Оценка',
-    path: '/aw',
-  }
-];
-
-const notReviewed = [
-  {
-    title: 'Непроверенные задания',
-    path: '/asd'
-  },
-  {
-    title: 'Проверенные',
-    path: '/dsa'
+    path: '/grade',
+    id: 4,
   }
 ];
 
 const tasks = [
   {
     title: 'Назначено',
-    path: '/taskListAssigned'
+    path: '/taskListAssigned',
+    id: 1,
   },
   {
     title: 'Пропущен срок сдачи',
-    path: '/taskListCompleted'
+    path: '/taskListCompleted',
+    id: 2,
   },
   {
     title: 'Выполнено',
-    path: '/taskListMissed'
+    path: '/taskListMissed',
+    id: 3,
   }
 ];
 
+let unverifiedPage = [
+  {
+    title: 'Непроверенные задания',
+    path: '/unverified-tasks',
+    id: 1,
+  },
+  {
+    title: 'Проверенные',
+    path: '/verified-tasks', 
+    id: 2,
+  },
+]
 
-const leftTrigger = {
-  title: 'dwaaw',
-  path: '/main'
-};
 
-const isTeacher = false;
+let leftTrigger = {
+  title: 'StudyRoom',
+  path: '/main',
+  id: 1,
+}
+
+const isTeacher = true;
 
 export const LayoutApp: FC = () => {
-  const location = useLocation();
-  console.log(location);
+  const {pathname} = useLocation();
+  console.log(pathname)
+
+  const handleNavLink = () => {
+
+    switch(pathname) {
+      case '/taskListCompleted':
+        return tasks;
+      case '/taskListAssigned':
+        return tasks;
+      case '/taskListMissed': 
+        return tasks;
+      case '/grade':
+        return middleItemsTeacher
+      case '/tasks' :
+        return middleItemsTeacher;
+      case '/feed' :
+        return middleItemsTeacher;
+      case '/performed': 
+        return middleItemsTeacher;
+      case '/unverified-tasks':
+        return unverifiedPage;
+      case '/verified-tasks':
+        return unverifiedPage;
+      default:
+        return [];
+    }
+  }
+
   return (
     <Layout>
       <Layout>
-        <MainHeader children={<HeaderLogoPlus leftTrigger={leftTrigger} middleItems={location.pathname == '/main' ? [] : location.pathname == '/not-reviewed' ? notReviewed : location.pathname == '/tasks' ? tasks : isTeacher ? middleItemsTeacher : middleItems} rightComponent={<RightComponent />} />} />
+        <MainHeader >
+          <HeaderLogoPlus 
+            leftTrigger={leftTrigger}
+            middleItems={handleNavLink} 
+            rightComponent={
+              <RightComponent />
+            } 
+          />
+        </MainHeader>
         <Layout>
           <Outlet />
         </Layout>

@@ -47,8 +47,9 @@ const AssignedTask:FC = () => {
       <List
         itemLayout="horizontal"
         dataSource={data}
-        renderItem={(item) => (
+        renderItem={(item, i) => (
           <List.Item
+            key={i}
             style={{padding: '16px 24px', border: '0.0625rem solid #dadce0', borderRadius: 12, marginTop: 24,}}
           >
             <List.Item.Meta

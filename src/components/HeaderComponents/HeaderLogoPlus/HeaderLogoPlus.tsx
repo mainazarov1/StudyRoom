@@ -15,16 +15,14 @@ interface IleftTrigger {
 }
 
 interface IHeaderLogoPlusProps {
-  rightComponent?: JSX.Element;
-  leftTrigger: IleftTrigger;
-  middleItems: ImiddleItems[];
+    rightComponent?: JSX.Element,
+    leftTrigger: IleftTrigger,
+    middleItems: () => ImiddleItems[]
 }
 
-export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
-  leftTrigger,
-  middleItems,
-  rightComponent,
-}) => {
+
+export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, middleItems, rightComponent }) => {
+  const arr = middleItems()
   return (
     <>
       <div className='item'>
@@ -38,10 +36,13 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
         </Title>
       </div>
       <div className='header-middle'>
-        {middleItems.map((item) => (
-          <div key={item.title} className='header-middle-item'>
+        {arr.map((item) => (
+          <div
+            className='header-middle-item'>
             <Title style={{ margin: 0 }} level={5}>
-              <NavLink to={item.path} className={({ isActive }) => (isActive ? 'active' : '')}>
+              <NavLink to={item.path} className={({ isActive }) =>
+                isActive ? 'active' : ''
+              }>
                 {item.title}
               </NavLink>
             </Title>
