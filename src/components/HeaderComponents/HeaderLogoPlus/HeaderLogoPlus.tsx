@@ -17,33 +17,39 @@ interface IleftTrigger {
 interface IHeaderLogoPlusProps {
     rightComponent?: JSX.Element,
     leftTrigger: IleftTrigger,
-    middleItems: ImiddleItems[]
+    middleItems: () => ImiddleItems[]
 }
 
 
 export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, middleItems, rightComponent }) => {
-    return (
-        <>
-            <div className='item'>
-                <Title className="item-title" style={{ margin: 0 }} level={4}> {leftTrigger.path ? <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>  : leftTrigger.title} </Title>
-            </div>
-            <div className='header-middle'>
-                {middleItems.map((item) => (
-                    <div
-                        className='header-middle-item'>
-                        <Title style={{ margin: 0 }} level={5}>
-                            <NavLink to={item.path} className={({ isActive }) =>
-                                isActive ? 'active' : ''
-                            }>{item.title}
-                            </NavLink>
-                        </Title>
-                    </div>
-                ))}
-            </div>
-            {rightComponent && <div className='item right-item'>
-                {rightComponent}
-            </div>}
-
-        </>
-    )
-}
+  const arr = middleItems()
+  return (
+    <>
+      <div className='item'>
+        <Title className='item-title' style={{ margin: 0 }} level={4}>
+          {' '}
+          {leftTrigger.path ? (
+            <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>
+          ) : (
+            leftTrigger.title
+          )}{' '}
+        </Title>
+      </div>
+      <div className='header-middle'>
+        {arr.map((item) => (
+          <div
+            className='header-middle-item'>
+            <Title style={{ margin: 0 }} level={5}>
+              <NavLink to={item.path} className={({ isActive }) =>
+                isActive ? 'active' : ''
+              }>
+                {item.title}
+              </NavLink>
+            </Title>
+          </div>
+        ))}
+      </div>
+      {rightComponent && <div className='item right-item'>{rightComponent}</div>}
+    </>
+  );
+};

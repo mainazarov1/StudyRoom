@@ -21,8 +21,6 @@ const ReferToCourse: FC = () => {
     descirption: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
   };
 
-  console.log(messageValue);
-
   const onMenuClick: MenuProps['onClick'] = (e) => {
     console.log('click', e);
   };
@@ -170,12 +168,17 @@ const ReferToCourse: FC = () => {
                 </Space>
               </Dropdown>
             </div>
-            <Tiptap setStateShow={setMessages} />
-            <div className={s.btns}>
-              <Button type='text' onClick={handleChange}>
+            <Tiptap setStateShow={setMessages} /> 
+            <div className={s.btns} >
+              <Button
+                size='large'
+                type="text"
+                onClick={handleChange}
+              >
                 Отмена
               </Button>
-              <Dropdown.Button
+              <Dropdown.Button 
+                size='large'
                 onClick={handleChange}
                 type='primary'
                 menu={{ items, onClick: onMenuClick }}
