@@ -14,21 +14,21 @@ interface IColor {
 
 const ModalSettings:FC = () => {
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState(1)
+  const [ID, setID] = useState(1)
   const [colorArr, setColorArr] = useState<IColor[]>([
-    {color: '#1967d2', id: 1, active: true}, 
-    {color: '#1e8e3e', id: 2, active: false}, 
-    {color: '#e52592', id: 3, active: false},
-    {color: '#e8710a', id: 4, active: false},
-    {color: '#129eaf', id: 5, active: false},
-    {color: '#9334e6', id: 6, active: false},
-    {color: '#4285f4', id: 7, active: false},
-    {color: '#5f6368', id: 8, active: false},
+    {color: '#1967d2', id: 54, active: true}, 
+    {color: '#1e8e3e', id: 79, active: false}, 
+    {color: '#e52592', id: 72, active: false},
+    {color: '#e8710a', id: 55, active: false},
+    {color: '#129eaf', id: 53, active: false},
+    {color: '#9334e6', id: 64, active: false},
+    {color: '#4285f4', id: 89, active: false},
+    {color: '#5f6368', id: 27, active: false},
   ]);
 
-  const handleClick = (ID: number) => {
-    setActiveId(ID)
-    colorArr.map(({id, active}) => ID === id ? active = true : active = false)
+  const handleClick = (id: number) => {
+    setID(id)
+    colorArr.map(item => item.id === ID ? item.active = true: item.active = false)
   }
   
   const showModal = () => {
