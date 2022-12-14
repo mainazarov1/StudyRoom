@@ -53,7 +53,7 @@ const MenuAside:FC<IProps> = ( { listStudenCurs, ListTeacherCurs, onClose }) => 
       </Menu.Item>
       {
         listStudenCurs?.map((item) => (
-          <SideBarMenuItem key={item.id} item={item} />
+          <SideBarMenuItem key={item.id} onClose={onClose} item={item} />
         ))
       }
       <Divider/>
