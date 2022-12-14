@@ -8,3 +8,8 @@
   background-color: rgba(0, 0, 0, 0.141);
   transform: translate(14px)
 }
+
+.avatar {
+  background-color: var(#{--default-color})
+  
+}

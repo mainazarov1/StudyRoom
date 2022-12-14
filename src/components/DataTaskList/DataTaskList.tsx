@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { RetweetOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 import { Avatar } from 'antd';
 
 import s from './DataTaskList.module.scss';
@@ -37,14 +36,14 @@ const DataTaskList = () => {
                 gap={1}
               >
                 S
-              </Avatar>{' '}
+              </Avatar>
               StudyRoom
             </td>
             <td>Bakytbekov Beksultan</td>
             <td>10 мая</td>
           </tr>
           {arr.map((item) => (
-            <tr>
+            <tr key={item.title}>
               <td>
                 <Avatar
                   style={{ backgroundColor: 'blue', verticalAlign: 'middle' }}

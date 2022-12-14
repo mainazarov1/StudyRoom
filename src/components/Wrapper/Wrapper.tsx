@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { ExclamationCircleOutlined, ExclamationCircleFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 

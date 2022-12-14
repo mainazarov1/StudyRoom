@@ -1,24 +1,26 @@
-import { Dropdown, Row, Col, Typography, Avatar, Tooltip, Menu } from 'antd';
+import { Avatar, Col, Dropdown, Menu, Row, Tooltip, Typography } from 'antd';
 import Icon, { EllipsisOutlined } from '@ant-design/icons';
 import { MenuInfo } from 'rc-menu/lib/interface';
-import { Draggable } from 'react-beautiful-dnd';
-import { useState } from 'react';
+// eslint-disable-next-line import/named
+import { Draggable, DraggingStyle, NotDraggingStyle } from 'react-beautiful-dnd';
+import { NavLink } from 'react-router-dom';
 
 import s from './style.module.scss';
 
 import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 
-const { Title, Link, Text } = Typography;
+const { Title, Text } = Typography;
 
 interface CardProps {
   id: string;
   background: string | null;
-  craetorAvatar: string | null;
+  creatorAvatar: string | null;
   title: string;
   chapter: string;
   creator: string;
   isTeacher: boolean;
   index: number;
+  pathToGrade: string;
 }
 
 const ProfileSvg = () => (
@@ -90,26 +92,28 @@ const studentMenuItems = (
   </Menu>
 );
 
-const getItemStyle = (isDragging: boolean, draggableStyle: any) => ({
+const getItemStyle = (
+  isDragging: boolean,
+  draggableStyle: DraggingStyle | NotDraggingStyle | undefined,
+) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: 'none',
 
-  // change background colour if dragging
   background: 'white',
   boxShadow: isDragging ? '' : '',
-  // styles we need to apply on draggables
   ...draggableStyle,
 });
 
 export const Card = ({
   id,
   background,
-  craetorAvatar,
+  creatorAvatar,
   title,
   chapter,
   creator,
   isTeacher,
   index,
+  pathToGrade,
 }: CardProps) => {
   return (
     <Draggable draggableId={id} index={index}>
@@ -122,7 +126,6 @@ export const Card = ({
           style={getItemStyle(snapshot.isDragging, provided.draggableProps.style)}
         >
           <div className={s.home__card}>
-            {console.log(provided.draggableProps.style)}
             <div className={s.card__top}>
               <div
                 style={{ background: background == '' ? '' : 'orange' }}
@@ -133,13 +136,12 @@ export const Card = ({
                   style={{ display: 'flex', justifyContent: 'space-between' }}
                   level={2}
                 >
-                  <Link className={s.card__top__link} href=''>
+                  <NavLink to={'/feed'} className={s.card__top__link}>
                     <Title className={s.card__title} level={2}>
-                      {' '}
-                      {title}{' '}
+                      {title}
                     </Title>
                     <Text className={s.card__chapter}> {chapter} </Text>
-                  </Link>
+                  </NavLink>
                   <Dropdown
                     destroyPopupOnHide={true}
                     trigger={['click']}
@@ -158,16 +160,16 @@ export const Card = ({
               {isTeacher ? null : (
                 <Avatar
                   className={s.card__avatar}
-                  src={craetorAvatar}
+                  src={creatorAvatar}
                   style={{ backgroundColor: 'orange', verticalAlign: 'middle' }}
                   size='large'
                 />
               )}
             </div>
-            <Row gutter={20} align={'center'} justify={'end'} className={s.card__bottom}>
+            <Row gutter={20} align='middle' justify={'end'} className={s.card__bottom}>
               <Col>
                 <div className={s.card__icon__wrap}>
-                  {isTeacher == true ? (
+                  {isTeacher ? (
                     <Tooltip
                       className={s.card__tooltip}
                       color='#3C4043'
@@ -175,7 +177,9 @@ export const Card = ({
                       overlayStyle={{ borderRadius: '4px', width: '200px' }}
                       title={`Открыть журнал успеваемости по курсу ${title}`}
                     >
-                      <StatisticIcon className={s.card__icon} style={{ color: 'black' }} />
+                      <NavLink to={pathToGrade}>
+                        <StatisticIcon className={s.card__icon} style={{ color: 'black' }} />
+                      </NavLink>
                     </Tooltip>
                   ) : (
                     <Tooltip

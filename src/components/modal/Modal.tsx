@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Modal } from 'antd';
 
 interface ModalFuncProps {
@@ -10,6 +10,7 @@ interface ModalFuncProps {
   footer?: any[];
   width?: number;
   title?: string;
+  closable?: boolean;
 }
 
 const ModalComponents: FC<ModalFuncProps> = (props) => {

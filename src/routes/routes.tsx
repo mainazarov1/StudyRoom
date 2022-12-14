@@ -9,7 +9,6 @@ import {
   MAIN_PAGE,
   TASKS_PAGE,
   FEED_PAGE,
-  TASK_LIST,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
@@ -20,6 +19,8 @@ import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
 import TaskListCompleted from '../pages/TaskListCompleted';
 import Tasks from '../pages/Tasks/Tasks';
+import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
+import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
 import Grade from '../pages/Grade/Grade';
 import { Users } from '../pages/Users/Users';
 
@@ -31,21 +32,11 @@ interface RouterData {
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES: RouterData[] = [
-    // {
-    //   id: useId(),
-    //   path: AUTH_PAGE,
-    //   component: <Auth />,
-    // },
-
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
-    // {
-    //   id: useId(),
-    //   path: TAPE_PAGE,
-    //   component: <Tape />,
     {
       id: useId(),
       path: FEED_PAGE,
@@ -56,25 +47,6 @@ const MainRoutes = () => {
       path: '/grade',
       component: <Grade />,
     },
-    /* Роуты для теста компонента Header */
-    // {
-    //   id: useId(),
-    //   path: '/not-reviewed',
-    //   component: <div />
-    // },
-    // {
-    //   id: useId(),
-    //   path: '/tasks',
-    //   component: <div />
-    // },
-    // {
-    //   id: useId(),
-    //   path: '/course',
-    //   component: <div />
-    // },
-
-    /* --------------------- */
-
     {
       id: useId(),
       path: FEED_PAGE,
@@ -105,20 +77,17 @@ const MainRoutes = () => {
       path: USERS_PAGE,
       component: <Users />,
     },
-    // {
-    // 	id: useId(),
-    // 	path: RATING_PAGE,
-    // 	component: <Rating />
-    // },
+    {
+      id: useId(),
+      path: '/unverified-tasks',
+      component: <UnverifiedTasks />,
+    },
+    {
+      id: useId(),
+      path: '/verified-tasks',
+      component: <VerifiedTasks />,
+    },
   ];
-
-  // const PRIVATE_ROUTES: RouterData[] = [
-  //   {
-  //     id: useId(),
-  //     link: ADMIN_MAIN_PAGE,
-  //     element: <AdminPage />,
-  //   },
-  // ];
 
   return (
     <React.Suspense fallback={<span> Loading...</span>}>
@@ -129,11 +98,6 @@ const MainRoutes = () => {
             <Route path={path} element={component} key={id} />
           ))}
         </Route>
-        {/* <Route>
-					{PRIVATE_ROUTES.map(({ id, link, element }) => (
-						<Route path={link} element={element} key={id} />
-					))}
-				</Route> */}
       </Routes>
     </React.Suspense>
   );

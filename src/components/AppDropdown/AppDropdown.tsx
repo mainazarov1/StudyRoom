@@ -1,7 +1,6 @@
-import { DownOutlined, TeamOutlined } from '@ant-design/icons';
-import { Avatar, Checkbox, Dropdown, Menu, Space, Typography } from 'antd';
-import MenuItem from 'antd/lib/menu/MenuItem';
-import React, { FC, ReactNode } from 'react';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space, Typography } from 'antd';
+import { FC, ReactNode, useState } from 'react';
 
 import s from './appDropdown.module.scss';
 
@@ -14,7 +13,7 @@ interface IAppDropdownProps {
 }
 
 const AppDropdown: FC<IAppDropdownProps> = ({ title, children, width }) => {
-  const [studentDropOpen, setStudentDropOpen] = React.useState<boolean>(false);
+  const [studentDropOpen, setStudentDropOpen] = useState<boolean>(false);
   const menuStudent = (
     <Menu style={{ width: `${width}` }} className={s.modal__menu}>
       {children}

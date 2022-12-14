@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Menu } from 'antd';
+import { Divider, Menu } from 'antd';
 import {
   HomeOutlined,
   CalendarOutlined,
@@ -36,9 +36,9 @@ const MenuAside: FC<IProps> = ({ listStudenCurs, ListTeacherCurs, onClose }) => 
       </Menu.Item>
       {isTeacher ? (
         <>
-          <hr style={{ height: 1, margin: '10px 0', backgroundColor: '#f0f0f0' }} />
+          <Divider />
           <Menu.Item key='11' icon={<ReadOutlined />} onClick={onClose}>
-            <NavLink to='/taskList'>
+            <NavLink to='/unverified-tasks'>
               <span>Не проверенные задание</span>
             </NavLink>
           </Menu.Item>
@@ -47,14 +47,16 @@ const MenuAside: FC<IProps> = ({ listStudenCurs, ListTeacherCurs, onClose }) => 
           ))}
         </>
       ) : null}
-      <hr style={{ height: 1, margin: '10px 0', backgroundColor: '#f0f0f0' }} />
+      <Divider />
       <Menu.Item key='3' icon={<UnorderedListOutlined />} onClick={onClose}>
-        <span>Список Заданий</span>
+        <NavLink to='/taskListAssigned'>
+          <span>Список Заданий</span>
+        </NavLink>
       </Menu.Item>
       {listStudenCurs?.map((item) => (
         <SideBarMenuItem key={item.id} item={item} />
       ))}
-      <hr style={{ height: 1, margin: '10px 0', backgroundColor: '#f0f0f0' }} />
+      <Divider />
       <Menu.Item key='4' icon={<FileSyncOutlined />} onClick={onClose}>
         <span>Архив заданий</span>
       </Menu.Item>

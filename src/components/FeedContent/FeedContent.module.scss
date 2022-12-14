@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 .feed_content {
+=======
+@import '../../styles/variables.scss';
+
+.feed_contebt {
+>>>>>>> islam
   display: flex;
   gap: 24px;
 
@@ -39,6 +45,9 @@
       border-radius: 12px;
       border: 1px #dadce0 solid;
       font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
 
       .block_heading {
         font-size: 16px;
@@ -49,4 +58,16 @@
   .feed_rigth {
     width: 100%;
   }
+}
+
+.code, .btn {
+  color: var(#{--default-color});
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus
+{
+  background-color: var(#{--default-hover-color})!important;
+  color: var(#{--default-color});
 }

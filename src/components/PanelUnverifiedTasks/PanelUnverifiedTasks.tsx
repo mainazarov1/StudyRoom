@@ -1,15 +1,18 @@
-import { FC, useState } from 'react';
-import { Collapse, Avatar, List, Button } from 'antd';
-import { DownOutlined, SnippetsOutlined } from '@ant-design/icons';
+import React, { FC, useState } from 'react';
+import { Collapse, Avatar, List, Button, Dropdown, type MenuProps } from 'antd';
+import { DownOutlined, MoreOutlined, SnippetsOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
-import s from './PanelItem.module.scss';
+import s from '../PanelUnverifiedTasks/PanelUnverifiedTasks.module.scss';
 
 const { Panel } = Collapse;
 
 interface IArrList {
   title?: string;
   description?: string;
-  state?: string;
+  stateFirst?: string;
+  stateSecond?: string;
+  stateThird?: string;
   color?: string;
 }
 
@@ -17,6 +20,13 @@ interface IProps {
   arr: IArrList[];
   heading: string;
 }
+
+const items: MenuProps['items'] = [
+  {
+    label: 'Отметить как проверенное',
+    key: '0',
+  },
+];
 
 const PanelItem: FC<IProps> = ({ arr, heading }) => {
   const [listState, setListState] = useState<boolean>(true);
@@ -47,11 +57,26 @@ const PanelItem: FC<IProps> = ({ arr, heading }) => {
                 title={item.title}
                 description={item.description}
               />
-              <span style={{ width: 200, textAlign: 'center' }}>
-                <span>hello</span>
+              <span style={{ width: '100px', textAlign: 'center' }}>
+                <span>0</span>
                 <br />
-                {item.state}
+                <span>{item.stateFirst}</span>
               </span>
+              <span style={{ width: '100px', textAlign: 'center' }}>
+                <span>0</span>
+                <br />
+                {item.stateSecond}
+              </span>
+              <span style={{ width: '200px', textAlign: 'center' }}>
+                <span>0</span>
+                <br />
+                {item.stateThird}
+              </span>
+              <Dropdown menu={{ items: items }} trigger={['click']}>
+                <Link to='#' onClick={(e) => e.preventDefault()}>
+                  <MoreOutlined style={{ color: '#000' }} />
+                </Link>
+              </Dropdown>
             </List.Item>
           )}
         />

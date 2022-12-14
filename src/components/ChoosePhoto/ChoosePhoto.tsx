@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Col, Divider, Row } from 'antd';
+import { Col, Row } from 'antd';
 
 const style: React.CSSProperties = { background: '#0092ff', width: '100%', borderRadius: 3 };
 
@@ -17,7 +17,7 @@ const ChoosePhoto: FC<IProps> = ({ arr }) => {
     <>
       <Row gutter={[4, 4]}>
         {arr.map((item, i) => (
-          <Col className='gutter-row' span={6}>
+          <Col key={item.url} className='gutter-row' span={6}>
             <img key={i} style={style} src={item.url} alt={item.type} />
           </Col>
         ))}
