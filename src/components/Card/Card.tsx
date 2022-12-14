@@ -1,15 +1,15 @@
-import {Avatar, Col, Dropdown, Menu, Row, Tooltip, Typography} from 'antd';
-import Icon, {EllipsisOutlined} from '@ant-design/icons';
-import {MenuInfo} from 'rc-menu/lib/interface';
+import { Avatar, Col, Dropdown, Menu, Row, Tooltip, Typography } from 'antd';
+import Icon, { EllipsisOutlined } from '@ant-design/icons';
+import { MenuInfo } from 'rc-menu/lib/interface';
 // eslint-disable-next-line import/named
-import {Draggable, DraggingStyle, NotDraggingStyle} from 'react-beautiful-dnd';
-import {NavLink} from 'react-router-dom';
+import { Draggable, DraggingStyle, NotDraggingStyle } from 'react-beautiful-dnd';
+import { NavLink } from 'react-router-dom';
 
 import s from './style.module.scss';
 
-import type {CustomIconComponentProps} from '@ant-design/icons/lib/components/Icon';
+import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 
-const {Title, Link, Text} = Typography;
+const { Title, Link, Text } = Typography;
 
 interface CardProps {
   id: string;
@@ -87,7 +87,7 @@ const studentMenuItems = (
     <Menu.Item className={s.card__dropdown__item} key={'Покинуть курс'}>
       Покинуть курс
     </Menu.Item>
-    <Menu.Divider className={s.card__dropdown__divider}/>
+    <Menu.Divider className={s.card__dropdown__divider} />
     <Menu.Item className={s.card__dropdown__item} key={'Пожаловаться'}>
       {' '}
       Пожаловаться
@@ -131,27 +131,27 @@ export const Card = ({
           <div className={s.home__card}>
             <div className={s.card__top}>
               <div
-                style={{background: background == '' ? '' : 'orange'}}
+                style={{ background: background == '' ? '' : 'orange' }}
                 className={s.card__info}
               >
                 <Title
                   className={s.card__title__wrap}
-                  style={{display: 'flex', justifyContent: 'space-between'}}
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
                   level={2}
                 >
-                  <Link className={s.card__top__link} href="">
+                  <NavLink to={'/feed'} className={s.card__top__link}  >
                     <Title className={s.card__title} level={2}>
                       {title}
                     </Title>
                     <Text className={s.card__chapter}> {chapter} </Text>
-                  </Link>
+                  </NavLink>
                   <Dropdown
                     destroyPopupOnHide={true}
                     trigger={['click']}
                     className={s.card__dropdown}
                     overlay={isTeacher ? teacherMenuItems : studentMenuItems}
                   >
-                    <EllipsisOutlined/>
+                    <EllipsisOutlined />
                   </Dropdown>
                 </Title>
                 <div>
@@ -164,7 +164,7 @@ export const Card = ({
                 <Avatar
                   className={s.card__avatar}
                   src={creatorAvatar}
-                  style={{backgroundColor: 'orange', verticalAlign: 'middle'}}
+                  style={{ backgroundColor: 'orange', verticalAlign: 'middle' }}
                   size="large"
                 />
               )}
@@ -176,23 +176,23 @@ export const Card = ({
                     <Tooltip
                       className={s.card__tooltip}
                       color="#3C4043"
-                      overlayInnerStyle={{color: '#D6D8DB'}}
-                      overlayStyle={{borderRadius: '4px', width: '200px'}}
+                      overlayInnerStyle={{ color: '#D6D8DB' }}
+                      overlayStyle={{ borderRadius: '4px', width: '200px' }}
                       title={`Открыть журнал успеваемости по курсу ${title}`}
                     >
                       <NavLink to={pathToGrade}>
-                        <StatisticIcon className={s.card__icon} style={{color: 'black'}}/>
+                        <StatisticIcon className={s.card__icon} style={{ color: 'black' }} />
                       </NavLink>
                     </Tooltip>
                   ) : (
                     <Tooltip
                       className={s.card__tooltip}
                       color="#3C4043"
-                      overlayInnerStyle={{color: '#D6D8DB'}}
-                      overlayStyle={{borderRadius: '4px', width: '200px'}}
+                      overlayInnerStyle={{ color: '#D6D8DB' }}
+                      overlayStyle={{ borderRadius: '4px', width: '200px' }}
                       title={`Открыть работу: ${title}`}
                     >
-                      <ProfileIcon className={s.card__icon} style={{color: 'black'}}/>
+                      <ProfileIcon className={s.card__icon} style={{ color: 'black' }} />
                     </Tooltip>
                   )}
                 </div>
@@ -202,12 +202,12 @@ export const Card = ({
                   <Tooltip
                     className={s.card__tooltip}
                     color="#3C4043"
-                    overlayInnerStyle={{color: '#D6D8DB'}}
-                    overlayStyle={{borderRadius: '4px', width: '200px'}}
+                    overlayInnerStyle={{ color: '#D6D8DB' }}
+                    overlayStyle={{ borderRadius: '4px', width: '200px' }}
                     autoAdjustOverflow={true}
                     title={`Открыть папку курса ${title} ${chapter} на Google Диске`}
                   >
-                    <FolderIcon className={s.card__icon} style={{color: 'black'}}/>
+                    <FolderIcon className={s.card__icon} style={{ color: 'black' }} />
                   </Tooltip>
                 </div>
               </Col>
