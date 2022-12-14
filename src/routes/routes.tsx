@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { Route, Routes, useRevalidator } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Home } from '../pages/Home/Home';
 import { Auth } from '../pages/Auth/Auth';
@@ -9,7 +9,6 @@ import {
   MAIN_PAGE,
   TASKS_PAGE,
   FEED_PAGE,
-  TASK_LIST,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
@@ -33,21 +32,11 @@ interface RouterData {
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES: RouterData[] = [
-    // {
-    //   id: useId(),
-    //   path: AUTH_PAGE,
-    //   component: <Auth />,
-    // },
-
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
-    // {
-    //   id: useId(),
-    //   path: TAPE_PAGE,
-    //   component: <Tape />,
     {
       id: useId(),
       path: FEED_PAGE,
@@ -91,32 +80,14 @@ const MainRoutes = () => {
     {
       id: useId(),
       path: '/unverified-tasks',
-      component: <UnverifiedTasks />
+      component: <UnverifiedTasks />,
     },
     {
       id: useId(),
       path: '/verified-tasks',
-      component: <VerifiedTasks />
-    }
-    // {
-    // 	id: useId(),
-    // 	path: USERS_PAGE,
-    // 	component: <Users />
-    // },
-    // {
-    // 	id: useId(),
-    // 	path: RATING_PAGE,
-    // 	component: <Rating />
-    // },
+      component: <VerifiedTasks />,
+    },
   ];
-
-  // const PRIVATE_ROUTES: RouterData[] = [
-  //   {
-  //     id: useId(),
-  //     link: ADMIN_MAIN_PAGE,
-  //     element: <AdminPage />,
-  //   },
-  // ];
 
   return (
     <React.Suspense fallback={<span> Loading...</span>}>
@@ -127,11 +98,6 @@ const MainRoutes = () => {
             <Route path={path} element={component} key={id} />
           ))}
         </Route>
-        {/* <Route>
-					{PRIVATE_ROUTES.map(({ id, link, element }) => (
-						<Route path={link} element={element} key={id} />
-					))}
-				</Route> */}
       </Routes>
     </React.Suspense>
   );

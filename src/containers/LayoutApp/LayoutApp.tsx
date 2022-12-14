@@ -23,7 +23,7 @@ const middleItems = [
     title: 'Пользователи',
     path: '/performed',
     id: 3,
-  }
+  },
 ];
 
 const middleItemsTeacher = [
@@ -46,7 +46,7 @@ const middleItemsTeacher = [
     title: 'Оценка',
     path: '/grade',
     id: 4,
-  }
+  },
 ];
 
 const tasks = [
@@ -64,7 +64,7 @@ const tasks = [
     title: 'Выполнено',
     path: '/taskListMissed',
     id: 3,
-  }
+  },
 ];
 
 const unverifiedPage = [
@@ -92,28 +92,28 @@ export const LayoutApp: FC = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
-  const handleNavLink = () => {
-    switch (pathname) {
-      case '/taskListCompleted':
-        return tasks;
-      case '/taskListAssigned':
-        return tasks;
-      case '/taskListMissed':
-        return tasks;
-      case '/grade':
-        return middleItemsTeacher;
-      case '/tasks':
-        return middleItemsTeacher;
-      case '/feed':
-        return middleItemsTeacher;
-      case '/performed':
-        return middleItemsTeacher;
-      case '/unverified-tasks':
-        return unverifiedPage;
-      case '/verified-tasks':
-        return unverifiedPage;
-      default:
-        return [];
+	const handleNavLink = () => {
+		switch (pathname) {
+    case '/taskListCompleted':
+      return tasks;
+    case '/taskListAssigned':
+      return tasks;
+    case '/taskListMissed':
+      return tasks;
+    case '/grade':
+      return middleItemsTeacher;
+    case '/tasks':
+      return middleItemsTeacher;
+    case '/feed':
+      return middleItemsTeacher;
+    case '/performed':
+      return middleItemsTeacher;
+    case '/unverified-tasks':
+      return unverifiedPage;
+    case '/verified-tasks':
+      return unverifiedPage;
+    default:
+      return [];
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react';
+import { CSSProperties, useState, FC } from 'react';
 import { CalendarTwoTone, FolderTwoTone, ReconciliationTwoTone } from '@ant-design/icons';
 import { Layout, Row, Space, Typography } from 'antd';
 import { NavLink } from 'react-router-dom';
@@ -52,7 +52,7 @@ const fastLinks = [
   },
 ];
 
-export const Home: React.FC = () => {
+export const Home: FC = () => {
   const [content, setContent] = useState([
     {
       id: '1',
@@ -64,7 +64,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '2',
@@ -76,7 +76,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '3',
@@ -88,7 +88,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '4',
@@ -100,7 +100,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: true,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '5',
@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '26',
@@ -124,7 +124,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '15',
@@ -136,7 +136,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
     {
       id: '22',
@@ -148,7 +148,7 @@ export const Home: React.FC = () => {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
       src: '/feed',
-      pathToGrade: '/grade'
+      pathToGrade: '/grade',
     },
   ]);
 

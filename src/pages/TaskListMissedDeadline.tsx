@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import s from '../styles/ListTask.module.scss';
 import SelectListLesson from '../components/SelectListLesson';

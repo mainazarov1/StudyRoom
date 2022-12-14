@@ -51,18 +51,22 @@ const ModalSettingsImg: FC = () => {
         open={open}
         onCancel={handleCancel}
         footer={[
-          <Button key='1' className={s.btn} >Отмена</Button>,
-          <Button key='2' className={s.btn} >Выбрать тему</Button>
+          <Button key='1' className={s.btn}>
+            Отмена
+          </Button>,
+          <Button key='2' className={s.btn}>
+            Выбрать тему
+          </Button>,
         ]}
       >
         <Tabs defaultActiveKey='1' className={s.tabs}>
           <Tabs.TabPane tab={<div className={s.tab}>Tab 1</div>} key='1'>
             <ChoosePhoto arr={arrImg} />
           </Tabs.TabPane>
-          <Tabs.TabPane  tab={<div className={s.tab}>Tab 2</div>} key='2'>
+          <Tabs.TabPane tab={<div className={s.tab}>Tab 2</div>} key='2'>
             <ChoosePhoto arr={arrImg.slice(0, 5)} />
           </Tabs.TabPane>
-          <Tabs.TabPane  tab={<div className={s.tab}>Tab 3</div>} key='3'>
+          <Tabs.TabPane tab={<div className={s.tab}>Tab 3</div>} key='3'>
             <ChoosePhoto arr={arrImg.slice(0, 3)} />
           </Tabs.TabPane>
         </Tabs>

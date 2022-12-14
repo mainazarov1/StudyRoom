@@ -1,12 +1,11 @@
-import React, { Children } from 'react';
-import { Table, Tree, Dropdown } from 'antd';
+import { Key, FC } from 'react';
+import { Table } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 
-import type { MenuProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
-  key: React.Key;
+  key: Key;
   name: string;
   avarageGrade?: string;
   overallScore: number | string;
@@ -21,7 +20,9 @@ const columns: ColumnsType<DataType> = [
     fixed: 'left',
     filterIcon: <CaretDownOutlined />,
     filterMultiple: false,
-    sorter: (a, b) => {return a.name.localeCompare(b.name);},
+    sorter: (a, b) => {
+      return a.name.localeCompare(b.name);
+    },
   },
   {
     title: 'Общая оценка',
@@ -94,7 +95,7 @@ const data: DataType[] = [
   },
 ];
 
-const Grade: React.FC = () => {
+const Grade: FC = () => {
   return (
     <div>
       <Table bordered columns={columns} dataSource={data} scroll={{ x: 1300 }} />

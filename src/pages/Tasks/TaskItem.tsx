@@ -119,7 +119,6 @@ const TaskItem: FC<TaskItemProps> = ({
             <Dropdown
               placement={'bottomRight'}
               className={s.collapse__head__dropdown}
-
               trigger={['click']}
               menu={{ items: isTeacher ? taskDropdownTeacher : taskDropdownStudents }}
             >

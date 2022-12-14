@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Layout, Dropdown, Tooltip, Typography, Avatar, Menu, Divider, Space, Button } from 'antd';
-
-import type { MenuProps } from 'antd';
-
+import {
+  Layout,
+  Dropdown,
+  Tooltip,
+  Typography,
+  Avatar,
+  Divider,
+  Space,
+  Button,
+  type MenuProps,
+} from 'antd';
 import './styles/header.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Drawers from '../SideBar/Drawer';
 
-const { Header: HeaderA, Sider } = Layout;
 const { Title, Text } = Typography;
 
 const itemsMenu: MenuProps['items'] = [

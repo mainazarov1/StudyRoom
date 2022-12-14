@@ -27,7 +27,7 @@ const ModalSettings: FC = () => {
     { color: '#5f6368', title: 'grey' },
   ];
 
-  const [color, setColor] = useState<string>('blue'); 
+  const [color, setColor] = useState<string>('blue');
 
   useEffect(() => {
     const root = document.querySelector(':root') as HTMLElement;
@@ -89,7 +89,9 @@ const ModalSettings: FC = () => {
                     alignItems: 'center',
                   }}
                 >
-                  {item.title === color && <CheckOutlined style={{ color: '#fff', fontSize: 30 }} />}
+                  {item.title === color && (
+                    <CheckOutlined style={{ color: '#fff', fontSize: 30 }} />
+                  )}
                 </span>
               ))}
             </Row>

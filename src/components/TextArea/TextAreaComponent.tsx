@@ -1,17 +1,16 @@
 import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import Underline from '@tiptap/extension-underline';
-import { FC, useState } from 'react';
-import { 
+import { StarterKit } from '@tiptap/starter-kit';
+import { Underline } from '@tiptap/extension-underline';
+import { FC } from 'react';
+import {
   BoldOutlined,
   FontSizeOutlined,
   ItalicOutlined,
   OrderedListOutlined,
   StrikethroughOutlined,
   UnderlineOutlined,
-  UnorderedListOutlined 
+  UnorderedListOutlined,
 } from '@ant-design/icons';
-import parse from 'html-react-parser';
 
 import s from './TextAreaComponent.module.scss';
 
@@ -52,13 +51,9 @@ const MenuBar: FC<any> = ({ editor }) => {
           <StrikethroughOutlined />
         </button>
         <button
-          type="button"
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 2 }).run()
-          }
-          className={
-            editor.isActive('heading', { level: 2 }) ? s.is_active : null
-          }
+          type='button'
+          onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+          className={editor.isActive('heading', { level: 2 }) ? s.is_active : null}
         >
           <FontSizeOutlined />
         </button>
@@ -81,7 +76,7 @@ const MenuBar: FC<any> = ({ editor }) => {
   );
 };
 interface IProps {
-  setStateShow: (arm: string ) => void
+  setStateShow: (arm: string) => void;
   content?: string;
 }
 

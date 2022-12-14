@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'antd';
-import Checkbox from 'antd/es/checkbox';
+import Checkbox, { type CheckboxChangeEvent } from 'antd/es/checkbox';
 
 import CourseAdditionForm from '../CourseAdditionForm/CourseAdditionForm';
 
 import s from './ConditionAgreement.module.scss';
-
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 const style = {
   borderRadius: 5,
@@ -44,10 +42,10 @@ const ConditionAgreement: React.FC = () => {
         width={500}
         closable={false}
         footer={[
-          <Button type='link' onClick={handleCancel}>
+          <Button key={0} type='link' onClick={handleCancel}>
             Назад
           </Button>,
-          <CourseAdditionForm isChecked={isChecked} closeModal={handleCancel} />,
+          <CourseAdditionForm key={1} isChecked={isChecked} closeModal={handleCancel} />,
         ]}
       >
         <p>

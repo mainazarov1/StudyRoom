@@ -1,10 +1,8 @@
-import React, { FC, useState } from 'react';
-import { Avatar, Divider, Dropdown, List } from 'antd';
+import { FC, useState } from 'react';
+import { Avatar, Dropdown, List, type MenuProps } from 'antd';
 import { MoreOutlined, SnippetsOutlined } from '@ant-design/icons';
 
 import s from './style.module.scss';
-
-import type { MenuProps } from 'antd';
 
 const data = [
   {

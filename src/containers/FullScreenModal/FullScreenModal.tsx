@@ -1,5 +1,5 @@
-import { Modal, ModalProps } from 'antd';
-import React, { useState } from 'react';
+import { Modal, type ModalProps } from 'antd';
+import { FC } from 'react';
 
 import s from './FullScreenModal.module.scss';
 
@@ -10,7 +10,7 @@ interface Iprops extends ModalProps {
   children: React.ReactNode;
 }
 
-const FullScreenModal: React.FC<Iprops> = ({ title, closebtn, open, children, ...settings }) => {
+const FullScreenModal: FC<Iprops> = ({ title, closebtn, open, children, ...settings }) => {
   return (
     <>
       <Modal

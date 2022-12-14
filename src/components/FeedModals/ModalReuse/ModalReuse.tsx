@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Modal, Button } from 'antd';
+import { Button } from 'antd';
 import { RetweetOutlined } from '@ant-design/icons';
 
 import DataTaskList from '../../DataTaskList/DataTaskList';

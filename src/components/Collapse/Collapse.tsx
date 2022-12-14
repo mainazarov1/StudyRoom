@@ -1,12 +1,8 @@
-import { Dropdown, Row, Typography } from 'antd';
+import { Dropdown, Row, Typography, type MenuProps } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import s from './Collapse.module.scss';
-
-import type { MenuProps } from 'antd';
-
-const isTeacher = true;
 
 const headerDropdownStudentItems: MenuProps['items'] = [
   { label: 'Копировать ссылку', key: 'item-1' }, // remember to pass the key prop
