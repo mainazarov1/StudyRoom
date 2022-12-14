@@ -38,7 +38,7 @@ const DataTaskList = () => {
             <td>10 мая</td>
           </tr>
           {
-            arr.map(item => (<tr>
+            arr.map(item => (<tr key={item.title}>
               <td>
                 <Avatar style={{ backgroundColor: 'blue', verticalAlign: 'middle' }} size="small" gap={1}>
                   {item.title[0].toUpperCase()}

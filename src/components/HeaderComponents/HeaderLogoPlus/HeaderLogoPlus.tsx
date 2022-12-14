@@ -22,7 +22,7 @@ interface IHeaderLogoPlusProps {
 
 
 export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, middleItems, rightComponent }) => {
-  const arr = middleItems()
+  const arr = middleItems();
   return (
     <>
       <div className='item'>
@@ -38,6 +38,7 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, mi
       <div className='header-middle'>
         {arr.map((item) => (
           <div
+            key={item.path}
             className='header-middle-item'>
             <Title style={{ margin: 0 }} level={5}>
               <NavLink to={item.path} className={({ isActive }) =>

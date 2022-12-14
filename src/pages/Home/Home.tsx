@@ -1,13 +1,15 @@
-import { CSSProperties, useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 import { CalendarTwoTone, FolderTwoTone, ReconciliationTwoTone } from '@ant-design/icons';
 import { Layout, Row, Space, Typography } from 'antd';
+import { NavLink } from 'react-router-dom';
+// eslint-disable-next-line import/named
+import { DragDropContext, DragUpdate, Droppable } from 'react-beautiful-dnd';
 
 import { Card } from '../../components/Card/Card';
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 
 const { Content } = Layout;
 const { Link } = Typography;
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 import s from './Home.module.scss';
 
@@ -17,7 +19,7 @@ interface Content {
   title: string;
   chapter: string;
   creator: string;
-  craetorAvatar: string;
+  creatorAvatar: string;
   isTeacher: boolean;
 }
 
@@ -58,9 +60,11 @@ export const Home: React.FC = () => {
       title: 'test classroom',
       chapter: 'testing',
       creator: 'andrei minkin',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '2',
@@ -68,9 +72,11 @@ export const Home: React.FC = () => {
       title: 'ФТМ',
       chapter: '',
       creator: 'ислам',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '3',
@@ -78,9 +84,11 @@ export const Home: React.FC = () => {
       title: 'test classroom',
       chapter: 'testing',
       creator: 'andrei minkin',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '4',
@@ -88,9 +96,11 @@ export const Home: React.FC = () => {
       title: 'ФТМ',
       chapter: '',
       creator: 'ислам',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: true,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '5',
@@ -98,9 +108,11 @@ export const Home: React.FC = () => {
       title: 'test classroom',
       chapter: 'testing',
       creator: 'andrei minkin',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '26',
@@ -108,9 +120,11 @@ export const Home: React.FC = () => {
       title: 'ФТМ',
       chapter: '',
       creator: 'ислам',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '15',
@@ -118,9 +132,11 @@ export const Home: React.FC = () => {
       title: 'test classroom',
       chapter: 'testing',
       creator: 'andrei minkin',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/HRH_Prince_Charles_43_Allan_Warren.jpg/800px-HRH_Prince_Charles_43_Allan_Warren.jpg',
       isTeacher: true,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
     {
       id: '22',
@@ -128,13 +144,17 @@ export const Home: React.FC = () => {
       title: 'ФТМ',
       chapter: '',
       creator: 'ислам',
-      craetorAvatar:
+      creatorAvatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg/220px-Charles%2C_Prince_of_Wales_in_2021_%28cropped%29_%283%29.jpg',
       isTeacher: false,
+      src: '/feed',
+      pathToGrade: '/grade'
     },
   ]);
 
-  const onDragComplete = (result: any) => {
+  const onDragComplete = (result: DragUpdate) => {
+    console.log(result);
+
     if (!result.destination) return;
     const arr = [...content];
 
@@ -179,7 +199,9 @@ export const Home: React.FC = () => {
                     style={getListStyle(snapshot.isDraggingOver)}
                   >
                     {content.map((el, index) => (
-                      <Card key={el.id} {...el} index={index} />
+                      <NavLink key={el.id} style={{ textDecoration: 'none' }} to={el.src}>
+                        <Card key={el.id} {...el} index={index} />
+                      </NavLink>
                     ))}
                   </Row>
                   {provided.placeholder}

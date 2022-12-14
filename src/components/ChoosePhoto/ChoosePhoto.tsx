@@ -19,7 +19,7 @@ const ChoosePhoto:FC<IProps> = ({arr}) => {
       <Row gutter={[4, 4]}>
         {
           arr.map(( item, i ) => (
-            <Col className="gutter-row" span={6}>
+            <Col key={item.url} className="gutter-row" span={6}>
               <img key={i} style={style} src={item.url} alt={item.type} />
             </Col>
           ))

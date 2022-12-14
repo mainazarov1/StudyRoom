@@ -68,7 +68,7 @@ const tasks = [
   }
 ];
 
-let unverifiedPage = [
+const unverifiedPage = [
   {
     title: 'Непроверенные задания',
     path: '/unverified-tasks',
@@ -79,46 +79,45 @@ let unverifiedPage = [
     path: '/verified-tasks', 
     id: 2,
   },
-]
+];
 
 
-let leftTrigger = {
+const leftTrigger = {
   title: 'StudyRoom',
   path: '/main',
   id: 1,
-}
+};
 
 const isTeacher = true;
 
 export const LayoutApp: FC = () => {
   const {pathname} = useLocation();
-  console.log(pathname)
 
   const handleNavLink = () => {
 
     switch(pathname) {
-      case '/taskListCompleted':
-        return tasks;
-      case '/taskListAssigned':
-        return tasks;
-      case '/taskListMissed': 
-        return tasks;
-      case '/grade':
-        return middleItemsTeacher
-      case '/tasks' :
-        return middleItemsTeacher;
-      case '/feed' :
-        return middleItemsTeacher;
-      case '/performed': 
-        return middleItemsTeacher;
-      case '/unverified-tasks':
-        return unverifiedPage;
-      case '/verified-tasks':
-        return unverifiedPage;
-      default:
-        return [];
+    case '/taskListCompleted':
+      return tasks;
+    case '/taskListAssigned':
+      return tasks;
+    case '/taskListMissed': 
+      return tasks;
+    case '/grade':
+      return middleItemsTeacher;
+    case '/tasks' :
+      return middleItemsTeacher;
+    case '/feed' :
+      return middleItemsTeacher;
+    case '/performed': 
+      return middleItemsTeacher;
+    case '/unverified-tasks':
+      return unverifiedPage;
+    case '/verified-tasks':
+      return unverifiedPage;
+    default:
+      return [];
     }
-  }
+  };
 
   return (
     <Layout>
