@@ -1,6 +1,7 @@
-import {FC, useState } from 'react';
-import { Button,} from 'antd';;
+import { FC, useState } from 'react';
+import { Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+
 import DragUploadImg from '../../DragUploadImg/DragUploadImg';
 import s from './ModalUploaadImg.module.scss';
 import { AppModal } from '../../ModalApp';

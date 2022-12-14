@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Space, Menu, Avatar } from 'antd';
+import { NavLink } from 'react-router-dom';
 
 import {IList} from '../../core/types/ListType';
-import { NavLink } from 'react-router-dom';
 
 interface IProps {
   item: IList,

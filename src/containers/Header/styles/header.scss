@@ -20,14 +20,13 @@
 
             .header-middle-item {
                 height: 100%;
-                padding: 0 24px;
                 display: flex;
                 align-items: center;
-                cursor: pointer;
                 position: relative;
 
                 & a {
                     color: rgba(0, 0, 0, 0.85);
+                    padding: 18px 24px;
                 }
 
                 &:hover {
@@ -81,10 +80,12 @@
     }
 
     &.left-item {
-        cursor: pointer;
-
         &:hover {
             background-color: rgb(95, 99, 104, 0.1);
+        }
+
+        .anticon-menu {
+            padding: 9px;
         }
 
         .trigger {
@@ -93,8 +94,6 @@
     }
 
     &.right-item {
-        cursor: pointer;
-
         &:hover {
             background-color: rgb(95, 99, 104, 0.1);
         }

@@ -27,7 +27,7 @@ interface CollapseProps {
   tag: string;
 }
 
-const CollapseComponent:FC<CollapseProps> = ({ children, isTeacher, tag }) => {
+const CollapseComponent: FC<CollapseProps> = ({ children, isTeacher, tag }) => {
   return (
     <div className={s.collapse__wrap}>
       <Row className={s.collapse__title__wrap} justify={'space-between'} align={'middle'}>

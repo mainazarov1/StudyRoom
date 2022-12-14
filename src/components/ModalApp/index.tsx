@@ -1,4 +1,7 @@
-import { Modal, ModalProps } from 'antd';
+import { Modal } from 'antd';
+
+// eslint-disable-next-line no-duplicate-imports
+import type { ModalProps } from 'antd';
 
 export const AppModal = ({ children, ...props }: ModalProps) => {
   return (

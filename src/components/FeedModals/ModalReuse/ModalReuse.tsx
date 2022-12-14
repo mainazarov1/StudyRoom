@@ -1,13 +1,15 @@
 import { FC, useState } from 'react';
 import { Modal, Button } from 'antd';
-import s from './ModalReuse.module.scss';
 import { RetweetOutlined } from '@ant-design/icons';
+
 import DataTaskList from '../../DataTaskList/DataTaskList';
 import { AppModal } from '../../ModalApp';
 
-const ModalReuse:FC = () => {
+import s from './ModalReuse.module.scss';
+
+const ModalReuse: FC = () => {
   const [open, setOpen] = useState(false);
-  
+
   const showModal = () => {
     setOpen(true);
   };
@@ -17,8 +19,8 @@ const ModalReuse:FC = () => {
   };
   return (
     <>
-      <RetweetOutlined 
-        className={s.retween_icon} 
+      <RetweetOutlined
+        className={s.retween_icon}
         onClick={(e) => {
           e.stopPropagation();
           showModal();
@@ -27,24 +29,14 @@ const ModalReuse:FC = () => {
       <AppModal
         width={800}
         className={s.modal}
-        title={`Выберите курс`}
+        title={'Выберите курс'}
         open={open}
         onCancel={handleCancel}
         footer={[
-          <Button 
-            key='btn' 
-            type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            onClick={handleCancel}
-          >
+          <Button key='btn' type='link' style={{ color: 'rgb(23,78,166)' }} onClick={handleCancel}>
             Отмена
           </Button>,
-          <Button 
-            key='1' 
-            type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            onClick={handleCancel}
-          >
+          <Button key='1' type='link' style={{ color: 'rgb(23,78,166)' }} onClick={handleCancel}>
             Сохранить
           </Button>,
         ]}

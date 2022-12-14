@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 import { Collapse, Avatar, List, Button, Dropdown, MenuProps } from 'antd';
 import { DownOutlined, MoreOutlined, SnippetsOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 import s from '../PanelUnverifiedTasks/PanelUnverifiedTasks.module.scss';
-import { Link } from 'react-router-dom';
 
 const { Panel } = Collapse;
 

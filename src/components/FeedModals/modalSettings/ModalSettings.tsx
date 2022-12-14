@@ -1,10 +1,12 @@
 import { Button, Row } from 'antd';
 import { useState, FC, useEffect } from 'react';
 import { CheckOutlined, EditOutlined } from '@ant-design/icons';
-import s from './ModalSettings.module.scss';
+
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
 import { AppModal } from '../../ModalApp';
+
+import s from './ModalSettings.module.scss';
 
 interface IColor {
   color?: string;

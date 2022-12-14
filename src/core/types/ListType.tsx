@@ -4,5 +4,5 @@ export interface IList {
   title: string,
   color: string,
   descirption: string,
-  link?: string;
+  link: string;
 }

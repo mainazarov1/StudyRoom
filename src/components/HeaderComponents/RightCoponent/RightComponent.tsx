@@ -3,32 +3,33 @@ import { Button, Dropdown, MenuProps, Tooltip } from 'antd';
 import classNames from 'classnames';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import ConditionAgreement from '../../../containers/ConditionAgreement/ConditionAgreement';
 import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal';
 import { InputApp } from '../../InputApp/InputApp';
-import s from './FigthComponent.module.scss';
 
+import s from './FigthComponent.module.scss';
 
 const RightComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const showModal = () => {
     setIsModalOpen(true);
   };
-  
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  
+
   const items: MenuProps['items'] = [
     {
-      label: <span onClick={showModal} >Присоединиться</span>,
+      label: <span onClick={showModal}>Присоединиться</span>,
       key: '0',
     },
     {
       label: <ConditionAgreement />,
       key: '1',
-    }
+    },
   ];
   return (
     <>

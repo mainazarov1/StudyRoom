@@ -1,9 +1,12 @@
 import { DownOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Checkbox, Dropdown, Menu, Space } from 'antd';
 import { FC, useState } from 'react';
+
 import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
 import { Tiptap } from '../TextArea/TextAreaComponent';
+
 import s from './ReferToCourse.module.scss';
+
 import type { MenuProps } from 'antd';
 
 const ReferToCourse: FC = () => {

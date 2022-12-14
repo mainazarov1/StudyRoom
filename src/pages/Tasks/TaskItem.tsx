@@ -1,11 +1,13 @@
 import React, { FC, useState } from 'react';
-import { Col, Collapse, Dropdown, MenuProps, Row, Space, Typography } from 'antd';
+import classNames from 'classnames';
+import { Col, Collapse, Dropdown, Row, Space, Typography } from 'antd';
 import Icon, { CommentOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-import classNames from 'classnames';
 
-import s from './Tasks.module.scss';
 import TasksModal from './components/TasksModal/TasksModal';
+import s from './Tasks.module.scss';
+
+import type { MenuProps } from 'antd/lib/menu';
 
 const { Panel } = Collapse;
 
@@ -88,11 +90,22 @@ const TaskItem: FC<TaskItemProps> = ({
             <FileIcon className={s.collapse__head__icon} />
           </Row>
           <Col>
-            <Typography.Text className={s.collapse__head__subtitle}> {title} </Typography.Text>
+            <Typography.Text
+              style={{ width: 300 }}
+              ellipsis={true}
+              className={s.collapse__head__subtitle}
+            >
+              {title}
+            </Typography.Text>
           </Col>
           <Space>
-            <CommentOutlined />
-            {countComments ? countComments : ''}
+            <Space>
+              <CommentOutlined />
+              {countComments ? countComments : ''}
+            </Space>
+            <div>
+              <span style={{ color: 'rgba(0,0,0,.549)', fontSize: '0.75rem' }}>Эссе</span>
+            </div>
           </Space>
         </Row>
         <Typography.Text className={s.task__points}> {points}</Typography.Text>
@@ -164,7 +177,7 @@ const TaskItem: FC<TaskItemProps> = ({
             <Row style={{ marginTop: '1rem' }}>
               <div>
                 {htmlContent}
-                <span>
+                {/* <span>
                   Необходимо создать приложение - аналог ленты в социальной сети, которое будет
                   работать со специально созданным API. Описание API находится далее по тексту.
                   <br />
@@ -331,7 +344,7 @@ const TaskItem: FC<TaskItemProps> = ({
                       инструментами.
                     </li>
                   </ul>
-                </span>
+                </span> */}
               </div>
             </Row>
           </div>

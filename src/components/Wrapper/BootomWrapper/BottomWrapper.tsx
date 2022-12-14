@@ -12,7 +12,7 @@ const BottomWrapper:FC = () => {
         <ModalCode />
       </span>
       <span>
-        <b>Предмет</b> 
+        <b>Предмет</b>
         Front-end dev
       </span>
       <span>

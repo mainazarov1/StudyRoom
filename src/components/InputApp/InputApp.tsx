@@ -1,6 +1,9 @@
-import { Form, Input, InputProps } from 'antd';
+import { Form, Input } from 'antd';
 
 import styles from './InputApp.module.scss';
+
+import type { InputProps } from 'antd';
+
 interface IInputAppProps extends InputProps {
   label?: string;
   name?: string;
