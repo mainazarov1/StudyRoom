@@ -3,7 +3,7 @@ import { Modal, Button } from 'antd';
 import { RetweetOutlined } from '@ant-design/icons';
 
 import DataTaskList from '../../DataTaskList/DataTaskList';
-import ModalComponents from '../../modal/Modal';
+import { AppModal } from '../../ModalApp';
 
 import s from './ModalReuse.module.scss';
 
@@ -26,7 +26,7 @@ const ModalReuse:FC = () => {
           showModal();
         }}
       />
-      <ModalComponents 
+      <AppModal
         width={800}
         className={s.modal}
         title={'Выберите курс'}
@@ -52,7 +52,7 @@ const ModalReuse:FC = () => {
         ]}
       >
         <DataTaskList />
-      </ModalComponents>
+      </AppModal>
     </>
   );
 };

@@ -39,25 +39,32 @@
    div &__title {
       font-weight: 400;
       margin-bottom: 0;
+      :global {
+         .ant-typography {
+            color: var(#{--default-color}) !important;
+         }
+      }
+      
       &__wrap {
-         border-bottom: 1px solid rgb(66, 133, 244);
          border-radius: 0.5rem;
          cursor: pointer;
          transition: 0.3s;
          padding: 1.5rem;
+         border-bottom: 1px solid var(#{--default-color})!important;
          box-sizing: border-box;
          &:hover {
-            border-bottom: 1px solid $hover-bg;
-            background-color: $hover-bg;
+            border-bottom: 1px solid var(#{--default-color})!important;
+            background-color: var(#{--default-hover-color})!important;
          }
       }
    }
    &__elipsis {
       transition: 0.3s;
       padding: 5px;
+      border-radius: 50%;
+      color: var(#{--default-color})!important;
       &:hover {
-         background-color: rgba(25, 103, 210, 0.08);
-         border-radius: 50%;
+         background-color: rgba(128, 128, 128, 0.371);
       }
    }
    &__content {

@@ -5,19 +5,19 @@ import SelectListLesson from '../../components/SelectListLesson';
 import s from '../../styles/UnverifiedTasks.module.scss';
 
 interface IArrList {
-    title: string,
-    description: string,
-    stateFirst: string,
-    stateSecond: string,
-    stateThird: string,
-    color: string,
-  }
+  title: string;
+  description: string;
+  stateFirst: string;
+  stateSecond: string;
+  stateThird: string;
+  color: string;
+}
 
 const selectOptionList = [
-  { value: 'jack', label: 'Jack',},
-  { value: 'lucy', label: 'Lucy',},
-  { value: 'disabled', label: 'Disabled',},
-  { value: 'Yiminghe', label: 'yiminghe',},
+  { value: 'jack', label: 'Jack' },
+  { value: 'lucy', label: 'Lucy' },
+  { value: 'disabled', label: 'Disabled' },
+  { value: 'Yiminghe', label: 'yiminghe' },
 ];
 
 const UnverifiedTasks: React.FC = () => {

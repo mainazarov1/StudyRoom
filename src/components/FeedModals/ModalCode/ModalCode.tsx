@@ -1,20 +1,21 @@
-import { Button, Tooltip, message } from 'antd';
+import { Button, Tooltip } from 'antd';
 import { useState, FC } from 'react';
 import { ExpandOutlined, CopyOutlined, CloseOutlined, CompressOutlined } from '@ant-design/icons';
 
 import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal';
-import ModalComponents from '../../modal/Modal';
+import { CopyPaste } from '../../../utils/CopyPaste';
+import { AppModal } from '../../ModalApp';
 
 import s from './ModalCode.module.scss'; 
 
-const ModalCode:FC = () => {
+interface IID {
+  children?: string;
+}
+
+const ModalCode:FC<IID> = ({children}) => {
   const [open, setOpen] = useState(false);
   const [fullScreenModal, setFullScreenModal] = useState(false);
   const code = 'tq7kdvd';
-
-  const info = () => {
-    message.info('Ссылка скопирована ');
-  };
 
   const showModal = () => {
     setOpen(true);
@@ -29,7 +30,8 @@ const ModalCode:FC = () => {
       <Tooltip key='tooltip' placement="bottom" title='Показать'>
         <ExpandOutlined onClick={showModal} className={s.bottom_block_icon} />
       </Tooltip>
-      <ModalComponents
+      
+      <AppModal
         className={s.modal}
         open={open}
         onCancel={handleCancel}
@@ -39,12 +41,11 @@ const ModalCode:FC = () => {
           <Button 
             key='btn' 
             type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            icon={<CopyOutlined style={{color: 'rgb(23,78,166)'}} />} 
-            onClick={() => {
-              navigator.clipboard.writeText(code);
-              info();
-            }}
+            className={s.btn}
+            icon={<CopyOutlined className={s.btn} />} 
+            onClick={() => 
+              CopyPaste(code)
+            }
           >
             Копировать Сcылку
           </Button>,
@@ -57,7 +58,7 @@ const ModalCode:FC = () => {
         ]}
       >
         <div className={s.modal_content}>{code}</div>
-      </ModalComponents>
+      </AppModal>
       <FullScreenModal 
         open={fullScreenModal}
         title={<CloseOutlined onClick={() => setFullScreenModal(false)} />}
@@ -71,12 +72,11 @@ const ModalCode:FC = () => {
             <Button 
               key='btn' 
               type="link" 
-              style={{color: 'rgb(23,78,166)'}} 
-              icon={<CopyOutlined style={{color: 'rgb(23,78,166)'}} />} 
-              onClick={() => {
-                navigator.clipboard.writeText(code);
-                info();
-              }}
+              className={s.btn}
+              icon={<CopyOutlined className={s.btn} />} 
+              onClick={() => 
+                CopyPaste(code)
+              }
             >
               Копировать Сcылку
             </Button>

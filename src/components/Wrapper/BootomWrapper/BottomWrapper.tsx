@@ -1,17 +1,14 @@
-import { FC, useState } from 'react';
-
+import { FC } from 'react';
 import ModalCode from '../../FeedModals/ModalCode/ModalCode';
 
 import s from './BottomWrapper.module.scss';
 
 const BottomWrapper:FC = () => {
-  const [ code, setCode] = useState('tq7kdvd');
-
   return (
     <div className={s.bottom_block}>
       <span>
         <b>Код Курса</b> 
-        {code}
+        <span className={s.code}>tq7kdvd</span>
         <ModalCode />
       </span>
       <span>
@@ -24,8 +21,7 @@ const BottomWrapper:FC = () => {
       </span>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit tempora, in quia
-      </p>
-      
+      </p> 
     </div>
   );
 };

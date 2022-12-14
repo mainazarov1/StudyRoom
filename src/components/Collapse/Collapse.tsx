@@ -32,7 +32,7 @@ const CollapseComponent: FC<CollapseProps> = ({ children, isTeacher, tag }) => {
     <div className={s.collapse__wrap}>
       <Row className={s.collapse__title__wrap} justify={'space-between'} align={'middle'}>
         <Typography.Title className={s.collapse__title} level={2}>
-          <Typography.Link href='#'>{tag}</Typography.Link>
+          <Typography>{tag}</Typography>
         </Typography.Title>
         <Dropdown
           dropdownRender={(menus) => <div>{menus}</div>}
@@ -44,6 +44,7 @@ const CollapseComponent: FC<CollapseProps> = ({ children, isTeacher, tag }) => {
             className={s.collapse__elipsis}
             style={{ fontSize: '30px', color: 'rgb(25,103,210)' }}
             color='green'
+            rotate={90}
           />
         </Dropdown>
       </Row>

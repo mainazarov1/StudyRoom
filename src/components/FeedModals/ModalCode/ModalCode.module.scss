@@ -1,7 +1,7 @@
 .bottom_block_icon {
   padding: 15px;
   border-radius: 50%;
-  color: rgb(23,78,166);
+  color: var(#{--default-color}) !important;
 }
 
 .bottom_block_icon:hover {
@@ -13,12 +13,12 @@
   vertical-align: 50%;
   font-weight: 600;
   font-size: 20px;
-  color: rgb(23,78,166);
+  color: var(#{--default-color}) !important;
 }
 
 .modal_content {
   font-size: 100px;
-  color: rgb(23,78,166);
+  color: var(#{--default-color}) !important;
   text-align: center;
 }
 
@@ -28,13 +28,13 @@
   line-height: 1;
   padding: 1.5rem 0;
   text-align: center;
-  color: rgb(23,78,166);  
+  color: var(#{--default-color}) !important;  
 }
 
 .fullscreen_line {
   width: 95vw;
   height: 5px;
-  background-color: rgb(23,78,166);
+  background-color: var(#{--default-color}) !important;
 }
 
 .fullscreen_footer {
@@ -43,6 +43,18 @@
   justify-content: space-between;
   
   .fullscreen_name {
-    color: rgb(23,78,166);
+    color: var(#{--default-color}) !important;
   }
+}
+
+.btn {
+  color: var(#{--default-color});
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus
+{
+  background-color: var(#{--default-hover-color})!important;
+  color: var(#{--default-color});
 }

@@ -3,7 +3,8 @@ import { Button,} from 'antd';;
 import { UploadOutlined } from '@ant-design/icons';
 
 import DragUploadImg from '../../DragUploadImg/DragUploadImg';
-import ModalComponents from '../../modal/Modal';
+import s from './ModalUploaadImg.module.scss';
+import { AppModal } from '../../ModalApp';
 
 const ModalUploadImg: FC = () => {
   const [open, setOpen] = useState(false);
@@ -16,15 +17,15 @@ const ModalUploadImg: FC = () => {
   };
   return (
     <>
-      <Button icon={<UploadOutlined />} onClick={showModal} >Загрузить фото</Button>
-      <ModalComponents
+      <Button icon={<UploadOutlined />} onClick={showModal} className={s.btn} >Загрузить фото</Button>
+      <AppModal
         width={1000}
         title='Выбрать тему'
         open={open}
         onCancel={handleCancel}
       >
         <DragUploadImg />
-      </ModalComponents>
+      </AppModal>
     </>
   );
 };

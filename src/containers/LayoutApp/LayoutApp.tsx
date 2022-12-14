@@ -76,11 +76,10 @@ const unverifiedPage = [
   },
   {
     title: 'Проверенные',
-    path: '/verified-tasks', 
+    path: '/verified-tasks',
     id: 2,
   },
 ];
-
 
 const leftTrigger = {
   title: 'StudyRoom',
@@ -91,44 +90,42 @@ const leftTrigger = {
 const isTeacher = true;
 
 export const LayoutApp: FC = () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   const handleNavLink = () => {
-
-    switch(pathname) {
-    case '/taskListCompleted':
-      return tasks;
-    case '/taskListAssigned':
-      return tasks;
-    case '/taskListMissed': 
-      return tasks;
-    case '/grade':
-      return middleItemsTeacher;
-    case '/tasks' :
-      return middleItemsTeacher;
-    case '/feed' :
-      return middleItemsTeacher;
-    case '/performed': 
-      return middleItemsTeacher;
-    case '/unverified-tasks':
-      return unverifiedPage;
-    case '/verified-tasks':
-      return unverifiedPage;
-    default:
-      return [];
+    switch (pathname) {
+      case '/taskListCompleted':
+        return tasks;
+      case '/taskListAssigned':
+        return tasks;
+      case '/taskListMissed':
+        return tasks;
+      case '/grade':
+        return middleItemsTeacher;
+      case '/tasks':
+        return middleItemsTeacher;
+      case '/feed':
+        return middleItemsTeacher;
+      case '/performed':
+        return middleItemsTeacher;
+      case '/unverified-tasks':
+        return unverifiedPage;
+      case '/verified-tasks':
+        return unverifiedPage;
+      default:
+        return [];
     }
   };
 
   return (
     <Layout>
       <Layout>
-        <MainHeader >
-          <HeaderLogoPlus 
+        <MainHeader>
+          <HeaderLogoPlus
             leftTrigger={leftTrigger}
-            middleItems={handleNavLink} 
-            rightComponent={
-              <RightComponent />
-            } 
+            middleItems={handleNavLink}
+            rightComponent={<RightComponent />}
           />
         </MainHeader>
         <Layout>

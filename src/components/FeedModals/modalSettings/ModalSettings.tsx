@@ -1,81 +1,69 @@
-import { Button, Modal, Row } from 'antd';
-import { useState, FC } from 'react';
+import { Button, Row } from 'antd';
+import { useState, FC, useEffect } from 'react';
 import { CheckOutlined, EditOutlined } from '@ant-design/icons';
 
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
-import ModalComponents from '../../modal/Modal';
+import { AppModal } from '../../ModalApp';
 
 import s from './ModalSettings.module.scss';
 
 interface IColor {
-  color: string;
-  id: number;
-  active: boolean;
+  color?: string;
+  title: string;
 }
 
-const ModalSettings:FC = () => {
+const ModalSettings: FC = () => {
   const [open, setOpen] = useState(false);
-  const [activeId, setActiveId] = useState(1);
-  const [colorArr, setColorArr] = useState<IColor[]>([
-    {color: '#1967d2', id: 1, active: true}, 
-    {color: '#1e8e3e', id: 2, active: false}, 
-    {color: '#e52592', id: 3, active: false},
-    {color: '#e8710a', id: 4, active: false},
-    {color: '#129eaf', id: 5, active: false},
-    {color: '#9334e6', id: 6, active: false},
-    {color: '#4285f4', id: 7, active: false},
-    {color: '#5f6368', id: 8, active: false},
-  ]);
 
-  const handleClick = (ID: number) => {
-    setActiveId(ID);
-    colorArr.map(({id, active}) => ID === id ? active = true : active = false);
-  };
-  
+  const colorArr: IColor[] = [
+    { color: '#1967d2', title: 'blue' },
+    { color: '#1e8e3e', title: 'green' },
+    { color: '#e52592', title: 'pink' },
+    { color: '#e8710a', title: 'orange' },
+    { color: '#129eaf', title: 'green-blue' },
+    { color: '#9334e6', title: 'purple' },
+    { color: '#4285f4', title: 'light-blue' },
+    { color: '#5f6368', title: 'grey' },
+  ];
+
+  const [color, setColor] = useState<string>('blue'); 
+
+  useEffect(() => {
+    const root = document.querySelector(':root') as HTMLElement;
+    root.style.setProperty('--default-color', `var(--${color}-color)`);
+    root.style.setProperty('--default-hover-color', `var(--${color}-hover-color)`);
+  }, [color]);
+
   const showModal = () => {
     setOpen(true);
   };
 
-  const handleCancel = () => { 
+  const handleCancel = () => {
     setOpen(false);
   };
+
   return (
     <>
-      <Button 
-        icon={<EditOutlined />} 
-        size='middle'
-        className={s.btn}
-        onClick={showModal}
-      >
+      <Button icon={<EditOutlined />} size='middle' className={s.absolute_btn} onClick={showModal}>
         Настроить
       </Button>
-      <ModalComponents
+      <AppModal
         width={800}
         className={s.modal}
         title='Настроить вид'
         open={open}
         onCancel={handleCancel}
         footer={[
-          <Button 
-            key='btn' 
-            type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            onClick={handleCancel}
-          >
+          <Button className={s.btn} key='2' type='link' onClick={handleCancel}>
             Отмена
           </Button>,
-          <Button 
-            key='1' 
-            type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            onClick={handleCancel}
-          >
+          <Button className={s.btn} key='1' type='link' onClick={handleCancel}>
             Сохранить
           </Button>,
         ]}
       >
-        <img src="https://www.gstatic.com/classroom/themes/img_hiking.jpg" alt="wrapper" />
+        <img src='https://www.gstatic.com/classroom/themes/img_hiking.jpg' alt='wrapper' />
         <div className={s.modal_body}>
           <div className={s.body}>
             <span className={s.text}>Выберите фото обложки</span>
@@ -86,29 +74,28 @@ const ModalSettings:FC = () => {
           </div>
           <div className={s.color_block}>
             <p className={s.color_title}>Выберите цвет темы</p>
-            <Row justify={'space-between'} className={s.colors} >
-              {
-                colorArr.map(item => (
-                  <span 
-                    key={item.id} 
-                    onClick={() => handleClick(item.id)}
-                    style={{
-                      background: `${item.color}`, 
-                      width: 64, 
-                      height: 64,
-                      borderRadius: '50%',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}
-                  >
-                    {item.active && <CheckOutlined style={{color: '#fff', fontSize: 30  }} /> }
-                  </span>))
-              }
+            <Row justify={'space-between'} className={s.colors}>
+              {colorArr.map((item, i) => (
+                <span
+                  key={i}
+                  onClick={() => setColor(item.title)}
+                  style={{
+                    background: `${item.color}`,
+                    width: 64,
+                    height: 64,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  {item.title === color && <CheckOutlined style={{ color: '#fff', fontSize: 30 }} />}
+                </span>
+              ))}
             </Row>
           </div>
-        </div> 
-      </ModalComponents>
+        </div>
+      </AppModal>
     </>
   );
 };

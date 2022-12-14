@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/named
 import { Dropdown, Layout, MenuProps, Row, Space, Typography } from 'antd';
-import { CalendarOutlined, PlusOutlined } from '@ant-design/icons';
+import { CalendarOutlined, PlusOutlined, ContactsOutlined } from '@ant-design/icons';
 
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 import CollapseComponent from '../../components/Collapse/Collapse';
@@ -138,7 +138,7 @@ const Tasks = () => {
             <ButtonApp
               classNameProp={s.navigation__link}
               label={'Папка курса на диске'}
-              icon={Disk}
+              icon={<ContactsOutlined />}
             />
           </Space>
         </Row>
