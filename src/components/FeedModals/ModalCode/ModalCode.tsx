@@ -4,8 +4,8 @@ import { ExpandOutlined, CopyOutlined, CloseOutlined, CompressOutlined } from '@
 
 import s from './ModalCode.module.scss'; 
 import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal';
-import ModalComponents from '../../modal/Modal';
 import { CopyPaste } from '../../../utils/CopyPaste';
+import { AppModal } from '../../ModalApp';
 
 interface IID {
   children?: string;
@@ -30,7 +30,7 @@ const ModalCode:FC<IID> = ({children}) => {
         <ExpandOutlined onClick={showModal} className={s.bottom_block_icon} />
       </Tooltip>
       
-      <ModalComponents
+      <AppModal
         className={s.modal}
         open={open}
         onCancel={handleCancel}
@@ -40,8 +40,8 @@ const ModalCode:FC<IID> = ({children}) => {
           <Button 
             key='btn' 
             type="link" 
-            style={{color: 'rgb(23,78,166)'}} 
-            icon={<CopyOutlined style={{color: 'rgb(23,78,166)'}} />} 
+            className={s.btn}
+            icon={<CopyOutlined className={s.btn} />} 
             onClick={() => 
               CopyPaste(code)
             }
@@ -57,7 +57,7 @@ const ModalCode:FC<IID> = ({children}) => {
         ]}
       >
         <div className={s.modal_content}>{code}</div>
-      </ModalComponents>
+      </AppModal>
       <FullScreenModal 
         open={fullScreenModal}
         title={<CloseOutlined onClick={() => setFullScreenModal(false)} />}
@@ -71,8 +71,8 @@ const ModalCode:FC<IID> = ({children}) => {
             <Button 
               key='btn' 
               type="link" 
-              style={{color: 'rgb(23,78,166)'}} 
-              icon={<CopyOutlined style={{color: 'rgb(23,78,166)'}} />} 
+              className={s.btn}
+              icon={<CopyOutlined className={s.btn} />} 
               onClick={() => 
                 CopyPaste(code)
               }

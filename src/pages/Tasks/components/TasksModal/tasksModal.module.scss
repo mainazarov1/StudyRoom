@@ -64,6 +64,8 @@
       margin-bottom: 1rem;
    }
    &__list:hover {
-      background-color: #f2f3f4;
+      // background-color: #f2f3f4;
+      background-color: var(#{--default-hover-color});
+
    }
 }

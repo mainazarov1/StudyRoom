@@ -8,7 +8,6 @@ import RightComponent from '../../components/HeaderComponents/RightCoponent/Righ
 import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
 
-
 let middleItems = [
   {
     title: 'Лента',
@@ -24,8 +23,8 @@ let middleItems = [
     title: 'Пользователи',
     path: '/performed',
     id: 3,
-  }
-]
+  },
+];
 
 let middleItemsTeacher = [
   {
@@ -47,8 +46,8 @@ let middleItemsTeacher = [
     title: 'Оценка',
     path: '/grade',
     id: 4,
-  }
-]
+  },
+];
 
 let tasks = [
   {
@@ -65,8 +64,8 @@ let tasks = [
     title: 'Выполнено',
     path: '/taskListMissed',
     id: 3,
-  }
-]
+  },
+];
 
 let unverifiedPage = [
   {
@@ -76,40 +75,38 @@ let unverifiedPage = [
   },
   {
     title: 'Проверенные',
-    path: '/verified-tasks', 
+    path: '/verified-tasks',
     id: 2,
   },
-]
-
+];
 
 let leftTrigger = {
   title: 'StudyRoom',
   path: '/main',
   id: 1,
-}
+};
 
 const isTeacher = true;
 
 export const LayoutApp: FC = () => {
-  const {pathname} = useLocation();
-  console.log(pathname)
+  const { pathname } = useLocation();
+  console.log(pathname);
 
   const handleNavLink = () => {
-
-    switch(pathname) {
+    switch (pathname) {
       case '/taskListCompleted':
         return tasks;
       case '/taskListAssigned':
         return tasks;
-      case '/taskListMissed': 
+      case '/taskListMissed':
         return tasks;
       case '/grade':
-        return middleItemsTeacher
-      case '/tasks' :
         return middleItemsTeacher;
-      case '/feed' :
+      case '/tasks':
         return middleItemsTeacher;
-      case '/performed': 
+      case '/feed':
+        return middleItemsTeacher;
+      case '/performed':
         return middleItemsTeacher;
       case '/unverified-tasks':
         return unverifiedPage;
@@ -118,18 +115,16 @@ export const LayoutApp: FC = () => {
       default:
         return [];
     }
-  }
+  };
 
   return (
     <Layout>
       <Layout>
-        <MainHeader >
-          <HeaderLogoPlus 
+        <MainHeader>
+          <HeaderLogoPlus
             leftTrigger={leftTrigger}
-            middleItems={handleNavLink} 
-            rightComponent={
-              <RightComponent />
-            } 
+            middleItems={handleNavLink}
+            rightComponent={<RightComponent />}
           />
         </MainHeader>
         <Layout>

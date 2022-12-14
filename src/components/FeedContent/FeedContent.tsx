@@ -50,7 +50,7 @@ const FeedContent:FC = () => {
                 />
               </Space>
             </Dropdown>
-            <span className={s.course_cod}>tq7kdvd</span>
+            <span className={s.code}>tq7kdvd</span>
             <ModalCode />
           </div>
         }
@@ -63,6 +63,7 @@ const FeedContent:FC = () => {
           </p>
           <Button 
             type="link" 
+            className={s.btn}
           >
             Просмотреть все
           </Button>

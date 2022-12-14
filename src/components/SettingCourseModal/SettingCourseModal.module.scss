@@ -28,14 +28,27 @@
       border: none;
       border-radius: 0;
       background-color: #f1f3f4;
-      border-bottom: 2px solid #989999;
+      border-bottom: 2px solid var(#{--default-color});
       padding: 16px 24px;
     }
 
+    .input:focus {
+      box-shadow: none;
+    }
+
+    .input::placeholder {
+      color: var(#{--default-color})
+    }
+
     .btn {
-      color: $primary-color;
+      color: var(#{--default-color});
       margin-left: -16px;
     }
+
+    .btn:hover {
+      background-color: var(#{--default-color});
+      color: white;
+    } 
 
     .icon {
       font-size: 20px;
@@ -50,7 +63,7 @@
     }
 
     .heading {
-      color: $primary-color;
+      color: var(#{--default-color});
       font-size: 40px;
     }
 
@@ -80,10 +93,35 @@
         border: none;
         border-radius: 0;
         background-color: #f1f3f4;
-        border-bottom: 2px solid #989999;
+        border-bottom: 2px solid var(#{--default-color});
       }
     }
   }
 }
 
+.switch {
+  background-color: var(#{--default-color});
+}
 
+.swithcUnChecked{
+  background-color: grey;
+}
+
+.close_btn {
+  margin-right: 24px;
+  border: none;
+  color: var(#{--default-color}) !important;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.close_btn:hover,
+.close_btn:focus,
+.close_btn:active {
+  background-color: var(#{--default-color}) !important;
+  color: white !important;
+}
+
+a {
+  color: var(#{--default-color})
+}

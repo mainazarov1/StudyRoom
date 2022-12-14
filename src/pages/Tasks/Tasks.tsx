@@ -1,5 +1,5 @@
 import { Layout, Row, Space } from 'antd';
-import { CalendarOutlined } from '@ant-design/icons';
+import { CalendarOutlined, ContactsOutlined, IdcardOutlined } from '@ant-design/icons';
 
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 import CollapseComponent from '../../components/Collapse/Collapse';
@@ -88,7 +88,7 @@ const Tasks = () => {
           <ButtonApp
             classNameProp={s.navigation__link}
             label='Открыть свой профиль'
-            icon={userProfileSvg}
+            icon={<IdcardOutlined />}
           />
           <Space>
             <ButtonApp
@@ -99,7 +99,7 @@ const Tasks = () => {
             <ButtonApp
               classNameProp={s.navigation__link}
               label={'Папка курса на диске'}
-              icon={Disk}
+              icon={<ContactsOutlined />}
             />
           </Space>
         </Row>

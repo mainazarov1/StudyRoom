@@ -1,6 +1,39 @@
+@import '../../../styles/variables.scss';
+
 .modal {
   div {
     border: none;
   }
   
 }
+
+.btn {
+  color: var(#{--default-color});
+  border: 1px solid var(#{--default-color});
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus
+{
+  background-color: var(#{--default-hover-color})!important;
+  color: var(#{--default-color});
+  border: 1px solid var(#{--default-color});
+}
+
+.tabs {
+    div {
+      &:nth-child(4) {
+        background: var(#{--default-color})!important;
+      }
+    }
+}
+
+.tab {
+  color: var(#{--default-color});
+}
+
+.tab:hover {
+  background-color: var(#{--default-hover-color})!important;
+}
+

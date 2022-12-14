@@ -31,14 +31,14 @@
                 }
 
                 &:hover {
-                    background-color: rgb(95, 99, 104, 0.1);
+                    background-color: var(#{--default-hover-color});
                 }
 
                 .active {
-                    color: #1890ff;
+                    color: var(#{--default-color});
 
                     &::after {
-                        border-color: #1890ff;
+                        border-color:  var(#{--default-color});
                         border-top-width: 0.25rem;
                         border-top-style: solid;
                         border-radius: 0.25rem 0.25rem 0 0;

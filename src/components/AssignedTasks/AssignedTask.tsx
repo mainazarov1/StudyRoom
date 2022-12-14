@@ -7,59 +7,67 @@ import type { MenuProps } from 'antd';
 const data = [
   {
     title: 'Google ClassRoom 1',
-    date: '10 November'
+    date: '10 November',
   },
   {
     title: 'Google ClassRoom 2',
-    date: '10 November'
+    date: '10 November',
   },
   {
     title: 'Google ClassRoom 3',
-    date: '10 November'
+    date: '10 November',
   },
   {
     title: 'Google ClassRoom 4',
-    date: '10 November'
+    date: '10 November',
   },
 ];
-
-
 
 const items: MenuProps['items'] = [
   {
     key: '1',
-    label: (<span>Копировать ссылку</span>),
+    label: <span>Копировать ссылку</span>,
   },
   {
-    type: 'divider'
+    type: 'divider',
   },
   {
     key: '3',
-    label: (<span>Пожаловаться</span>),
+    label: <span>Пожаловаться</span>,
   },
 ];
 
-const AssignedTask:FC = () => {
+const AssignedTask: FC = () => {
+  const [isTask, setIsTask] = useState(true);
   return (
     <>
       <List
-        itemLayout="horizontal"
+        itemLayout='horizontal'
         dataSource={data}
         renderItem={(item, i) => (
           <List.Item
             key={i}
-            style={{padding: '16px 24px', border: '0.0625rem solid #dadce0', borderRadius: 12, marginTop: 24,}}
+            style={{
+              padding: '16px 24px',
+              border: '0.0625rem solid #dadce0',
+              borderRadius: 12,
+              marginTop: 24,
+            }}
           >
-            <List.Item.Meta
-              avatar={<Avatar style={{backgroundColor: '#1967d2'}} icon={<SnippetsOutlined />} />}
-              title={<a href="https://ant.design">{item.title}</a>}
-              description={item.date}
-            />
-            <Dropdown
-              menu={{items}}
-              placement='bottomLeft'
-              arrow={{ pointAtCenter: true }}
-            >
+            {isTask ? (
+              <List.Item.Meta
+                avatar={<Avatar size='large' className={s.avatar} icon={<SnippetsOutlined />} />}
+                title={<a href='https://ant.design'>{item.title}</a>}
+                description={item.date}
+              />
+            ) : (
+              <List.Item.Meta
+                avatar={<Avatar src='https://lh3.googleusercontent.com/a/default-user=s40-c' />}
+                title={<a href='https://ant.design'>{item.title}</a>}
+                description={item.date}
+              />
+            )}
+            <Dropdown menu={{ items }} placement='bottomLeft' arrow={{ pointAtCenter: true }}>
               <MoreOutlined className={s.icon} />
             </Dropdown>
           </List.Item>

@@ -10,6 +10,7 @@ interface ModalFuncProps {
   footer?: any[];
   width?: number;
   title?: string;
+  closable?: boolean;
 }
 
 const ModalComponents:FC<ModalFuncProps> = (props) => {

@@ -48,7 +48,7 @@ const TaskItem: FC<TaskItemProps> = ({
   countComments,
 }) => {
   const [key, setKey] = useState<string | string[]>();
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const taskDropdownTeacher: MenuProps['items'] = [
     {
@@ -106,6 +106,7 @@ const TaskItem: FC<TaskItemProps> = ({
             <Dropdown
               placement={'bottomRight'}
               className={s.collapse__head__dropdown}
+
               trigger={['click']}
               menu={{ items: isTeacher ? taskDropdownTeacher : taskDropdownStudents }}
             >
@@ -113,6 +114,7 @@ const TaskItem: FC<TaskItemProps> = ({
                 className={s.collapse__elipsis}
                 style={{ fontSize: '30px', color: 'rgb(25,103,210)' }}
                 color='green'
+                rotate={90}
               />
             </Dropdown>
           </Col>
