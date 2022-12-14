@@ -1,0 +1,28 @@
+.table-dropdown-cell {
+    opacity: 0;
+}
+
+.ant-table-cell:hover .table-dropdown-cell {
+    opacity: 1;
+}
+
+.ant-table-row {
+    &.ant-table-row-level-0 {
+        td {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+.disabled-row td {
+    background-color: hsl(0, 100%, 97%);
+    pointer-events: none;
+}
+
+.task-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
