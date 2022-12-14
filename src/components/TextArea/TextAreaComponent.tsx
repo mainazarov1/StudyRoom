@@ -83,7 +83,7 @@ const MenuBar:FC<any> = ({ editor }) => {
 };
 interface IProps {
   setStateShow: (arm: string ) => void
-  content: string;
+  content?: string;
 }
 
 export const Tiptap: FC<IProps> = ({ setStateShow, content }) => {
