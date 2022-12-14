@@ -33,7 +33,9 @@ const DataTaskList = () => {
             <td>
               <Avatar style={{ backgroundColor: 'blue', verticalAlign: 'middle' }} size="small" gap={1}>
                 S
-              </Avatar> StudyRoom</td>
+              </Avatar>
+              StudyRoom
+            </td>
             <td>Bakytbekov Beksultan</td>
             <td>10 мая</td>
           </tr>
@@ -42,11 +44,13 @@ const DataTaskList = () => {
               <td>
                 <Avatar style={{ backgroundColor: 'blue', verticalAlign: 'middle' }} size="small" gap={1}>
                   {item.title[0].toUpperCase()}
-                </Avatar> {item.title}</td>
+                </Avatar>{' '}
+                {item.title}
+              </td>
               <td>{item.name}</td>
               <td>{item.date}</td>
-            </tr>))
-          }
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 import SettingCourseModal from '../../SettingCourseModal/SettingCourseModal';
 
 interface ImiddleItems {
-  title: string;
-  path: string;
+    title: string,
+    path: string
 }
 
 interface IleftTrigger {
-  title: string;
-  path: string;
+    title: string,
+    path: string
 }
 
 interface IHeaderLogoPlusProps {

@@ -1,5 +1,5 @@
-import {FC, useState } from 'react';
-import { Button,} from 'antd';;
+import { FC, useState } from 'react';
+import { Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 import DragUploadImg from '../../DragUploadImg/DragUploadImg';

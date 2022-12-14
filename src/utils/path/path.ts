@@ -9,7 +9,7 @@ const TASK_LIST = '/taskList';
 const USERS_PAGE = '/users';
 const RATING_PAGE = '/rating';
 
-export { 
+export {
   AUTH_PAGE,
   MAIN_PAGE,
   FEED_PAGE,
@@ -19,5 +19,5 @@ export {
   TASK_LIST_ASSIGNED,
   USERS_PAGE,
   RATING_PAGE,
-  TASK_LIST
+  TASK_LIST,
 };

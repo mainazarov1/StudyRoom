@@ -27,7 +27,7 @@ const ModalCode:FC<IID> = ({children}) => {
 
   return (
     <>
-      <Tooltip key='tooltip' placement="bottom" title='Показать'>
+      <Tooltip key='tooltip' placement='bottom' title='Показать'>
         <ExpandOutlined onClick={showModal} className={s.bottom_block_icon} />
       </Tooltip>
       
@@ -49,12 +49,12 @@ const ModalCode:FC<IID> = ({children}) => {
           >
             Копировать Сcылку
           </Button>,
-          <Tooltip key='tooltip' placement="bottom" title='Полный экран'>
-            <ExpandOutlined 
-              className={s.bottom_block_icon}  
+          <Tooltip key='tooltip' placement='bottom' title='Полный экран'>
+            <ExpandOutlined
+              className={s.bottom_block_icon}
               onClick={() => setFullScreenModal(true)}
             />
-          </Tooltip>, 
+          </Tooltip>,
         ]}
       >
         <div className={s.modal_content}>{code}</div>
@@ -64,10 +64,10 @@ const ModalCode:FC<IID> = ({children}) => {
         title={<CloseOutlined onClick={() => setFullScreenModal(false)} />}
         closebtn={<span></span>}
       >
-        <div className={s.fullscreen_code} >{code}</div>
+        <div className={s.fullscreen_code}>{code}</div>
         <hr className={s.fullscreen_line} />
-        <div className={s.fullscreen_footer} >
-          <span className={s.fullscreen_name} >StudyRoom</span>
+        <div className={s.fullscreen_footer}>
+          <span className={s.fullscreen_name}>StudyRoom</span>
           <div>
             <Button 
               key='btn' 
@@ -80,8 +80,8 @@ const ModalCode:FC<IID> = ({children}) => {
             >
               Копировать Сcылку
             </Button>
-            <CompressOutlined 
-              className={s.bottom_block_icon}  
+            <CompressOutlined
+              className={s.bottom_block_icon}
               onClick={() => setFullScreenModal(false)}
             />
           </div>

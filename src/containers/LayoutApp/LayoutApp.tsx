@@ -8,7 +8,6 @@ import RightComponent from '../../components/HeaderComponents/RightCoponent/Righ
 import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
 
-
 const middleItems = [
   {
     title: 'Лента',

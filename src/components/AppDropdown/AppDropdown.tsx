@@ -13,11 +13,7 @@ interface IAppDropdownProps {
   width?: string;
 }
 
-const AppDropdown: FC<IAppDropdownProps> = ({
-  title,
-  children,
-  width,
-}) => {
+const AppDropdown: FC<IAppDropdownProps> = ({ title, children, width }) => {
   const [studentDropOpen, setStudentDropOpen] = React.useState<boolean>(false);
   const menuStudent = (
     <Menu style={{ width: `${width}` }} className={s.modal__menu}>

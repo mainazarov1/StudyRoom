@@ -10,27 +10,26 @@ import { InputApp } from '../../InputApp/InputApp';
 
 import s from './FigthComponent.module.scss';
 
-
 const RightComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const showModal = () => {
     setIsModalOpen(true);
   };
-  
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  
+
   const items: MenuProps['items'] = [
     {
-      label: <span onClick={showModal} >Присоединиться</span>,
+      label: <span onClick={showModal}>Присоединиться</span>,
       key: '0',
     },
     {
       label: <ConditionAgreement />,
       key: '1',
-    }
+    },
   ];
   return (
     <>

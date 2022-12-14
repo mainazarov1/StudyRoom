@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 import {IList} from '../../core/types/ListType';
 
 interface IProps {
-  item: IList,
+  item: IList;
 }
 
-const SideBarMenuItem:FC<IProps> = ({ item }) => {
+const SideBarMenuItem: FC<IProps> = ({ item }) => {
   return (
     <Menu.Item eventKey={item.id} style={{lineHeight: 0.2, padding: '0 16px 0 24px' }} >
       <NavLink to={item.link}>

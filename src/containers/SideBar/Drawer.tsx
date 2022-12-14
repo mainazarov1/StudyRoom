@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
-import {  Drawer, Space } from 'antd';
+import { Drawer, Space } from 'antd';
 
 import { IList } from '../../core/types/ListType';
 
 import MenuAside from './MenuAside';
-
 
 const Drawers: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -32,13 +31,7 @@ const Drawers: React.FC = () => {
       <Space>
         <MenuOutlined onClick={showDrawer} />
       </Space>
-      <Drawer
-        title="StudyRoom"
-        placement="left"
-        closable={false}
-        onClose={onClose}
-        open={open}
-      >
+      <Drawer title='StudyRoom' placement='left' closable={false} onClose={onClose} open={open}>
         <MenuAside listStudenCurs={ListCurs} ListTeacherCurs={ListTeacherCurs} onClose={onClose} />
       </Drawer>
     </>

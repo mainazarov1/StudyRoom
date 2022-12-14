@@ -1,10 +1,9 @@
 import React, { Children } from 'react';
-import { Table, Tree , Dropdown } from 'antd';
+import { Table, Tree, Dropdown } from 'antd';
 import { CaretDownOutlined } from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-
 
 interface DataType {
   key: React.Key;
