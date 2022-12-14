@@ -43,7 +43,7 @@ const FeedContent: FC = () => {
   const isTeacher = true;
 
   return (
-    <div className={s.feed_contebt}>
+    <div className={s.feed_content}>
       <div className={s.feed_left}>
         {isTeacher && (
           <div className={s.course_code}>
