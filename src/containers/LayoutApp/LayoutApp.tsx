@@ -7,6 +7,7 @@ import { HeaderLogoPlus } from '../../components/HeaderComponents/HeaderLogoPlus
 import RightComponent from '../../components/HeaderComponents/RightCoponent/RightComponent';
 import { Header as MainHeader } from '../Header/Header';
 import 'antd/dist/antd.css';
+import { USERS_PAGE } from '../../utils/path/path';
 
 const middleItems = [
   {
@@ -39,7 +40,7 @@ const middleItemsTeacher = [
   },
   {
     title: 'Пользователи',
-    path: '/performed',
+    path: USERS_PAGE,
     id: 3,
   },
   {
@@ -92,8 +93,8 @@ export const LayoutApp: FC = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
-	const handleNavLink = () => {
-		switch (pathname) {
+  const handleNavLink = () => {
+    switch (pathname) {
     case '/taskListCompleted':
       return tasks;
     case '/taskListAssigned':
@@ -106,7 +107,7 @@ export const LayoutApp: FC = () => {
       return middleItemsTeacher;
     case '/feed':
       return middleItemsTeacher;
-    case '/performed':
+    case USERS_PAGE:
       return middleItemsTeacher;
     case '/unverified-tasks':
       return unverifiedPage;
