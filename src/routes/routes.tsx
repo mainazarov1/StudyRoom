@@ -14,6 +14,9 @@ import {
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
   USERS_PAGE,
+  GRADE_PAGE,
+  VERIFIED_TASKS_PAGE,
+  UNVERIFIED_TASKS_PAGE
 } from '../utils/path/path';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
@@ -55,7 +58,7 @@ const MainRoutes = () => {
     },
     {
       id: useId(),
-      path: '/grade',
+      path: GRADE_PAGE,
       component: <Grade />,
     },
     {
@@ -90,12 +93,12 @@ const MainRoutes = () => {
     },
     {
       id: useId(),
-      path: '/unverified-tasks',
+      path: UNVERIFIED_TASKS_PAGE,
       component: <UnverifiedTasks />
     },
     {
       id: useId(),
-      path: '/verified-tasks',
+      path: VERIFIED_TASKS_PAGE,
       component: <VerifiedTasks />
     }
     // {

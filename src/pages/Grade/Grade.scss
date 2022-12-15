@@ -21,8 +21,31 @@
     pointer-events: none;
 }
 
-.task-dropdown {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+// .task-dropdown {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+// }
+
+.task-link {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.task-link:hover {
+    color: #1890ff; // Для изменения цвета ссылки задания
+}
+
+.name-link {
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.title-deadline {
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.title-fromTo {
+    font-size: 12px;
+    color: #5f6368;
 }

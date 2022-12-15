@@ -1,13 +1,12 @@
-import React, { Children } from 'react';
-import { Table, Dropdown, Avatar, Select } from 'antd';
+import React, { useState } from 'react';
+import { Table, Dropdown, Avatar, Select, Divider, Input } from 'antd';
 import { CaretDownOutlined, EllipsisOutlined, MoreOutlined, UserOutlined } from '@ant-design/icons';
 
 import type { MenuProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import { Link } from 'react-router-dom';
 import '../Grade/Grade.scss';
 import s from '../Tasks/Tasks.module.scss';
-import { render } from 'react-dom';
+import { NavLink } from 'react-router-dom';
 
 interface DataType {
   key: React.Key;
@@ -35,223 +34,23 @@ const items: MenuProps['items'] = [
   }
 ];
 
-const listTask = [
-  {deadline: '25.05.2022', task: 'name', fromTo: 50}
-]
-
-const columns: ColumnsType<DataType> = [
+const itemsTask: MenuProps['items'] = [
   {
-    title: <Select
-      defaultValue="Сортировать по имени"
-      suffixIcon={<CaretDownOutlined />}
-      bordered={false}
-      options={selectOptionList.map((item) => ({ value: item.value }))}
-    />,
-    width: 200,
-    dataIndex: 'name',
-    fixed: 'left',
-    render: (text, record) => {
-      return (
-        <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-          <Avatar src={record.avatar} icon={<UserOutlined />} />
-          <div style={{ marginLeft: '15px' }}> {record.name} </div>
-        </div>
-      );
-    },
+    label: 'Изменить',
+    key: '0',
   },
   {
-    title: 'Общая оценка',
-    width: 100,
-    dataIndex: 'overallScore',
-    fixed: 'left',
+    label: 'Удалить',
+    key: '1',
   },
   {
-    title: <div className='task-dropdown'>{[<div><div>срок сдачи</div> <div>задание</div> <div>100</div></div>, <Dropdown
-    placement={'bottomRight'}
-    className={s.collapse__head__dropdown}
-    trigger={['click']}
-    menu={{ items }}
-  >
-    <EllipsisOutlined
-      className={s.collapse__elipsis}
-      style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-      color='green'
-      rotate={90}
-    />
-  </Dropdown>]}</div>,
-  width: 100
-
-    // children: [
-    //   {
-    //     title: <div className='task-dropdown'>{['text', <Dropdown
-    //     placement={'bottomRight'}
-    //     className={s.collapse__head__dropdown}
-    //     trigger={['click']}
-    //     menu={{ items }}
-    //   >
-    //     <EllipsisOutlined
-    //       className={s.collapse__elipsis}
-    //       style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-    //       color='green'
-    //       rotate={90}
-    //     />
-    //   </Dropdown>]}</div>, children: [{
-    //       title: 'из 100',
-    //       render: (text, record) => {
-    //         return (
-    //           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-    //             <div className='table-dropdown-cell-grade'>{record.grade}</div>
-    //             <div className='table-dropdown-cell'>
-    //               <Dropdown
-    //                 placement={'bottomRight'}
-    //                 className={s.collapse__head__dropdown}
-    //                 trigger={['click']}
-    //                 menu={{ items }}
-    //               >
-    //                 <EllipsisOutlined
-    //                   className={s.collapse__elipsis}
-    //                   style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-    //                   color='green'
-    //                   rotate={90}
-    //                 />
-    //               </Dropdown>
-    //             </div>
-    //           </div>)
-    //       }, width: 100, dataIndex: 'grade', key: '2'
-    //     }]
-    //   },
-    // ],
+    type: 'divider',
   },
   {
-    title: 'Срок сдачи',
-    children: [
-      {
-        title: 'test2', children: [{
-          title: 'из 100',
-          render: (text, record) => {
-            return (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                {record.grade}
-                <div className='table-dropdown-cell'>
-                  <Dropdown
-                    placement={'bottomRight'}
-                    className={s.collapse__head__dropdown}
-                    trigger={['click']}
-                    menu={{ items }}
-                  >
-                    <EllipsisOutlined
-                      className={s.collapse__elipsis}
-                      style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-                      color='green'
-                      rotate={90}
-                    />
-                  </Dropdown>
-                </div>
-              </div>)
-          },
-          width: 100, dataIndex: 'grade', key: '3'
-        }]
-      },
-    ],
-  },
-  {
-    title: 'Срок сдачи',
-    children: [
-      {
-        title: 'test3', children: [{
-          title: 'из 100',
-          render: (text, record) => {
-            return (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                {record.grade}
-                <div className='table-dropdown-cell'>
-                  <Dropdown
-                    placement={'bottomRight'}
-                    className={s.collapse__head__dropdown}
-                    trigger={['click']}
-                    menu={{ items }}
-                  >
-                    <EllipsisOutlined
-                      className={s.collapse__elipsis}
-                      style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-                      color='green'
-                      rotate={90}
-                    />
-                  </Dropdown>
-                </div>
-              </div>)
-          },
-          width: 100, dataIndex: 'grade', key: '4'
-        }]
-      },
-    ],
-  },
-  {
-    title: 'Срок сдачи',
-    children: [
-      {
-        title: 'test3', children: [{
-          title: 'из 100',
-          render: (text, record) => {
-            return (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                {record.grade}
-                <div className='table-dropdown-cell'>
-                  <Dropdown
-                    placement={'bottomRight'}
-                    className={s.collapse__head__dropdown}
-                    trigger={['click']}
-                    menu={{ items }}
-                  >
-                    <EllipsisOutlined
-                      className={s.collapse__elipsis}
-                      style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-                      color='green'
-                      rotate={90}
-                    />
-                  </Dropdown>
-                </div>
-              </div>)
-          },
-          width: 100, dataIndex: 'grade', key: '5'
-        }]
-      },
-    ],
-  },
-  {
-    title: 'Срок сдачи',
-    children: [
-      {
-        title: 'test3', children: [{
-          title: 'из 100',
-          render: (text, record) => {
-            return (
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                {record.grade}
-                <div className='table-dropdown-cell'>
-                  <Dropdown
-                    placement={'bottomRight'}
-                    className={s.collapse__head__dropdown}
-                    trigger={['click']}
-                    menu={{ items }}
-                  >
-                    <EllipsisOutlined
-                      className={s.collapse__elipsis}
-                      style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-                      color='green'
-                      rotate={90}
-                    />
-                  </Dropdown>
-                </div>
-              </div>)
-          },
-          width: 100, dataIndex: 'grade', key: '6'
-        }]
-      },
-    ],
-  },
+    label: 'Вернуть все',
+    key: '2',
+  }
 ];
-
 
 let data: DataType[] = [
   {
@@ -283,7 +82,7 @@ let data: DataType[] = [
     name: 'Snow',
     avatar: 'https://avatars.dicebear.com/api/initials/snow.svg',
     overallScore: 'Нет оценки',
-    grade: 50,
+    grade: 10,
     enabled: true
   },
   {
@@ -291,7 +90,7 @@ let data: DataType[] = [
     name: 'Clone',
     avatar: 'https://avatars.dicebear.com/api/initials/clone.svg',
     overallScore: 'Нет оценки',
-    grade: 30,
+    grade: 45,
     enabled: true
   },
 ];
@@ -314,15 +113,259 @@ const getSummaryAvarage = () => {
   ];
 };
 
+
 getSummaryAvarage();
 
 const Grade: React.FC = () => {
+  const columns: ColumnsType<DataType> = [
+    {
+      title: <Select
+        defaultValue="Сортировать по имени"
+        suffixIcon={<CaretDownOutlined />}
+        bordered={false}
+        options={selectOptionList.map((item) => ({ value: item.value }))}
+      />,
+      width: 50,
+      dataIndex: 'name',
+      fixed: 'left',
+      render: (text, record) => {
+        return (
+          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <Avatar src={record.avatar} icon={<UserOutlined />} />
+            <div style={{ marginLeft: '15px' }}> <NavLink className='name-link' to='#'> {record.name} </NavLink> </div>
+          </div>
+        );
+      },
+    },
+    {
+      title: 'Общая оценка',
+      width: 35,
+      dataIndex: 'overallScore',
+      fixed: 'left',
+    },
+    {
+      title:
+        <div className='task-dropdown'>
+          {[
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div className='title-deadline'>Срок сдачи</div>
+                  <div> <NavLink className='task-link' to={'#'}>Задание</NavLink></div>
+                </div>
+                <div className='table-dropdown-cell'><Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items: itemsTask }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown> </div>
+              </div>
+              <Divider />
+              <div className='title-fromTo'>из 100</div>
+            </div>
+          ]}
+        </div>,
+         render: (text, record) => {
+          return (
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className='table-dropdown-cell-grade'>{record.grade}</div>
+              <div className='table-dropdown-cell'>
+                <Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown>
+              </div>
+            </div>)
+        },
+      width: 30,
+      dataIndex: 'grade',
+      key: '2'
+    },
+    {
+      title:
+        <div className='task-dropdown'>
+          {[
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div className='title-deadline'>Срок сдачи</div>
+                  <div> <NavLink className='task-link' to={'#'}>Задание</NavLink></div>
+                </div>
+                <div className='table-dropdown-cell'><Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items: itemsTask }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown> </div>
+              </div>
+              <Divider />
+              <div className='title-fromTo'>из 100</div>
+            </div>
+          ]}
+        </div>,
+         render: (text, record) => {
+          return (
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className='table-dropdown-cell-grade'>{record.grade}</div>
+              <div className='table-dropdown-cell'>
+                <Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown>
+              </div>
+            </div>)
+        },
+      width: 30,
+      dataIndex: 'grade',
+      key: '2'
+    },
+    {
+      title:
+        <div className='task-dropdown'>
+          {[
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div className='title-deadline'>Срок сдачи</div>
+                  <div> <NavLink className='task-link' to={'#'}>Задание</NavLink></div>
+                </div>
+                <div className='table-dropdown-cell'><Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items: itemsTask }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown> </div>
+              </div>
+              <Divider />
+              <div className='title-fromTo'>из 100</div>
+            </div>
+          ]}
+        </div>,
+         render: (text, record) => {
+          return (
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className='table-dropdown-cell-grade'>{record.grade}</div>
+              <div className='table-dropdown-cell'>
+                <Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown>
+              </div>
+            </div>)
+        },
+      width: 30,
+      dataIndex: 'grade',
+      key: '2'
+    },
+    {
+      title:
+        <div className='task-dropdown'>
+          {[
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div>
+                  <div className='title-deadline'>Срок сдачи</div>
+                  <div> <NavLink className='task-link' to={'#'}>Задание</NavLink></div>
+                </div>
+                <div className='table-dropdown-cell'><Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items: itemsTask }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown> </div>
+              </div>
+              <Divider />
+              <div className='title-fromTo'>из 100</div>
+            </div>
+          ]}
+        </div>,
+         render: (text, record) => {
+          return (
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className='table-dropdown-cell-grade'>{record.grade}</div>
+              <div className='table-dropdown-cell'>
+                <Dropdown
+                  placement={'bottomRight'}
+                  className={s.collapse__head__dropdown}
+                  trigger={['click']}
+                  menu={{ items }}
+                >
+                  <EllipsisOutlined
+                    className={s.collapse__elipsis}
+                    style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
+                    color='green'
+                    rotate={90}
+                  />
+                </Dropdown>
+              </div>
+            </div>)
+        },
+      width: 30,
+      dataIndex: 'grade',
+      key: '2'
+    },
+  ];
   return (
     <div>
       <Table
         bordered
         columns={columns}
-        rowClassName={record => !record.enabled ?  "disabled-row" : null}
+        rowClassName={record => !record.enabled && "disabled-row"}
         dataSource={data}
         scroll={{ x: 1300 }}
       />
