@@ -1,13 +1,11 @@
 import { DownOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Checkbox, Dropdown, Menu, Space } from 'antd';
+import { Avatar, Button, Checkbox, Dropdown, Menu, Space, type MenuProps } from 'antd';
 import { FC, useState } from 'react';
 
 import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
 import { Tiptap } from '../TextArea/TextAreaComponent';
 
 import s from './ReferToCourse.module.scss';
-
-import type { MenuProps } from 'antd';
 
 const ReferToCourse: FC = () => {
   const [isMessages, setIsMessages] = useState<boolean>(true);
@@ -131,8 +129,8 @@ const ReferToCourse: FC = () => {
         <div className={s.referring_course}>
           <div className={s.main_input} onClick={handleChange}>
             <Avatar
+              src='https://lh3.googleusercontent.com/a/default-user=s40-c'
               style={{ backgroundColor: '#a0c3ff', marginRight: 16 }}
-              icon={<UserOutlined style={{ color: '#4374e0' }} />}
             />
             <span className={s.text}>Обратиться к курсу</span>
           </div>
@@ -168,16 +166,12 @@ const ReferToCourse: FC = () => {
                 </Space>
               </Dropdown>
             </div>
-            <Tiptap setStateShow={setMessages} /> 
-            <div className={s.btns} >
-              <Button
-                size='large'
-                type="text"
-                onClick={handleChange}
-              >
+            <Tiptap setStateShow={setMessages} content={messageValue} />
+            <div className={s.btns}>
+              <Button size='large' type='text' onClick={handleChange}>
                 Отмена
               </Button>
-              <Dropdown.Button 
+              <Dropdown.Button
                 size='large'
                 onClick={handleChange}
                 type='primary'

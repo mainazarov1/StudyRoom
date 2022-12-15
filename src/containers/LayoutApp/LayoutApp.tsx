@@ -36,8 +36,8 @@ const middleItems = [
     title: 'Пользователи',
     path: USERS_PAGE,
     id: 3,
-  }
-]
+  },
+];
 
 const middleItemsTeacher = [
   {
@@ -59,8 +59,8 @@ const middleItemsTeacher = [
     title: 'Оценка',
     path: GRADE_PAGE,
     id: 4,
-  }
-]
+  },
+];
 
 const tasks = [
   {
@@ -77,10 +77,10 @@ const tasks = [
     title: 'Выполнено',
     path: TASK_LIST_MISSED,
     id: 3,
-  }
-]
+  },
+];
 
-let unverifiedPage = [
+const unverifiedPage = [
   {
     title: 'Непроверенные задания',
     path: UNVERIFIED_TASKS_PAGE,
@@ -88,60 +88,56 @@ let unverifiedPage = [
   },
   {
     title: 'Проверенные',
-    path: VERIFIED_TASKS_PAGE, 
+    path: '/verified-tasks',
     id: 2,
   },
-]
+];
 
-
-let leftTrigger = {
+const leftTrigger = {
   title: 'StudyRoom',
   path: MAIN_PAGE,
   id: 1,
-}
+};
 
 const isTeacher = true;
 
 export const LayoutApp: FC = () => {
-  const {pathname} = useLocation();
-  console.log(pathname)
+  const { pathname } = useLocation();
+  console.log(pathname);
 
-  const handleNavLink = () => {
-
-    switch(pathname) {
-      case '/taskListCompleted':
-        return tasks;
-      case '/taskListAssigned':
-        return tasks;
-      case '/taskListMissed': 
-        return tasks;
-      case '/grade':
-        return middleItemsTeacher
-      case '/tasks' :
-        return middleItemsTeacher;
-      case '/feed' :
-        return middleItemsTeacher;
-      case '/performed': 
-        return middleItemsTeacher;
-      case '/unverified-tasks':
-        return unverifiedPage;
-      case '/verified-tasks':
-        return unverifiedPage;
-      default:
-        return [];
+	const handleNavLink = () => {
+		switch (pathname) {
+    case '/taskListCompleted':
+      return tasks;
+    case '/taskListAssigned':
+      return tasks;
+    case '/taskListMissed':
+      return tasks;
+    case '/grade':
+      return middleItemsTeacher;
+    case '/tasks':
+      return middleItemsTeacher;
+    case '/feed':
+      return middleItemsTeacher;
+    case '/performed':
+      return middleItemsTeacher;
+    case '/unverified-tasks':
+      return unverifiedPage;
+    case '/verified-tasks':
+      return unverifiedPage;
+    default:
+      return [];
     }
-  }
+  };
 
   return (
     <Layout>
       <Layout>
-        <MainHeader >
-          <HeaderLogoPlus 
+        <MainHeader>
+          <HeaderLogoPlus
             leftTrigger={leftTrigger}
-            middleItems={handleNavLink} 
-            rightComponent={
-              <RightComponent />
-            } 
+            middleItems={handleNavLink}
+            rightComponent={<RightComponent />}
           />
         </MainHeader>
         <Layout>

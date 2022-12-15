@@ -1,7 +1,7 @@
 import { useEditor, EditorContent } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import Underline from '@tiptap/extension-underline';
-import { FC, useState } from 'react';
+import { StarterKit } from '@tiptap/starter-kit';
+import { Underline } from '@tiptap/extension-underline';
+import { FC } from 'react';
 import {
   BoldOutlined,
   FontSizeOutlined,
@@ -11,7 +11,6 @@ import {
   UnderlineOutlined,
   UnorderedListOutlined,
 } from '@ant-design/icons';
-import parse from 'html-react-parser';
 
 import s from './TextAreaComponent.module.scss';
 
@@ -78,7 +77,7 @@ const MenuBar: FC<any> = ({ editor }) => {
 };
 interface IProps {
   setStateShow: (arm: string) => void;
-  content: string;
+  content?: string;
 }
 
 export const Tiptap: FC<IProps> = ({ setStateShow, content }) => {

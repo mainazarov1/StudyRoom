@@ -1,28 +1,31 @@
-import React, { useState } from "react";
-import { PlusOutlined } from "@ant-design/icons"
-import { Dropdown, MenuProps, Tooltip } from "antd"
-import Title from "antd/lib/typography/Title"
-import { Link, NavLink, Route } from 'react-router-dom';
+import React from 'react';
+import Title from 'antd/lib/typography/Title';
+import { NavLink } from 'react-router-dom';
+
+import SettingCourseModal from '../../SettingCourseModal/SettingCourseModal';
 
 interface ImiddleItems {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IleftTrigger {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IHeaderLogoPlusProps {
-    rightComponent?: JSX.Element,
-    leftTrigger: IleftTrigger,
-    middleItems: () => ImiddleItems[]
+  rightComponent?: JSX.Element;
+  leftTrigger: IleftTrigger;
+  middleItems: () => ImiddleItems[];
 }
 
-
-export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, middleItems, rightComponent }) => {
-  const arr = middleItems()
+export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
+  leftTrigger,
+  middleItems,
+  rightComponent,
+}) => {
+  const arr = middleItems();
   return (
     <>
       <div className='item'>
@@ -36,20 +39,22 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({ leftTrigger, mi
         </Title>
       </div>
       <div className='header-middle'>
-        {arr.map((item) => (
-          <div
-            className='header-middle-item'>
+        {arr.map((item, i) => (
+          <div key={i} className='header-middle-item'>
             <Title style={{ margin: 0 }} level={5}>
-              <NavLink to={item.path} className={({ isActive }) =>
-                isActive ? 'active' : ''
-              }>
+              <NavLink to={item.path} className={({ isActive }) => (isActive ? 'active' : '')}>
                 {item.title}
               </NavLink>
             </Title>
           </div>
         ))}
       </div>
-      {rightComponent && <div className='item right-item'>{rightComponent}</div>}
+      {rightComponent && (
+        <div className='right_block'>
+          <SettingCourseModal />
+          <div className='item right-item'>{rightComponent}</div>
+        </div>
+      )}
     </>
   );
 };

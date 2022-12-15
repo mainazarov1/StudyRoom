@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Table, Dropdown, Avatar, Select, Divider, Input } from 'antd';
 import { CaretDownOutlined, EllipsisOutlined, MoreOutlined, UserOutlined } from '@ant-design/icons';
 
-import type { MenuProps } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import '../Grade/Grade.scss';
 import s from '../Tasks/Tasks.module.scss';
 import { NavLink } from 'react-router-dom';
 
 interface DataType {
-  key: React.Key;
+  key: Key;
   name: string;
   avatar: string;
   avarageGrade?: number;

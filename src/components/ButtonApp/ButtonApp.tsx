@@ -9,6 +9,7 @@ type ButtonAppProps = {
   icon?: JSX.Element;
   onClick?: () => void;
   classNameProp?: any;
+  style?: any;
 };
 
 export const ButtonApp: FC<ButtonAppProps> = ({ label, classNameProp, ...rest }) => {

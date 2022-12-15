@@ -3,7 +3,7 @@
   border-radius: 4px 4px 0 0;
   padding: 10px 10px;
   margin: 24px 0;
-  border-bottom: 3px solid #1967d2;
+  border-bottom: 3px solid var(#{--default-color});
 
   .editor_content {
     padding: 0 10px;

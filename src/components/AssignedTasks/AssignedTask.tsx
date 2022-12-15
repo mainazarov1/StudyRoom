@@ -1,10 +1,8 @@
-import React, { FC, useState } from 'react';
-import { Avatar, Divider, Dropdown, List } from 'antd';
+import { FC, useState } from 'react';
+import { Avatar, Dropdown, List, type MenuProps } from 'antd';
 import { MoreOutlined, SnippetsOutlined } from '@ant-design/icons';
 
 import s from './style.module.scss';
-
-import type { MenuProps } from 'antd';
 
 const data = [
   {
@@ -40,6 +38,7 @@ const items: MenuProps['items'] = [
 ];
 
 const AssignedTask: FC = () => {
+  const [isTask, setIsTask] = useState(true);
   return (
     <>
       <List
@@ -48,13 +47,26 @@ const AssignedTask: FC = () => {
         renderItem={(item, i) => (
           <List.Item
             key={i}
-            style={{padding: '16px 24px', border: '0.0625rem solid #dadce0', borderRadius: 12, marginTop: 24,}}
+            style={{
+              padding: '16px 24px',
+              border: '0.0625rem solid #dadce0',
+              borderRadius: 12,
+              marginTop: 24,
+            }}
           >
-            <List.Item.Meta
-              avatar={<Avatar style={{ backgroundColor: '#1967d2' }} icon={<SnippetsOutlined />} />}
-              title={<a href='https://ant.design'>{item.title}</a>}
-              description={item.date}
-            />
+            {isTask ? (
+              <List.Item.Meta
+                avatar={<Avatar size='large' className={s.avatar} icon={<SnippetsOutlined />} />}
+                title={<a href='https://ant.design'>{item.title}</a>}
+                description={item.date}
+              />
+            ) : (
+              <List.Item.Meta
+                avatar={<Avatar src='https://lh3.googleusercontent.com/a/default-user=s40-c' />}
+                title={<a href='https://ant.design'>{item.title}</a>}
+                description={item.date}
+              />
+            )}
             <Dropdown menu={{ items }} placement='bottomLeft' arrow={{ pointAtCenter: true }}>
               <MoreOutlined className={s.icon} />
             </Dropdown>
