@@ -124,11 +124,27 @@
   }
 
   &__saveButton {
+    margin-top: 20px;
+    margin-right: 24px;
+    background-color: var(#{--default-color});
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+    padding: 0 24px;
+    height: 36px;
+    font-weight: 500;
+
+    &:hover {
+      background-color: var(#{--default-color});
+      color: white;
+      border-color: var(#{--default-color});
+    }
+
     :global {
       .ant-btn {
         margin-top: 20px;
         margin-right: 24px;
-        background-color: rgb(19, 115, 51);
+        background-color: var(#{--default-color});
         color: #fff;
         border-radius: 4px;
         outline: none;

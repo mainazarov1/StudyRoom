@@ -38,8 +38,8 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
         </Title>
       </div>
       <div className='header-middle'>
-        {arr.map((item) => (
-          <div className='header-middle-item'>
+        {arr.map((item, i) => (
+          <div key={i} className='header-middle-item'>
             <Title style={{ margin: 0 }} level={5}>
               <NavLink to={item.path} className={({ isActive }) => (isActive ? 'active' : '')}>
                 {item.title}

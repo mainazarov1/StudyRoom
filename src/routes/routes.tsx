@@ -119,7 +119,7 @@ const MainRoutes = () => {
   // ];
 
   return (
-    <React.Suspense fallback={<span> Loading...</span>}>
+    <React.Suspense fallback={<span>Loading...</span>}>
       <Routes>
         <Route path={AUTH_PAGE} element={<Auth />} />
         <Route element={<LayoutApp />}>

@@ -149,7 +149,7 @@ const TasksModal: FC<ITasksModalProps> = ({
     console.log('click', e);
   };
 
-  const lo = true;
+  const lo = false;
 
   const saveButtonItems = [
     {
@@ -212,12 +212,7 @@ const TasksModal: FC<ITasksModalProps> = ({
         ) : (
           <Button
             onClick={handleClose}
-            style={{
-              marginRight: '24px',
-              backgroundColor: 'rgb(19,115,51)',
-              color: '#fff',
-              borderRadius: '4px',
-            }}
+            className={style.modal__saveButton}
           >
             Сохранить
           </Button>

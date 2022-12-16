@@ -19,9 +19,7 @@ const SideBarMenuItem:FC<IProps> = ({ item, onClose }) => {
           </Avatar>
           <Space direction='vertical' size="small" >
             <span >{item.title}</span>
-            <span 
-              style={{ fontSize: 10 }}
-            >
+            <span style={{ fontSize: 10 }}>
               {item.descirption}
             </span>
           </Space>

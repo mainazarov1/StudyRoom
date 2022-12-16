@@ -5,6 +5,7 @@ import { CheckOutlined, EditOutlined } from '@ant-design/icons';
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
 import { AppModal } from '../../ModalApp';
+import { handleChangeColor } from '../../../utils/CopyPaste';
 
 import s from './ModalSettings.module.scss';
 
@@ -30,9 +31,7 @@ const ModalSettings: FC = () => {
   const [color, setColor] = useState<string>('blue'); 
 
   useEffect(() => {
-    const root = document.querySelector(':root') as HTMLElement;
-    root.style.setProperty('--default-color', `var(--${color}-color)`);
-    root.style.setProperty('--default-hover-color', `var(--${color}-hover-color)`);
+    handleChangeColor(color);
   }, [color]);
 
   const showModal = () => {
