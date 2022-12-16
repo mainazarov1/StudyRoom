@@ -1,5 +1,7 @@
 import { MoreOutlined, UserAddOutlined } from '@ant-design/icons';
 import { Divider, Table, Tooltip, Typography } from 'antd';
+import { UsersTable } from '../../components/UsersTable/UsersTable';
+import { columns, data } from '../../utils/mock/tableMockApi';
 
 import styles from './Users.module.scss';
 const { Title } = Typography;
@@ -26,7 +28,6 @@ const users = [
   },
 ];
 
-const color = 'red';
 
 export const Users = () => {
   return (
@@ -55,7 +56,8 @@ export const Users = () => {
           </header>
           <Divider
             className={styles.users__divider}
-          />
+					/>
+					<UsersTable columns={columns} data={data}  />
           {/* <div className={styles.users__list}>
 						{users
 							.filter((user) => user.role === 'teacher' || user.role === 'admin')

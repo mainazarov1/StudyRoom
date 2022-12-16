@@ -11,7 +11,7 @@
 		header{
 			display: flex;
 			align-items: center;
-			padding: 8px;
+			padding: 8px 16px;
 		}
 	}
 	&__divider{
@@ -26,13 +26,13 @@
 		margin: 0;
 	}
 	&__icon{
-		width: 44px;
-		height: 44px;
+		width: 40px;
+		height: 40px;
 		font-size: 22px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: $white-color;
+		background-color: transparent;
 		border-radius: 50%;
 		border: none;
 		color: var(#{--default-color});
