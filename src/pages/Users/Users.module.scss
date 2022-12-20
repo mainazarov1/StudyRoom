@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .users{
 	max-width: 800px;
 	width: 100%;
@@ -14,11 +16,26 @@
 		}
 	}
 	.users__title{
-		font-size: 20px;
-		color: red;
+		font-size: 2rem;
+		font-weight: 300;
+		color: var(#{--default-color});
 		width: 100%;
 		margin: 0;
 	}
+	&__icon{
+		// width: 44px;
+		// height: 44px;
+		// font-size: 22px;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+		color: var(#{--default-color});
+		&:hover{
+			background-color: var(#{--default-hover-color});
+			color: var(#{--default-color});
+		}
+	}
+
 	&__list{
 
 	}
@@ -27,8 +44,11 @@
 		align-items: center;
 		gap: 16px;
 		padding: 8px;
+		&:not(:last-child){
+			border-bottom: 1px solid rgba(0,0,0,.1);
+		}
 		&:hover{
-			// background-color: #eee;
+			cursor: pointer;
 		}
 		img{
 			width: 50px;
@@ -40,7 +60,17 @@
 	&__info{
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		width: 100%;
 		gap: 4px;
 	}
+	&__name{
+		font-size: 16px;
+		font-weight: 400;
+	}
+}
+
+.users_line {
+	margin: 0;
+	background-color: var(#{--default-color});
 }

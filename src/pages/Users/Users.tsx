@@ -1,8 +1,7 @@
 import { MoreOutlined, UserAddOutlined } from '@ant-design/icons';
-import { Divider, Layout, Typography } from 'antd';
-import { Content } from 'antd/lib/layout/layout';
+import { Divider, Tooltip, Typography } from 'antd';
 
-import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
+import { IconContainer } from '../../components/IconContainer/IconContainer';
 
 import styles from './Users.module.scss';
 const { Title } = Typography;
@@ -28,18 +27,29 @@ const users = [
     avatar: 'https://www.nea.org/sites/default/files/legacy/2020/04/new_teacher.jpeg',
   },
 ];
+
 export const Users = () => {
   return (
     <div className={styles.users}>
       <div className={styles.users__wrap}>
         <div className={styles.users__column}>
           <header>
-            <Title className={styles.users__title} level={5}>
+            <Title className={styles.users__title} level={5} >
               Преподаватели
             </Title>
-            <ButtonApp icon={<UserAddOutlined />} />
+            <Tooltip title='Пригласить преподавателей' placement='bottom'>
+              <>
+                <IconContainer
+                  className={styles.users__icon}
+                  icon={<UserAddOutlined />}
+                  onClick={() => alert('clicked')}
+                />
+              </>
+            </Tooltip>
           </header>
-          <Divider />
+          <Divider
+            className={styles.users_line}
+          />
           <div className={styles.users__list}>
             {users
               .filter((user) => user.role === 'teacher' || user.role === 'admin')
@@ -50,14 +60,10 @@ export const Users = () => {
                     <div className={styles.users__info}>
                       <div className={styles.users__name}>{user.fullname}</div>
                       {user.role === 'teacher' && (
-                        <ButtonApp
-                          // style={{
-                          // 	background: 'transparent',
-                          // 	'&:hover': {
-                          // 		backgroundColor: 'red',
-                          // 	},
-                          // }}
+                        <IconContainer
+                          className={styles.users__icon}
                           icon={<MoreOutlined />}
+                          onClick={() => alert('click')}
                         />
                       )}
                     </div>

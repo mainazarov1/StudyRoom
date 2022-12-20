@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PanelItem from '../../components/PanelUnverifiedTasks/PanelUnverifiedTasks';
 import SelectListLesson from '../../components/SelectListLesson';
@@ -22,16 +22,72 @@ const selectOptionList = [
 
 const UnverifiedTasks: React.FC = () => {
   const [notTime, setNotTime] = useState<IArrList[]>([
-    { title: 'Ant Design Title 1', color: '#4285f4', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 2', color: '#1890ff', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 3', color: '#1e8e3e', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 4', color: '#e8710a', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 1', color: '#4285f4', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 2', color: '#1890ff', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
-    { title: 'Ant Design Title 3', color: '#1e8e3e', stateFirst: 'Сдано', stateSecond: 'Назначено', stateThird: 'Поставлена оценка', description: 'Ant Design, a design language for background applications, is refined by Ant UED Team' },
+    {
+      title: 'Ant Design Title 1',
+      color: '#4285f4',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 2',
+      color: '#1890ff',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 3',
+      color: '#1e8e3e',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 4',
+      color: '#e8710a',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 1',
+      color: '#4285f4',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 2',
+      color: '#1890ff',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
+    {
+      title: 'Ant Design Title 3',
+      color: '#1e8e3e',
+      stateFirst: 'Сдано',
+      stateSecond: 'Назначено',
+      stateThird: 'Поставлена оценка',
+      description:
+        'Ant Design, a design language for background applications, is refined by Ant UED Team',
+    },
   ]);
   return (
-    <div className={s.list_block}> 
+    <div className={s.list_block}>
       <SelectListLesson option={selectOptionList} />
       <PanelItem arr={notTime} heading={'Срок сдачи не задан'} />
       <PanelItem arr={notTime} heading={'Текущие задания'} />

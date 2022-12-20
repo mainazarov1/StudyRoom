@@ -1,5 +1,5 @@
 import React, { useId } from 'react';
-import { Route, Routes, useRevalidator } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Home } from '../pages/Home/Home';
 import { Auth } from '../pages/Auth/Auth';
@@ -9,11 +9,13 @@ import {
   MAIN_PAGE,
   TASKS_PAGE,
   FEED_PAGE,
-  TASK_LIST,
   TASK_LIST_COMPLETED,
   TASK_LIST_MISSED,
   TASK_LIST_ASSIGNED,
   USERS_PAGE,
+  GRADE_PAGE,
+  VERIFIED_TASKS_PAGE,
+  UNVERIFIED_TASKS_PAGE
 } from '../utils/path/path';
 import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
@@ -33,21 +35,11 @@ interface RouterData {
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES: RouterData[] = [
-    // {
-    //   id: useId(),
-    //   path: AUTH_PAGE,
-    //   component: <Auth />,
-    // },
-
     {
       id: useId(),
       path: MAIN_PAGE,
       component: <Home />,
     },
-    // {
-    //   id: useId(),
-    //   path: TAPE_PAGE,
-    //   component: <Tape />,
     {
       id: useId(),
       path: FEED_PAGE,
@@ -55,7 +47,7 @@ const MainRoutes = () => {
     },
     {
       id: useId(),
-      path: '/grade',
+      path: GRADE_PAGE,
       component: <Grade />,
     },
     {
@@ -90,12 +82,12 @@ const MainRoutes = () => {
     },
     {
       id: useId(),
-      path: '/unverified-tasks',
+      path: UNVERIFIED_TASKS_PAGE,
       component: <UnverifiedTasks />
     },
     {
       id: useId(),
-      path: '/verified-tasks',
+      path: VERIFIED_TASKS_PAGE,
       component: <VerifiedTasks />
     }
     // {
@@ -110,14 +102,6 @@ const MainRoutes = () => {
     // },
   ];
 
-  // const PRIVATE_ROUTES: RouterData[] = [
-  //   {
-  //     id: useId(),
-  //     link: ADMIN_MAIN_PAGE,
-  //     element: <AdminPage />,
-  //   },
-  // ];
-
   return (
     <React.Suspense fallback={<span>Loading...</span>}>
       <Routes>
@@ -127,11 +111,6 @@ const MainRoutes = () => {
             <Route path={path} element={component} key={id} />
           ))}
         </Route>
-        {/* <Route>
-					{PRIVATE_ROUTES.map(({ id, link, element }) => (
-						<Route path={link} element={element} key={id} />
-					))}
-				</Route> */}
       </Routes>
     </React.Suspense>
   );

@@ -1,19 +1,24 @@
-import { CaretDownOutlined, CloseOutlined, QuestionCircleTwoTone, TeamOutlined, } from '@ant-design/icons';
+import {
+  CaretDownOutlined,
+  CloseOutlined,
+  QuestionCircleTwoTone,
+  TeamOutlined,
+} from '@ant-design/icons';
 // eslint-disable-next-line import/named
 import {
   Avatar,
   Button,
   Checkbox,
   DatePicker,
-  DatePickerProps,
   Divider,
   Dropdown,
-  MenuProps,
   Select,
   Space,
+  type MenuProps,
+  type DatePickerProps,
 } from 'antd';
 import MenuItem from 'antd/lib/menu/MenuItem';
-import React, { ChangeEvent, FC, MouseEvent, useState } from 'react';
+import { ChangeEvent, FC, MouseEvent, useState } from 'react';
 
 import AppDropdown from '../../../../components/AppDropdown/AppDropdown';
 import { InputApp } from '../../../../components/InputApp/InputApp';
@@ -52,7 +57,7 @@ const TasksModal: FC<ITasksModalProps> = ({
     <>
       <MenuItem className={style.modal__menuItem} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '3.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '3.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Все учащиеся
           </Space>
@@ -60,7 +65,7 @@ const TasksModal: FC<ITasksModalProps> = ({
       </MenuItem>
       <MenuItem className={style.modal__menuItem} onClick={onChange} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '2.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '2.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Sergey
           </Space>
@@ -68,7 +73,7 @@ const TasksModal: FC<ITasksModalProps> = ({
       </MenuItem>
       <MenuItem className={style.modal__menuItem} onClick={onChange} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '3.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '3.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Andrey
           </Space>
@@ -117,30 +122,18 @@ const TasksModal: FC<ITasksModalProps> = ({
   ];
   const aw: MenuProps['items'] = [
     {
-      label: (
-        <span>
-          Без темы
-        </span>
-      ),
+      label: <span>Без темы</span>,
       key: '0',
     },
     {
-      label: (
-        <span>
-          Создать тему
-        </span>
-      ),
+      label: <span>Создать тему</span>,
       key: '1',
     },
     {
       type: 'divider',
     },
     {
-      label: (
-        <span>
-          Теги
-        </span>
-      ),
+      label: <span>Теги</span>,
       key: '3',
     },
   ];
@@ -180,7 +173,7 @@ const TasksModal: FC<ITasksModalProps> = ({
         <span style={{ display: 'flex', alignItems: 'center' }}>
           <CloseOutlined onClick={handleClose} />
           <QuestionCircleTwoTone
-            twoToneColor="rgb(30,142,62)"
+            twoToneColor='rgb(30,142,62)'
             style={{ marginLeft: '10px', fontSize: '20px' }}
           />
           <span
@@ -229,19 +222,19 @@ const TasksModal: FC<ITasksModalProps> = ({
     >
       <div className={style.modal__mainContent}>
         <div className={style.modal__content}>
-          <InputApp placeholder="Название" defaultValue={title} />
+          <InputApp placeholder='Название' defaultValue={title} />
           <Tiptap content={htmlContent} setStateShow={setTextareaValue} />
         </div>
       </div>
       <div className={style.modal__side}>
         {/* eslint-disable-next-line react/no-children-prop */}
-        <AppDropdown children={students} title="Все учащиеся" width="256px" />
+        <AppDropdown children={students} title='Все учащиеся' width='256px' />
         <div style={{ display: 'flex', columnGap: '5px' }}>
           <div style={{ width: '256px' }}>
             <p className={style.modal__name}>Категория оценок</p>
             <Select
               className={style.modal__select}
-              defaultValue="Без категории"
+              defaultValue='Без категории'
               onChange={handleSetCategory}
               style={{
                 width: 143,
@@ -267,7 +260,7 @@ const TasksModal: FC<ITasksModalProps> = ({
           <p className={style.modal__name}>Срок сдачи</p>
           <Select
             className={style.modal__select}
-            placeholder="Срок сдачи не задан"
+            placeholder='Срок сдачи не задан'
             value={date !== '' ? date : 'Срок сдачи не задан'}
             style={{
               width: '16.25rem',
@@ -298,9 +291,7 @@ const TasksModal: FC<ITasksModalProps> = ({
               height: 46,
             }}
           >
-            <Space>
-              Hover me
-            </Space>
+            <Space>Hover me</Space>
           </Dropdown>
         </div>
       </div>
@@ -309,7 +300,6 @@ const TasksModal: FC<ITasksModalProps> = ({
 };
 
 export default TasksModal;
-
 
 // <Dropdown
 //   className={style.modal__select}

@@ -1,16 +1,17 @@
 import React from 'react';
 import Title from 'antd/lib/typography/Title';
 import { NavLink } from 'react-router-dom';
+
 import SettingCourseModal from '../../SettingCourseModal/SettingCourseModal';
 
 interface ImiddleItems {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IleftTrigger {
-    title: string,
-    path: string
+  title: string;
+  path: string;
 }
 
 interface IHeaderLogoPlusProps {
@@ -29,12 +30,11 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
     <>
       <div className='item'>
         <Title className='item-title' style={{ margin: 0 }} level={4}>
-          {' '}
           {leftTrigger.path ? (
             <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>
           ) : (
             leftTrigger.title
-          )}{' '}
+          )}
         </Title>
       </div>
       <div className='header-middle'>

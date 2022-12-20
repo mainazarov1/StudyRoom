@@ -8,10 +8,12 @@ import {
 import { Button, Form, Dropdown, Space, Divider, Select, Switch } from 'antd';
 import classNames from 'classnames';
 import React, { useState } from 'react';
+
 import FullScreenModal from '../../containers/FullScreenModal/FullScreenModal';
 import { CopyPaste } from '../../utils/CopyPaste';
 import ModalCode from '../FeedModals/ModalCode/ModalCode';
 import { InputApp } from '../InputApp/InputApp';
+
 import s from './SettingCourseModal.module.scss';
 
 const SettingCourseModal: React.FC = () => {
@@ -49,7 +51,12 @@ const SettingCourseModal: React.FC = () => {
         <div className={s.setting_block}>
           <Form layout='vertical' className={s.block}>
             <h3 className={s.heading}>Сведение о курсе</h3>
-            <InputApp className={s.input} placeholder='Название курся (Объязательно)' name='Название' required={true} />
+            <InputApp
+              className={s.input}
+              placeholder='Название курся (Объязательно)'
+              name='Название'
+              required={true}
+            />
             <InputApp className={s.input} placeholder='Раздел' name='Раздел' />
             <InputApp className={s.input} placeholder='Описание курса' name='описание' />
             <InputApp className={s.input} placeholder='Предмет' name='Предмет' />
@@ -66,7 +73,7 @@ const SettingCourseModal: React.FC = () => {
                 </p>
               </div>
               <Button
-                className={classNames(s.drop_btn, s.btn )}
+                className={classNames(s.drop_btn, s.btn)}
                 type='link'
                 icon={
                   <Dropdown menu={{ items }} trigger={['click']}>
@@ -171,7 +178,9 @@ const SettingCourseModal: React.FC = () => {
             <Space className={s.justify}>
               <div>
                 <h6 className={s.last_heading}>Расчет общей оценки</h6>
-                <p className={s.text}>Выберите систему выставления оценок. <a href="#">Подробнее…</a></p>
+                <p className={s.text}>
+                  Выберите систему выставления оценок. <a href='#'>Подробнее…</a>
+                </p>
               </div>
               <Select
                 size='large'
@@ -202,7 +211,7 @@ const SettingCourseModal: React.FC = () => {
               <Switch
                 className={common ? s.switch : s.swithcUnChecked}
                 onChange={() => setCommon(!common)}
-                checkedChildren={<CheckOutlined  />}
+                checkedChildren={<CheckOutlined />}
                 unCheckedChildren={<CloseOutlined />}
                 defaultChecked
               />

@@ -1,13 +1,11 @@
 import { DownOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Checkbox, Dropdown, Menu, Space } from 'antd';
+import { Avatar, Button, Checkbox, Dropdown, Menu, Space, type MenuProps } from 'antd';
 import { FC, useState } from 'react';
 
 import ModalReuse from '../FeedModals/ModalReuse/ModalReuse';
 import { Tiptap } from '../TextArea/TextAreaComponent';
 
 import s from './ReferToCourse.module.scss';
-
-import type { MenuProps } from 'antd';
 
 const ReferToCourse: FC = () => {
   const [isMessages, setIsMessages] = useState<boolean>(true);
@@ -41,7 +39,7 @@ const ReferToCourse: FC = () => {
   ];
 
   const substringText = (text: string, num: number) => {
-    let newText = text.length >= num ? text.substring(0, num) : text;
+    const newText = text.length >= num ? text.substring(0, num) : text;
     return newText;
   };
   const menu = (
@@ -168,7 +166,7 @@ const ReferToCourse: FC = () => {
                 </Space>
               </Dropdown>
             </div>
-            <Tiptap setStateShow={setMessages} />
+            <Tiptap setStateShow={setMessages} content={messageValue} />
             <div className={s.btns}>
               <Button size='large' type='text' onClick={handleChange}>
                 Отмена

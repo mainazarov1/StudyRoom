@@ -28,7 +28,7 @@ const ModalSettings: FC = () => {
     { color: '#5f6368', title: 'grey' },
   ];
 
-  const [color, setColor] = useState<string>('blue'); 
+  const [color, setColor] = useState<string>('blue');
 
   useEffect(() => {
     handleChangeColor(color);
@@ -53,6 +53,7 @@ const ModalSettings: FC = () => {
         title='Настроить вид'
         open={open}
         onCancel={handleCancel}
+        bodyStyle={{padding: '0 24px 0'}}
         footer={[
           <Button className={s.btn} key='2' type='link' onClick={handleCancel}>
             Отмена
@@ -73,7 +74,7 @@ const ModalSettings: FC = () => {
           </div>
           <div className={s.color_block}>
             <p className={s.color_title}>Выберите цвет темы</p>
-            <Row justify={'space-between'} className={s.colors}>
+            <Row justify={'space-between'}  className={s.colors}>
               {colorArr.map((item, i) => (
                 <span
                   key={i}
@@ -88,7 +89,9 @@ const ModalSettings: FC = () => {
                     alignItems: 'center',
                   }}
                 >
-                  {item.title === color && <CheckOutlined style={{ color: '#fff', fontSize: 30 }} />}
+                  {item.title === color && (
+                    <CheckOutlined style={{ color: '#fff', fontSize: 30 }} />
+                  )}
                 </span>
               ))}
             </Row>

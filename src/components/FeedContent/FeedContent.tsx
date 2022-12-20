@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import {
   MoreOutlined,
   LinkOutlined,
@@ -6,15 +6,13 @@ import {
   RollbackOutlined,
   CloseSquareOutlined,
 } from '@ant-design/icons';
-import { Dropdown, Button, Space } from 'antd';
+import { Dropdown, Button, Space, type MenuProps } from 'antd';
 
 import ModalCode from '../FeedModals/ModalCode/ModalCode';
 import AssignedTask from '../AssignedTasks/AssignedTask';
 import ReferToCourse from '../ReferToCourse/ReferToCourse';
 
 import s from './FeedContent.module.scss';
-
-import type { MenuProps } from 'antd';
 
 const items: MenuProps['items'] = [
   {
@@ -43,7 +41,7 @@ const FeedContent: FC = () => {
   const isTeacher = true;
 
   return (
-    <div className={s.feed_contebt}>
+    <div className={s.feed_content}>
       <div className={s.feed_left}>
         {isTeacher && (
           <div className={s.course_code}>
@@ -58,16 +56,9 @@ const FeedContent: FC = () => {
           </div>
         )}
         <div className={s.upcoming_tasks}>
-          <h2 className={s.block_heading} >
-            Предстояшие
-          </h2 >
-          <p>
-            У вас нет заданий, которые нужно сдать на следующей неделе.
-          </p>
-          <Button 
-            type="link" 
-            className={s.btn}
-          >
+          <h2 className={s.block_heading}>Предстояшие</h2>
+          <p>У вас нет заданий, которые нужно сдать на следующей неделе.</p>
+          <Button type='link' className={s.btn}>
             Просмотреть все
           </Button>
         </div>

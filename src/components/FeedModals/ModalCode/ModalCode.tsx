@@ -6,13 +6,13 @@ import FullScreenModal from '../../../containers/FullScreenModal/FullScreenModal
 import { CopyPaste } from '../../../utils/CopyPaste';
 import { AppModal } from '../../ModalApp';
 
-import s from './ModalCode.module.scss'; 
+import s from './ModalCode.module.scss';
 
 interface IID {
   children?: string;
 }
 
-const ModalCode:FC<IID> = ({children}) => {
+const ModalCode: FC<IID> = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [fullScreenModal, setFullScreenModal] = useState(false);
   const code = 'tq7kdvd';
@@ -30,22 +30,22 @@ const ModalCode:FC<IID> = ({children}) => {
       <Tooltip key='tooltip' placement='bottom' title='Показать'>
         <ExpandOutlined onClick={showModal} className={s.bottom_block_icon} />
       </Tooltip>
-      
+
       <AppModal
         className={s.modal}
         open={open}
         onCancel={handleCancel}
         centered={true}
         footer={[
-          <span key='name' className={s.name} >name</span>,
-          <Button 
-            key='btn' 
-            type="link" 
+          <span key='name' className={s.name}>
+            name
+          </span>,
+          <Button
+            key='btn'
+            type='link'
             className={s.btn}
-            icon={<CopyOutlined className={s.btn} />} 
-            onClick={() => 
-              CopyPaste(code)
-            }
+            icon={<CopyOutlined className={s.btn} />}
+            onClick={() => CopyPaste(code)}
           >
             Копировать Сcылку
           </Button>,
@@ -59,7 +59,7 @@ const ModalCode:FC<IID> = ({children}) => {
       >
         <div className={s.modal_content}>{code}</div>
       </AppModal>
-      <FullScreenModal 
+      <FullScreenModal
         open={fullScreenModal}
         title={<CloseOutlined onClick={() => setFullScreenModal(false)} />}
         closebtn={<span></span>}
@@ -69,14 +69,12 @@ const ModalCode:FC<IID> = ({children}) => {
         <div className={s.fullscreen_footer}>
           <span className={s.fullscreen_name}>StudyRoom</span>
           <div>
-            <Button 
-              key='btn' 
-              type="link" 
+            <Button
+              key='btn'
+              type='link'
               className={s.btn}
-              icon={<CopyOutlined className={s.btn} />} 
-              onClick={() => 
-                CopyPaste(code)
-              }
+              icon={<CopyOutlined className={s.btn} />}
+              onClick={() => CopyPaste(code)}
             >
               Копировать Сcылку
             </Button>

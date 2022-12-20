@@ -2,13 +2,10 @@
 import FeedContent from '../components/FeedContent/FeedContent';
 import Wrapper from '../components/Wrapper/Wrapper';
 import s from '../styles/Feed.module.scss';
+import $api from '../utils/axios';
 
 const Feed = () => {
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/api/users')
-  //     .then(response => response.json())
-  //     .then(json => console.log(json));
-  // }, []);
+  $api('/card');
   return (
     <div className={s.feed_block}>
       <Wrapper />
