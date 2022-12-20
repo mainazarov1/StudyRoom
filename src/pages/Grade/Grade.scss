@@ -15,16 +15,13 @@
     }
 }
 
-
 .disabled-row td {
     background-color: hsl(0, 100%, 97%);
     pointer-events: none;
 }
 
-// .task-dropdown {
+// .ant-table-cell .task-dropdown {
 //     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
 // }
 
 .task-link {
