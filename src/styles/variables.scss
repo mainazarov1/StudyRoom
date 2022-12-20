@@ -1,8 +1,8 @@
-$primary-color: #1890ff;
+$primary-color: #1967d2;
 $secondary-color: #000;
 $white-color: #fff;
-$success-color: #52c41a;
-$warning-color: #faad14;
+$success-color: #1e8e3e;
+$warning-color: #e8710a;
 $error-color: #f5222d;
 $font-size-base: 14px;
 $heading-color: rgba(0, 0, 0, 0.85);
@@ -13,3 +13,90 @@ $border-radius-base: 4px;
 $border-color-base: #d9d9d9;
 $box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15);
 $hover-bg: rgb(232, 240, 254);
+
+
+:root {
+  // color
+  --blue-color: #{$primary-color};
+  --green-color: #1e8e3e;
+  --pink-color: #e52592;
+  --orange-color: #e8710a;
+  --green-blue-color: #129eaf;
+  --purple-color: #9334e6;
+  --light-blue-color: #4285f4;
+  --grey-color: #5f6368;
+  --default-color: var(#{--blue-color});
+
+  // hover-color
+  --blue-hover-color: #e8f0fe;
+  --green-hover-color: #e6f4ea;
+  --pink-hover-color: #fde7f3;
+  --orange-hover-color: #feefe3;
+  --green-blue-hover-color: #e4f7fb;
+  --purple-hover-color: #f3e8fd;
+  --light-blue-hover-color: #e8f0fe;
+  --grey-hover-color: #f1f3f4;
+  --default-hover-color: var(#{--blue-hover-color});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

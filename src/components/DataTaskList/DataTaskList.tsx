@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { RetweetOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 import { Avatar } from 'antd';
 
 import s from './DataTaskList.module.scss';
@@ -12,11 +11,11 @@ interface IListItem {
 
 const DataTaskList = () => {
   const [arr, setArr] = useState<IListItem[]>([
-    {title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая'},
-    {title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая'},
-    {title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая'},
-    {title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая'},
-    {title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая'},
+    { title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая' },
+    { title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая' },
+    { title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая' },
+    { title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая' },
+    { title: 'StudyRoom', name: 'Bakytbekov Beksultan', date: '10 мая' },
   ]);
   return (
     <>
@@ -31,22 +30,34 @@ const DataTaskList = () => {
         <tbody>
           <tr>
             <td>
-              <Avatar style={{ backgroundColor: 'blue', verticalAlign: 'middle' }} size="small" gap={1}>
+              <Avatar
+                style={{ backgroundColor: 'blue', verticalAlign: 'middle' }}
+                size='small'
+                gap={1}
+              >
                 S
-              </Avatar> StudyRoom</td>
+              </Avatar>
+              StudyRoom
+            </td>
             <td>Bakytbekov Beksultan</td>
             <td>10 мая</td>
           </tr>
-          {
-            arr.map(item => (<tr key={item.title}>
+          {arr.map((item) => (
+            <tr key={item.title}>
               <td>
-                <Avatar style={{ backgroundColor: 'blue', verticalAlign: 'middle' }} size="small" gap={1}>
+                <Avatar
+                  style={{ backgroundColor: 'blue', verticalAlign: 'middle' }}
+                  size='small'
+                  gap={1}
+                >
                   {item.title[0].toUpperCase()}
-                </Avatar> {item.title}</td>
+                </Avatar>{' '}
+                {item.title}
+              </td>
               <td>{item.name}</td>
               <td>{item.date}</td>
-            </tr>))
-          }
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

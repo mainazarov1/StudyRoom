@@ -7,15 +7,18 @@
 
 .navigation {
    &__link {
-      color: $primary-color;
+      color: var(#{--default-color});
       font-weight: 600;
       font-size: 0.875rem;
       letter-spacing: 0.0107142857em;
       border: none;
       margin-bottom: 1rem;
       box-shadow: none;
-      &:hover {
-         background-color: $hover-bg;
+      &:hover, 
+      &:focus, 
+      &:active {
+         color: var(#{--default-color});
+         background-color: var(#{--default-hover-color})!important;
       }
    }
 }
@@ -32,7 +35,7 @@
          &__wrap {
             width: 36px;
             height: 36px;
-            background-color: $primary-color;
+            background-color: var(#{--default-color})!important;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -42,7 +45,7 @@
       &__subtitle {
          font-size: 14px;
          font-weight: 600;
-         color: #3c4043;
+         color: var(#{--default-color})!important;
       }
       &__term {
          color: rgba(0, 0, 0, 0.549);
@@ -64,7 +67,8 @@
          box-sizing: border-box;
          &:hover {
             border-bottom: 1px solid $hover-bg;
-            background-color: $hover-bg;
+            background-color: var(#{--default-hover-color})!important;
+            // background-color: $hover-bg;
          }
       }
    }
@@ -83,9 +87,10 @@
    &__elipsis {
       transition: 0.3s;
       padding: 5px;
+      border-radius: 50%;
+      color: var(#{--default-color})!important;
       &:hover {
-         background-color: rgba(25, 103, 210, 0.08);
-         border-radius: 50%;
+         background-color: rgba(128, 128, 128, 0.371);
       }
    }
    &__content {
@@ -100,13 +105,13 @@
    &__button {
       padding: 6px 8px;
       margin: -6px -8px;
-      color: rgb(25, 103, 210);
+      color: var(#{--default-color})!important;
       background-color: transparent;
       font-size: 0.875rem;
       transition: 0.3s !important;
       border-radius: 4px;
       &:hover {
-         background-color: $hover-bg;
+         background-color: var(#{--default-hover-color});
       }
    }
 }
@@ -121,7 +126,7 @@
       .ant-collapse-header {
          margin-bottom: -4px;
          &:hover {
-            background-color: $hover-bg;
+            background-color: var(#{--default-hover-color})!important;
             border-radius: 0.5rem;
          }
       }
@@ -163,7 +168,7 @@
    }
    &__createButton {
       cursor: pointer;
-      background-color: #1890ff;
+      background-color: var(#{--default-color});
       box-shadow: 0 1px 2px 0 rgb(32 33 36 / 30%), 0 2px 6px 2px rgb(32 33 36 / 15%);
       height: 3rem;
       margin: 0;

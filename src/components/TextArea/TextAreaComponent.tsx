@@ -11,14 +11,12 @@ import {
   OrderedListOutlined,
   StrikethroughOutlined,
   UnderlineOutlined,
-  UnorderedListOutlined 
+  UnorderedListOutlined,
 } from '@ant-design/icons';
-import parse from 'html-react-parser';
 
 import s from './TextAreaComponent.module.scss';
 
-
-const MenuBar:FC<any> = ({ editor }) => {
+const MenuBar: FC<any> = ({ editor }) => {
   if (!editor) {
     return null;
   }
@@ -27,53 +25,49 @@ const MenuBar:FC<any> = ({ editor }) => {
     <div className={s.menuBar}>
       <div className={s.style_btns}>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleBold().run()}
           className={editor.isActive('bold') ? s.is_active : null}
         >
           <BoldOutlined />
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleItalic().run()}
           className={editor.isActive('italic') ? s.is_active : null}
         >
           <ItalicOutlined />
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={editor.isActive('underline') ? s.is_active : null}
         >
           <UnderlineOutlined />
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleStrike().run()}
           className={editor.isActive('strike') ? s.is_active : null}
         >
           <StrikethroughOutlined />
         </button>
         <button
-          type="button"
-          onClick={() =>
-            editor.chain().focus().toggleHeading({ level: 2 }).run()
-          }
-          className={
-            editor.isActive('heading', { level: 2 }) ? s.is_active : null
-          }
+          type='button'
+          onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+          className={editor.isActive('heading', { level: 2 }) ? s.is_active : null}
         >
           <FontSizeOutlined />
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive('bulletList') ? s.is_active : null}
         >
           <UnorderedListOutlined />
         </button>
         <button
-          type="button"
+          type='button'
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive('orderedList') ? s.is_active : null}
         >
@@ -84,7 +78,7 @@ const MenuBar:FC<any> = ({ editor }) => {
   );
 };
 interface IProps {
-  setStateShow: (arm: string ) => void
+  setStateShow: (arm: string) => void;
   content?: string;
 }
 

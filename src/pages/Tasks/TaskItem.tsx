@@ -126,6 +126,7 @@ const TaskItem: FC<TaskItemProps> = ({
                 className={s.collapse__elipsis}
                 style={{ fontSize: '30px', color: 'rgb(25,103,210)' }}
                 color='green'
+                rotate={90}
               />
             </Dropdown>
           </Col>

@@ -63,7 +63,7 @@ const TasksModal: FC<ITasksModalProps> = ({
     <>
       <MenuItem className={style.modal__menuItem} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '3.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '3.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Все учащиеся
           </Space>
@@ -71,7 +71,7 @@ const TasksModal: FC<ITasksModalProps> = ({
       </MenuItem>
       <MenuItem className={style.modal__menuItem} onClick={onChange} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '2.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '2.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Sergey
           </Space>
@@ -79,7 +79,7 @@ const TasksModal: FC<ITasksModalProps> = ({
       </MenuItem>
       <MenuItem className={style.modal__menuItem} onClick={onChange} style={{ cursor: 'pointer' }}>
         <Checkbox className={style.modal__checkbox}>
-          <Space size={'middle'} style={{ height: '3.5rem' }} align="center">
+          <Space size={'middle'} style={{ height: '3.5rem' }} align='center'>
             <Avatar style={{ backgroundColor: '#1890ff' }} icon={<TeamOutlined />} />
             Andrey
           </Space>
@@ -191,7 +191,7 @@ const TasksModal: FC<ITasksModalProps> = ({
         <span style={{ display: 'flex', alignItems: 'center' }}>
           <CloseOutlined onClick={handleClose} />
           <QuestionCircleTwoTone
-            twoToneColor="rgb(30,142,62)"
+            twoToneColor='rgb(30,142,62)'
             style={{ marginLeft: '10px', fontSize: '20px' }}
           />
           <span
@@ -224,12 +224,7 @@ const TasksModal: FC<ITasksModalProps> = ({
         ) : (
           <Button
             onClick={handleClose}
-            style={{
-              marginRight: '24px',
-              backgroundColor: 'rgb(19,115,51)',
-              color: '#fff',
-              borderRadius: '4px',
-            }}
+            className={style.modal__saveButton}
           >
             Сохранить
           </Button>

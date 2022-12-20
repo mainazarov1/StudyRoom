@@ -1,0 +1,10 @@
+.btn {
+  color: var(#{--default-color});
+  border: 1px solid var(#{--default-color});
+}
+
+.btn:hover {
+  background-color: var(#{--default-hover-color}) !important;
+  color: var(#{--default-color});
+  border: 1px solid var(#{--default-color});
+}

@@ -17,10 +17,12 @@
       display: flex;
       align-items: center;
       &:hover {
-         background: $hover-bg;
+         // background: $hover-bg;
+         background-color: var(#{--default-hover-color})!important;
       }
       &:hover .sider__link {
-         color: $text-color-secondary;
+         // color: $text-color-secondary;
+         color: var(#{--default-color})!important;
       }
    }
    &__link {
@@ -30,5 +32,6 @@
       padding-right: 1.5rem;
       padding-left: 0.75rem;
       flex-grow: 1;
+      color: var(#{--default-color})!important;
    }
 }
