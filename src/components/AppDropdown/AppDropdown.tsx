@@ -8,12 +8,14 @@ import s from './appDropdown.module.scss';
 const { Paragraph } = Typography;
 
 interface IAppDropdownProps {
-  title: string;
+  inputTitle?: string | [string, string] | undefined | null
+  title?: string | [string, string];
   children: ReactNode;
   width?: string;
 }
 
 const AppDropdown: FC<IAppDropdownProps> = ({
+  inputTitle,
   title,
   children,
   width,
@@ -36,7 +38,7 @@ const AppDropdown: FC<IAppDropdownProps> = ({
         className={s.course_list}
       >
         <Space>
-          {title}
+          {inputTitle}
           <DownOutlined />
         </Space>
       </Dropdown>

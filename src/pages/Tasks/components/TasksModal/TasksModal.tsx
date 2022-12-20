@@ -1,24 +1,16 @@
 import { CaretDownOutlined, CloseOutlined, QuestionCircleTwoTone, TeamOutlined, } from '@ant-design/icons';
-// eslint-disable-next-line import/named
-import {
-  Avatar,
-  Button,
-  Checkbox,
-  DatePicker,
-  DatePickerProps,
-  Divider,
-  Dropdown,
-  MenuProps,
-  Select,
-  Space,
-} from 'antd';
+import { Avatar, Button, Checkbox, DatePicker, DatePickerProps, Dropdown, Input, MenuProps, Select, Space, } from 'antd';
 import MenuItem from 'antd/lib/menu/MenuItem';
 import React, { ChangeEvent, FC, MouseEvent, useState } from 'react';
+import TextArea from 'antd/lib/input/TextArea';
+import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
 
 import AppDropdown from '../../../../components/AppDropdown/AppDropdown';
 import { InputApp } from '../../../../components/InputApp/InputApp';
 import { Tiptap } from '../../../../components/TextArea/TextAreaComponent';
 import FullScreenModal from '../../../../containers/FullScreenModal/FullScreenModal';
+
 
 import style from './tasksModal.module.scss';
 
@@ -42,12 +34,31 @@ const TasksModal: FC<ITasksModalProps> = ({
 }) => {
   const [textareaValue, setTextareaValue] = useState<string>();
   const [balls, setBalls] = useState<number | string>(0);
-  const [date, setDate] = useState<string | [string, string]>();
+  const [date, setDate] = useState<string | [string, string]>('');
+  const [theme, setTheme] = useState<string>('Без темы');
+  const [cursor, setCursor] = useState<string>('pointer');
+  const [visible, setVisible] = useState(false);
+  const handleVisibleChange = (flag: any) => setVisible(flag);
 
   const onChange = (checkedValues: object) => {
     console.log(checkedValues, 'onchange');
     console.log(textareaValue);
   };
+
+  const onOk = (value: DatePickerProps['value']) => {
+    const currentDate = dayjs(value?.toString());
+    dayjs.locale('ru');
+    const formattedDate = currentDate.format('DD MMMM YYYY Z');
+    setDate(formattedDate)
+  }
+
+  const datePickItems = (
+    <>
+      <MenuItem>
+        <DatePicker placeholder='Срок сдачи не задан' format="YYYY-MM-DD HH:mm" showTime onOk={onOk} />
+      </MenuItem>
+    </>
+  )
   const students = (
     <>
       <MenuItem className={style.modal__menuItem} style={{ cursor: 'pointer' }}>
@@ -87,13 +98,6 @@ const TasksModal: FC<ITasksModalProps> = ({
     }
   };
 
-  const handleSetDate = (
-    value: DatePickerProps['value'],
-    dateString: [string, string] | string,
-  ) => {
-    setDate(dateString);
-  };
-
   const setBallsToDefault = (e: MouseEvent<HTMLSpanElement>) => {
     setBalls(e.currentTarget.innerText);
   };
@@ -108,21 +112,15 @@ const TasksModal: FC<ITasksModalProps> = ({
       value: '100',
     },
   ];
-  const itemToTakeDate = [
-    {
-      label: (
-        <DatePicker onChange={handleSetDate} showTime style={{ width: '100%' }} bordered={false} />
-      ),
-    },
-  ];
-  const aw: MenuProps['items'] = [
+
+  const themeDropdownItems: MenuProps['items'] = [
     {
       label: (
         <span>
           Без темы
         </span>
       ),
-      key: '0',
+      key: 'Без темы',
     },
     {
       label: (
@@ -130,7 +128,7 @@ const TasksModal: FC<ITasksModalProps> = ({
           Создать тему
         </span>
       ),
-      key: '1',
+      key: 'Создать тему',
     },
     {
       type: 'divider',
@@ -141,15 +139,21 @@ const TasksModal: FC<ITasksModalProps> = ({
           Теги
         </span>
       ),
-      key: '3',
+      key: 'Теги',
     },
   ];
+  const onClick: MenuProps['onClick'] = ({ key }) => {
+    if (key === 'Создать тему') {
+      setCursor('auto');
+    } else {
+      setCursor('pointer');
+    }
+    setTheme(key);
+  };
 
   const onMenuClick: MenuProps['onClick'] = (e) => {
     console.log('click', e);
   };
-
-  const lo = true;
 
   const saveButtonItems = [
     {
@@ -174,8 +178,15 @@ const TasksModal: FC<ITasksModalProps> = ({
     },
   ];
 
+  const lo = true;
+
+  const handleSubmit = (values: any) => {
+    console.log(values)
+  }
+
   return (
     <FullScreenModal
+      classNameProp={style.modal__taskModal}
       title={
         <span style={{ display: 'flex', alignItems: 'center' }}>
           <CloseOutlined onClick={handleClose} />
@@ -203,6 +214,7 @@ const TasksModal: FC<ITasksModalProps> = ({
       closebtn={
         lo ? (
           <Dropdown.Button
+            style={{ margin: '18px 24px 0px 0px' }}
             className={style.modal__saveButton}
             icon={<CaretDownOutlined />}
             menu={{ items: saveButtonItems, onClick: onMenuClick }}
@@ -224,7 +236,6 @@ const TasksModal: FC<ITasksModalProps> = ({
         )
       }
       bodyStyle={{
-        alignItems: 'stretch',
         flexDirection: 'row',
         minHeight: 'calc(100vh - 55px)',
         display: 'flex',
@@ -232,50 +243,57 @@ const TasksModal: FC<ITasksModalProps> = ({
         flexGrow: 1,
       }}
     >
-      <div className={style.modal__mainContent}>
-        <div className={style.modal__content}>
-          <InputApp placeholder="Название" defaultValue={title} />
-          <Tiptap content={htmlContent} setStateShow={setTextareaValue} />
-        </div>
-      </div>
-      <div className={style.modal__side}>
-        {/* eslint-disable-next-line react/no-children-prop */}
-        <AppDropdown children={students} title="Все учащиеся" width="256px" />
-        <div style={{ display: 'flex', columnGap: '5px' }}>
-          <div style={{ width: '256px' }}>
-            <p className={style.modal__name}>Категория оценок</p>
-            <Select
-              className={style.modal__select}
-              defaultValue="Без категории"
-              onChange={handleSetCategory}
-              style={{
-                width: 143,
-                height: 46,
-              }}
-              options={itemstwo}
+      <form style={{ display: 'flex', justifyContent: 'space-between' }} action="" onSubmit={handleSubmit}>
+        <span style={{ width: '0' }}></span>
+        <div style={{ width: '63rem' }} className={style.modal__mainContent}>
+          <div className={style.modal__content}>
+            <TextArea
+              className={style.modal__mainContent__textarea}
+              placeholder="Название"
+              autoSize
+              defaultValue={title ? title : ''}
             />
-          </div>
-          <div style={{ width: '256px' }}>
-            <p className={style.modal__name}>Баллы</p>
-            <Dropdown
-              className={style.modal__dropdown}
-              overlayStyle={{
-                display: balls === 'Без оценки' ? 'none' : undefined,
-              }}
-              menu={{ items }}
-            >
-              <InputApp value={balls} onChange={handleBallsInputChange} />
-            </Dropdown>
+            <Tiptap content={htmlContent} setStateShow={setTextareaValue} />
           </div>
         </div>
-        <div>
-          <p className={style.modal__name}>Срок сдачи</p>
-          <Select
+        <div style={{}} className={style.modal__side}>
+          <AppDropdown children={students} inputTitle="Все учащиеся" title="Все учащиеся" width="256px" />
+          <div style={{ display: 'flex', columnGap: '5px' }}>
+            <div style={{ width: '256px' }}>
+              <p className={style.modal__name}>Категория оценок</p>
+              <Select
+                className={style.modal__select}
+                defaultValue="Без категории"
+                onChange={handleSetCategory}
+                style={{
+                  width: 143,
+                  height: 46,
+                }}
+                options={itemstwo}
+              />
+            </div>
+            <div style={{ width: '256px' }}>
+              <p className={style.modal__name}>Баллы</p>
+              <Dropdown
+                className={style.modal__dropdown}
+                overlayStyle={{
+                  display: balls === 'Без оценки' ? 'none' : undefined,
+                }}
+                menu={{ items }}
+              >
+                <InputApp value={balls} onChange={handleBallsInputChange} />
+              </Dropdown>
+            </div>
+          </div>
+          <div className={style.modal__list}>
+            <p className={style.modal__name}>Срок сдачи</p>
+            {/* <Select
+            mode="tags"
             className={style.modal__select}
             placeholder="Срок сдачи не задан"
-            value={date !== '' ? date : 'Срок сдачи не задан'}
+            value={date !== 'Срок сдачи не задан' ? date : 'Срок сдачи не задан'}
+            showSearch={false}
             style={{
-              width: '16.25rem',
               height: 46,
             }}
             options={itemToTakeDate}
@@ -290,39 +308,43 @@ const TasksModal: FC<ITasksModalProps> = ({
                 {menu}
               </>
             )}
-          />
+          /> */}
+            <AppDropdown inputTitle={date ? date : 'Срок сдачи не задан'} children={datePickItems} width="100%" />
+          </div>
+          <div className={style.modal__list}>
+            <p className={style.modal__name}>Тема</p>
+            <Dropdown
+              menu={{ items: themeDropdownItems, onClick }}
+              className={style.modal__select}
+              trigger={['click']}
+              overlayStyle={{
+                display: theme === 'Создать тему' ? 'none' : undefined,
+                width: '16.25rem',
+                height: 46,
+              }}
+            >
+              <span style={{ cursor }}>
+                {theme === 'Создать тему' ?
+                  <Input
+                    autoFocus
+                    suffix={<CloseOutlined style={{ fontSize: '18px' }} onClick={() => setTheme('Без темы')} />}
+                  /> : <Space>{theme}</Space>}
+              </span>
+            </Dropdown>
+          </div>
+          <div className={style.modal__list}>
+            <div>
+              <Checkbox>Учащиеся могут комментировать ответы друг друга</Checkbox>
+            </div>
+            <div>
+              <Checkbox>Учащиеся могут редактировать ответы</Checkbox>
+            </div>
+          </div>
         </div>
-        <div>
-          <p className={style.modal__name}>Тема</p>
-          <Dropdown
-            menu={{ items: aw }}
-            className={style.modal__select}
-            trigger={['click']}
-            overlayStyle={{
-              width: '16.25rem',
-              height: 46,
-            }}
-          >
-            <Space>
-              Hover me
-            </Space>
-          </Dropdown>
-        </div>
-      </div>
+      </form>
     </FullScreenModal>
   );
 };
 
 export default TasksModal;
 
-
-// <Dropdown
-//   className={style.modal__select}
-//   style={{
-//     width: '16.25rem',
-//     height: 46,
-//   }}
-//   menu={{items: aw}}
-// >
-//   нажми на меня
-// </Dropdown>
