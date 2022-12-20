@@ -5,6 +5,7 @@ import Checkbox, { type CheckboxChangeEvent } from 'antd/es/checkbox';
 import CourseAdditionForm from '../CourseAdditionForm/CourseAdditionForm';
 
 import s from './ConditionAgreement.module.scss';
+import { AppModal } from '../../components/ModalApp';
 
 const style = {
   borderRadius: 5,
@@ -34,7 +35,7 @@ const ConditionAgreement: React.FC = () => {
   return (
     <>
       <span onClick={showModal}>создать курс</span>
-      <Modal
+      <AppModal
         title='Используете Класс в учебном заведении?'
         className={s.modal}
         open={isModalOpen}
@@ -71,7 +72,7 @@ const ConditionAgreement: React.FC = () => {
         <Checkbox onChange={onChange} style={style}>
           Мне все понятно, и я не использую <br /> Класс в учебном заведении
         </Checkbox>
-      </Modal>
+      </AppModal>
     </>
   );
 };
