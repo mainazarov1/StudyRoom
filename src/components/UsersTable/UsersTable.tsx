@@ -1,6 +1,7 @@
 import { DownOutlined, MoreOutlined } from "@ant-design/icons"
 import { Avatar, Dropdown, Space, Table } from "antd"
 import { type ColumnsType } from "antd/es/table"
+import { TableRowSelection } from "antd/lib/table/interface"
 import styles from './../../pages/Users/Users.module.scss'
 // interface DataType {
 // 	key: number,
@@ -8,23 +9,28 @@ import styles from './../../pages/Users/Users.module.scss'
 // 	avatar: JSX.Element,
 // }
 interface UsersTableProps { 
-	columns: ColumnsType<any>,
+	columns: ColumnsType<unknown>,
 	data: any[],
+	checkbox: boolean,
+	showHeader: boolean
 }
-export const UsersTable = ({columns, data, ...args}: UsersTableProps) => {
+export const UsersTable = ({columns, data, checkbox, showHeader = false, ...args}: UsersTableProps) => {
 	
 	
 	return (
 		<Table
 			// size="small"
 			pagination={false}
-			showHeader={false}
+			showHeader={showHeader}
 			columns={columns}
 			dataSource={data}
 			{...args}
-			// rowSelection={{
-			// 	columnWidth:'10px'
-			// }}
+			rowSelection={
+				(checkbox &&
+				{
+				columnWidth:'10px'
+				})
+			}
 		/>
 	)
 }
