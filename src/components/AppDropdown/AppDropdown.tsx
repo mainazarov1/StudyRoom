@@ -1,5 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Space, Typography } from 'antd';
+import { Dropdown, Form, Menu, Space, Typography } from 'antd';
 import { FC, ReactNode, useState } from 'react';
 
 import s from './appDropdown.module.scss';
@@ -36,10 +36,12 @@ const AppDropdown: FC<IAppDropdownProps> = ({
         onOpenChange={() => setStudentDropOpen(!studentDropOpen)}
         className={s.course_list}
       >
-        <Space>
-          {inputTitle}
-          <DownOutlined />
-        </Space>
+        <Form.Item name='student'>
+          <Space>
+            {inputTitle}
+            <DownOutlined />
+          </Space>
+        </Form.Item>
       </Dropdown>
     </>
   );

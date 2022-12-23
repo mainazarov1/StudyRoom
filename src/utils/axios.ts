@@ -2,7 +2,7 @@ import axios from 'axios';
 // import { API_URL } from './constants';
 
 const $api = axios.create({
-  baseURL: 'http://127.0.0.1:5173/',
+  baseURL: 'http://localhost:3006/',
 });
 
 $api.interceptors.request.use(

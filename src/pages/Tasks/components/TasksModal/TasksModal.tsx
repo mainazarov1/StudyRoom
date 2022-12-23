@@ -1,7 +1,7 @@
 import { CaretDownOutlined, CloseOutlined, QuestionCircleTwoTone, TeamOutlined, } from '@ant-design/icons';
-import { Avatar, Button, Checkbox, DatePicker, DatePickerProps, Dropdown, Input, MenuProps, Select, Space, } from 'antd';
+import { Avatar, Button, Checkbox, DatePicker, DatePickerProps, Dropdown, Form, Input, MenuProps, Select, Space, } from 'antd';
 import MenuItem from 'antd/lib/menu/MenuItem';
-import React, { ChangeEvent, FC, MouseEvent, useState } from 'react';
+import { ChangeEvent, FC, MouseEvent, useState } from 'react';
 import TextArea from 'antd/lib/input/TextArea';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
@@ -13,23 +13,21 @@ import FullScreenModal from '../../../../containers/FullScreenModal/FullScreenMo
 
 
 import style from './tasksModal.module.scss';
+import { TaskApi } from '../../../../core/types/types';
+import { observer } from 'mobx-react';
+import { tasksStore } from '../../../../core/store/tasks';
 
 interface ITasksModalProps {
   open: boolean;
-
   handleClose(): void;
-
-  id: string;
-  title: string;
-  htmlContent: string;
   isModalEdit?: boolean;
+  task: TaskApi
 }
 
-const TasksModal: FC<ITasksModalProps> = ({
+const TasksModalComponent: FC<ITasksModalProps> = ({
   open,
   handleClose,
-  title,
-  htmlContent,
+  task,
   isModalEdit,
 }) => {
   const [textareaValue, setTextareaValue] = useState<string>();
@@ -38,7 +36,7 @@ const TasksModal: FC<ITasksModalProps> = ({
   const [theme, setTheme] = useState<string>('Без темы');
   const [cursor, setCursor] = useState<string>('pointer');
   const [visible, setVisible] = useState(false);
-  const handleVisibleChange = (flag: any) => setVisible(flag);
+  const [form] = Form.useForm();
 
   const onChange = (checkedValues: object) => {
     console.log(checkedValues, 'onchange');
@@ -94,6 +92,9 @@ const TasksModal: FC<ITasksModalProps> = ({
 
   const handleSetCategory = (value: string) => {
     if (+value !== 0) {
+      form.setFieldsValue({
+        note: value,
+      });
       setBalls(value);
     }
   };
@@ -178,10 +179,8 @@ const TasksModal: FC<ITasksModalProps> = ({
     },
   ];
 
-  const lo = true;
-
-  const handleSubmit = (values: any) => {
-    console.log(values)
+  function handleSubmit(values: any) {
+    console.log(values);
   }
 
   return (
@@ -212,24 +211,32 @@ const TasksModal: FC<ITasksModalProps> = ({
       }
       open={open}
       closebtn={
-        lo ? (
-          <Dropdown.Button
-            style={{ margin: '18px 24px 0px 0px' }}
-            className={style.modal__saveButton}
-            icon={<CaretDownOutlined />}
-            menu={{ items: saveButtonItems, onClick: onMenuClick }}
-          >
-            Создать задание
-          </Dropdown.Button>
-        ) : (
-          <Button
-            onClick={handleClose}
-            className={style.modal__saveButton}
-          >
-            Сохранить
-          </Button>
-        )
+        false
+          ? (
+            <div className={style.modal__dropdownButton}>
+              <Dropdown.Button
+                htmlType='submit'
+                trigger={['click']}
+                type='text'
+                icon={<CaretDownOutlined style={{ color: '#fff' }} />}
+                menu={{ items: saveButtonItems, onClick: onMenuClick }}
+              >
+                Создать задание
+              </Dropdown.Button>
+            </div>
+          ) : (
+            <div className={style.modal__saveButton}>
+              <Button
+                htmlType='submit'
+                form='test'
+                onClick={handleSubmit}
+              >
+                Сохранить
+              </Button>
+            </div>
+          )
       }
+      wrapClassName={style.wrap}
       bodyStyle={{
         flexDirection: 'row',
         minHeight: 'calc(100vh - 55px)',
@@ -238,108 +245,111 @@ const TasksModal: FC<ITasksModalProps> = ({
         flexGrow: 1,
       }}
     >
-      <form style={{ display: 'flex', justifyContent: 'space-between' }} action="" onSubmit={handleSubmit}>
+      <Form initialValues={{
+        title: task.title,
+        // description,
+        // ratingCategory,
+        // points,
+        // deadline,
+        // tag,
+        isCanComment: false,
+        isCanEdit: false
+      }} id="test" style={{ display: 'flex', justifyContent: 'space-between' }} onFinish={handleSubmit}>
         <span style={{ width: '0' }}></span>
         <div style={{ width: '63rem' }} className={style.modal__mainContent}>
           <div className={style.modal__content}>
-            <TextArea
-              className={style.modal__mainContent__textarea}
-              placeholder="Название"
-              autoSize
-              defaultValue={title ? title : ''}
-            />
-            <Tiptap content={htmlContent} setStateShow={setTextareaValue} />
+            <Form.Item name='title'>
+              <TextArea
+                className={style.modal__mainContent__textarea}
+                placeholder="Название"
+                autoSize
+                defaultValue={task.title ? task.title : ''}
+              />
+            </Form.Item>
+            <Form.Item name='description'>
+              <Tiptap content={task.htmlContent} setStateShow={setTextareaValue} />
+            </Form.Item>
           </div>
         </div>
-        <div style={{}} className={style.modal__side}>
+        <div className={style.modal__side}>
           <AppDropdown children={students} inputTitle="Все учащиеся" title="Все учащиеся" width="256px" />
           <div style={{ display: 'flex', columnGap: '5px' }}>
             <div style={{ width: '256px' }}>
               <p className={style.modal__name}>Категория оценок</p>
-              <Select
-                className={style.modal__select}
-                defaultValue="Без категории"
-                onChange={handleSetCategory}
-                style={{
-                  width: 143,
-                  height: 46,
-                }}
-                options={itemstwo}
-              />
+              <Form.Item name='ratingCategory'>
+                <Select
+                  className={style.modal__select}
+                  defaultValue="Без категории"
+                  onChange={handleSetCategory}
+                  style={{
+                    width: 143,
+                    height: 46,
+                  }}
+                  options={itemstwo}
+                />
+              </Form.Item>
             </div>
             <div style={{ width: '256px' }}>
               <p className={style.modal__name}>Баллы</p>
-              <Dropdown
-                className={style.modal__dropdown}
-                overlayStyle={{
-                  display: balls === 'Без оценки' ? 'none' : undefined,
-                }}
-                menu={{ items }}
-              >
-                <InputApp value={balls} onChange={handleBallsInputChange} />
-              </Dropdown>
+              <Form.Item name='points'>
+                <Dropdown
+                  className={style.modal__dropdown}
+                  overlayStyle={{
+                    display: balls === 'Без оценки' ? 'none' : undefined,
+                  }}
+                  menu={{ items }}
+                >
+                  <InputApp value={balls} onChange={handleBallsInputChange} />
+                </Dropdown>
+              </Form.Item>
             </div>
           </div>
           <div className={style.modal__list}>
             <p className={style.modal__name}>Срок сдачи</p>
-            {/* <Select
-            mode="tags"
-            className={style.modal__select}
-            placeholder="Срок сдачи не задан"
-            value={date !== 'Срок сдачи не задан' ? date : 'Срок сдачи не задан'}
-            showSearch={false}
-            style={{
-              height: 46,
-            }}
-            options={itemToTakeDate}
-            dropdownRender={(menu) => (
-              <>
-                <div
-                  style={{ padding: '1rem 1.5rem', boxSizing: 'border-box', fontSize: '0.9375rem' }}
-                >
-                  Срок сдачи
-                </div>
-                <Divider style={{ margin: 0 }} />
-                {menu}
-              </>
-            )}
-          /> */}
-            <AppDropdown inputTitle={date ? date : 'Срок сдачи не задан'} children={datePickItems} width="100%" />
+            <Form.Item name='deadline'>
+              <AppDropdown inputTitle={date ? date : 'Срок сдачи не задан'} children={datePickItems} width="100%" />
+            </Form.Item>
           </div>
           <div className={style.modal__list}>
             <p className={style.modal__name}>Тема</p>
-            <Dropdown
-              menu={{ items: themeDropdownItems, onClick }}
-              className={style.modal__select}
-              trigger={['click']}
-              overlayStyle={{
-                display: theme === 'Создать тему' ? 'none' : undefined,
-                width: '16.25rem',
-                height: 46,
-              }}
-            >
-              <span style={{ cursor }}>
-                {theme === 'Создать тему' ?
-                  <Input
-                    autoFocus
-                    suffix={<CloseOutlined style={{ fontSize: '18px' }} onClick={() => setTheme('Без темы')} />}
-                  /> : <Space>{theme}</Space>}
-              </span>
-            </Dropdown>
+            <Form.Item name='tag'>
+              <Dropdown
+                menu={{ items: themeDropdownItems, onClick }}
+                className={style.modal__select}
+                trigger={['click']}
+                overlayStyle={{
+                  display: theme === 'Создать тему' ? 'none' : undefined,
+                  width: '16.25rem',
+                  height: 46,
+                }}
+              >
+                <span style={{ cursor }}>
+                  {theme === 'Создать тему' ?
+                    <Input
+                      autoFocus
+                      suffix={<CloseOutlined style={{ fontSize: '18px' }} onClick={() => setTheme('Без темы')} />}
+                    /> : <Space>{theme}</Space>}
+                </span>
+              </Dropdown>
+            </Form.Item>
           </div>
           <div className={style.modal__list}>
             <div>
-              <Checkbox>Учащиеся могут комментировать ответы друг друга</Checkbox>
+              <Form.Item name='isCanComment'>
+                <Checkbox>Учащиеся могут комментировать ответы друг друга</Checkbox>
+              </Form.Item>
             </div>
             <div>
-              <Checkbox>Учащиеся могут редактировать ответы</Checkbox>
+              <Form.Item name='isCanEdit'>
+                <Checkbox>Учащиеся могут редактировать ответы</Checkbox>
+              </Form.Item>
             </div>
           </div>
         </div>
-      </form>
+      </Form>
     </FullScreenModal>
   );
 };
 
-export default TasksModal;
 
+export const TasksModal = observer(TasksModalComponent);

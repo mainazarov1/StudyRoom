@@ -11,6 +11,10 @@ const { Content } = Layout;
 
 import s from './Tasks.module.scss';
 import SiderComponent from './components/Sider/Sider';
+import { tasksStore } from '../../core/store/tasks';
+import { useEffect } from 'react';
+import { observer } from 'mobx-react';
+import { TaskApi } from '../../core/types/types';
 
 // const userProfileSvg = (
 //   <svg focusable='false' fill='inherit' width='18' height='18' viewBox='0 0 24 24'>
@@ -94,7 +98,14 @@ const items: MenuProps['items'] = [
   { label: <span className={s.task__createOption}>Тема</span>, key: 'item-2' },
 ];
 
-const Tasks = () => {
+const TasksComponent = () => {
+
+  useEffect(() => {
+    tasksStore.fetchTasks()
+  }, [])
+
+  console.log(tasksStore.tasks)
+
   return (
     <Layout className={s.task__layout}>
       <SiderComponent />
@@ -124,11 +135,6 @@ const Tasks = () => {
               </Typography.Title>
             </Space>
           </Dropdown>
-          {/* <ButtonApp
-            classNameProp={s.navigation__link}
-            label='Открыть свой профиль'
-            icon={userProfileSvg}
-          /> */}
           <Space>
             <ButtonApp
               classNameProp={s.navigation__link}
@@ -143,19 +149,19 @@ const Tasks = () => {
           </Space>
         </Row>
         <div>
-          {dataWithoutTags.map((item) => (
-            <TaskItem key={item.id} {...item} />
+          {tasksStore.tasks.map((task) => (
+            <TaskItem key={task.id} {...task} />
           ))}
 
-          {dataWithTags.map((item) => (
+          {/* {dataWithTags.map((item) => (
             <CollapseComponent key={item.id} isTeacher={item?.isTeacher} tag={item?.tag}>
               <TaskItem key={item.id} {...item} />
             </CollapseComponent>
-          ))}
+          ))} */}
         </div>
       </Content>
     </Layout>
   );
 };
 
-export default Tasks;
+export const Tasks = observer(TasksComponent);

@@ -1,5 +1,13 @@
 @import "../../../../styles/variables.scss";
 
+.wrap {
+  :global {
+    .ant-modal-close {
+      margin: 18px 24px 0 0;
+    }
+  }
+}
+
 .modal {
   &__taskModal {
     :global {
@@ -29,6 +37,55 @@
     flex-shrink: 0;
     padding: 1.5rem 1.5rem 0 1.5rem;
     width: 340px;
+  }
+  &__dropdownButton {
+    line-height: normal;
+    :global {
+      .ant-btn-compact-first-item {
+        position: relative;
+        background-color: green;
+        padding: 0 24px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 4px;
+        border-bottom: 2px solid green;
+        &:hover {
+          border-bottom: 2px solid yellow;
+        }
+      }
+      .ant-btn-compact-item:not(.ant-btn-compact-last-item):not(.ant-btn-compact-item-rtl) {
+        margin-right: 1px;
+      }
+      .ant-btn-compact-last-item {
+        background-color: green;
+      }
+    }
+  }
+
+  &__saveButton {
+    position: relative;
+    line-height: normal;
+    :global {
+      .ant-btn {
+        background-color: rgb(19, 115, 51);
+        color: #fff;
+        border-radius: 4px;
+        outline: none;
+        padding: 0 24px;
+        height: 36px;
+        font-weight: 500;
+        line-height: normal;
+        outline: none;
+        border: none;
+      }
+
+      .ant-btn-icon-only {
+        padding: 0;
+        min-width: 2.125rem;
+      }
+    }
   }
 
   &__wrap {
@@ -97,6 +154,10 @@
     :global {
       .ant-space {
         width: 100%;
+      }
+
+      .ant-select-arrow {
+        color: #5f6368;
       }
 
       .ant-select-selector {
@@ -207,7 +268,6 @@
     &__saveButton {
       :global {
         .ant-btn {
-          margin-top: 20px;
           margin-right: 24px;
           background-color: rgb(19, 115, 51);
           color: #fff;
