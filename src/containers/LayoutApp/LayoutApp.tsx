@@ -105,30 +105,28 @@ export const LayoutApp: FC = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
-	const handleNavLink = () => {
-		switch (pathname) {
-      case '/taskListCompleted':
-        return tasks;
-      case '/taskListAssigned':
-        return tasks;
-      case '/taskListMissed':
-        return tasks;
-      case '/grade':
-        return middleItemsTeacher;
-      case '/tasks':
-        return middleItemsTeacher;
-      case '/feed':
-        return middleItemsTeacher;
-      case '/performed':
-        return middleItemsTeacher;
-      case '/users': 
-        return middleItemsTeacher;
-      case '/unverified-tasks':
-        return unverifiedPage;
-      case '/verified-tasks':
-        return unverifiedPage;
-      default:
-        return [];
+  const handleNavLink = () => {
+    switch (pathname) {
+    case '/taskListCompleted':
+      return tasks;
+    case '/taskListAssigned':
+      return tasks;
+    case '/taskListMissed':
+      return tasks;
+    case '/grade':
+      return middleItemsTeacher;
+    case '/tasks':
+      return middleItemsTeacher;
+    case '/feed':
+      return middleItemsTeacher;
+    case USERS_PAGE:
+      return middleItemsTeacher;
+    case '/unverified-tasks':
+      return unverifiedPage;
+    case '/verified-tasks':
+      return unverifiedPage;
+    default:
+      return [];
     }
   };
 

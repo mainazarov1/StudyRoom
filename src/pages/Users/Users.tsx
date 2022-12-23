@@ -1,7 +1,13 @@
 import { MoreOutlined, UserAddOutlined } from '@ant-design/icons';
-import { Divider, Tooltip, Typography } from 'antd';
+import { Divider, Table, Tooltip, Typography } from 'antd';
 
-import { IconContainer } from '../../components/IconContainer/IconContainer';
+import { UsersTable } from '../../components/UsersTable/UsersTable';
+import {
+  studentsColumns,
+  studentsData,
+  teachersColumns,
+  teachersData,
+} from '../../utils/mock/tableMockApi';
 
 import styles from './Users.module.scss';
 const { Title } = Typography;
@@ -34,43 +40,39 @@ export const Users = () => {
       <div className={styles.users__wrap}>
         <div className={styles.users__column}>
           <header>
-            <Title className={styles.users__title} level={5} >
+            <Title className={styles.users__title} level={5}>
               Преподаватели
             </Title>
-            <Tooltip title='Пригласить преподавателей' placement='bottom'>
-              <>
-                <IconContainer
-                  className={styles.users__icon}
-                  icon={<UserAddOutlined />}
-                  onClick={() => alert('clicked')}
-                />
-              </>
-            </Tooltip>
+            <div className={styles.tooltip}>
+              <Tooltip title='Пригласить преподавателей' placement='bottom'>
+                <UserAddOutlined className={styles.users__icon} onClick={() => alert('click')} />
+              </Tooltip>
+            </div>
           </header>
-          <Divider
-            className={styles.users_line}
+          <Divider className={styles.users__divider} />
+          <UsersTable columns={teachersColumns} data={teachersData} />
+        </div>
+        <div className={styles.users__column}>
+          <header>
+            <Title className={styles.users__title} level={5}>
+              Учащиеся
+            </Title>
+            <Typography.Paragraph
+              className={styles.users__text}
+            >{`${studentsData.length} учащихся`}</Typography.Paragraph>
+            <div className={styles.users__tooltip}>
+              <Tooltip title='Пригласить учащихся' placement='bottom'>
+                <UserAddOutlined className={styles.users__icon} onClick={() => alert('click')} />
+              </Tooltip>
+            </div>
+          </header>
+          <Divider className={styles.users__divider} />
+          <UsersTable
+            columns={studentsColumns}
+            data={studentsData}
+            showHeader={true}
+            checkbox={true}
           />
-          <div className={styles.users__list}>
-            {users
-              .filter((user) => user.role === 'teacher' || user.role === 'admin')
-              .map((user, index) => {
-                return (
-                  <div className={styles.users__item} key={index}>
-                    <img src={user.avatar} alt='avatar' />
-                    <div className={styles.users__info}>
-                      <div className={styles.users__name}>{user.fullname}</div>
-                      {user.role === 'teacher' && (
-                        <IconContainer
-                          className={styles.users__icon}
-                          icon={<MoreOutlined />}
-                          onClick={() => alert('click')}
-                        />
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
         </div>
       </div>
     </div>

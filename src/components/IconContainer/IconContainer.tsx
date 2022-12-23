@@ -32,9 +32,9 @@ export const IconContainer = ({
       onMouseEnter={handleMouse}
       onMouseLeave={handleMouse}
       onClick={onClick}
-      style={{
-        backgroundColor: isHover ? color : initColor,
-      }}
+      // style={{
+      //   backgroundColor: isHover ? color : initColor,
+      // }}
     >
       {icon}
     </button>
