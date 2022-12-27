@@ -1,12 +1,12 @@
 import React, { Key, useState } from 'react';
-import { Table, Dropdown, Avatar, Select, Divider, Input, MenuProps } from 'antd';
-import { CaretDownOutlined, EllipsisOutlined, MoreOutlined, UserOutlined } from '@ant-design/icons';
-
-import type { ColumnsType } from 'antd/es/table'; 
+import { Table, Avatar } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import { UserOutlined } from '@ant-design/icons';
 import '../Grade/Grade.scss';
-import s from '../Tasks/Tasks.module.scss';
 import { NavLink } from 'react-router-dom';
-import { array } from 'prop-types';
+import GetGrade from '../../components/GetGrade/GetGrade';
+import GetTitle from '../../components/GetTitle/GetTitle';
+import SelectByName from '../../components/SelectByName/SelectByName';
 
 interface DataType {
   key: Key;
@@ -18,168 +18,15 @@ interface DataType {
   enabled: boolean;
 }
 
-const selectOptionList = [
-  { value: 'Сортировать по фамилии' },
-  { value: 'Сортировка по имени' },
-];
-
-const items: MenuProps['items'] = [
-  {
-    label: 'Вернуть',
-    key: '0',
-  },
-  {
-    label: 'Посмотреть сданную работу',
-    key: '1',
-  }
-];
-
-const itemsTask: MenuProps['items'] = [
-  {
-    label: 'Изменить',
-    key: '0',
-  },
-  {
-    label: 'Удалить',
-    key: '1',
-  },
-  {
-    type: 'divider',
-  },
-  {
-    label: 'Вернуть все',
-    key: '2',
-  }
-];
-
-let data: DataType[] = [
-  {
-    key: '1',
-    name: 'Bob',
-    avatar: 'https://avatars.dicebear.com/api/male/john.svg?mood[]=happy&mood[]=sad',
-    overallScore: 'Нет оценки',
-    grade: 50,
-    enabled: true
-  },
-  {
-    key: '2',
-    name: 'Amy',
-    avatar: 'https://avatars.dicebear.com/api/male/john.svg?background=%230000ff',
-    overallScore: 'Нет оценки',
-    grade: 30,
-    enabled: true
-  },
-  {
-    key: '3',
-    name: 'Cole',
-    avatar: 'https://avatars.dicebear.com/api/human/cole.svg',
-    overallScore: 'Нет оценки',
-    grade: 70,
-    enabled: true
-  },
-  {
-    key: '4',
-    name: 'Snow',
-    avatar: 'https://avatars.dicebear.com/api/initials/snow.svg',
-    overallScore: 'Нет оценки',
-    grade: 10,
-    enabled: true
-  },
-  {
-    key: '5',
-    name: 'Clone',
-    avatar: 'https://avatars.dicebear.com/api/initials/clone.svg',
-    overallScore: 'Нет оценки',
-    grade: 45,
-    enabled: true
-  },
-];
-
-const getSummaryAvarage = () => {
-  let avarageGrade = 0;
-  data.forEach(({ grade }) => {
-    avarageGrade += grade / data.length;
-  });
-  data = [
-    {
-      key: "0",
-      name: "Средняя оценка по классу",
-      avatar: 'https://avatars.dicebear.com/api/pixel-art-neutral/your-custom-seed.svg',
-      overallScore: 'Нет оценки',
-      grade: avarageGrade,
-      enabled: false
-    },
-    ...data
-  ];
-};
-
-getSummaryAvarage();
-
-const getTitle = (deadline: string, task: string, fromTo: number) => {
-  return (
-    <div className='task-dropdown'>
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <div className='title-deadline'>{deadline}</div>
-            <div> <NavLink className='task-link' to={'#'}>{task}</NavLink></div>
-          </div>
-          <div className='table-dropdown-cell'><Dropdown
-            placement={'bottomRight'}
-            className={s.collapse__head__dropdown}
-            trigger={['click']}
-            menu={{ items: itemsTask }}
-          >
-            <EllipsisOutlined
-              className={s.collapse__elipsis}
-              style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-              color='green'
-              rotate={90}
-            />
-          </Dropdown> </div>
-        </div>
-        <Divider />
-        <div className='title-fromTo'>{fromTo}</div>
-      </div>
-  </div>
-  )
-}
-
-const getGrade = (text: any, record: { grade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
-  return (
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div className='table-dropdown-cell-grade'>{record.grade}</div>
-      <div className='table-dropdown-cell'>
-        <Dropdown
-          placement={'bottomRight'}
-          className={s.collapse__head__dropdown}
-          trigger={['click']}
-          menu={{ items }}
-        >
-          <EllipsisOutlined
-            className={s.collapse__elipsis}
-            style={{ fontSize: '20px', color: 'rgb(0,0,0)' }}
-            color='green'
-            rotate={90}
-          />
-        </Dropdown>
-      </div>
-    </div>)
-}
 
 const Grade: React.FC = () => {
-  const columns: ColumnsType<DataType> = [
+  const [columns, setColumns] = useState<ColumnsType<DataType>>([
     {
-      title: <Select
-        defaultValue="Сортировать по имени"
-        suffixIcon={<CaretDownOutlined />}
-        bordered={false}
-        options={selectOptionList.map((item) => ({ value: item.value }))}
-      />,
+      title: <SelectByName /> ,
       width: 50,
       dataIndex: 'name',
       fixed: 'left',
-      render: (text, record) => {
+      render: (text: string, record: DataType) => {
         return (
           <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
             <Avatar src={record.avatar} icon={<UserOutlined />} />
@@ -195,41 +42,104 @@ const Grade: React.FC = () => {
       fixed: 'left',
     },
     {
-      title: getTitle('25-05-2020', 'task1', 100),
-      render: getGrade,
+      title: <GetTitle deadline='25-05-2020' task='task1' fromTo={100} />,
+      render: (text: string, record: { grade: number; }) => <GetGrade recordProp={record.grade}/>,
+      width: 30,
+      dataIndex: 'grade',
+      key: '2',
+    },
+    {
+      title: <GetTitle deadline='25-06-2020' task='task1' fromTo={100} />,
+      render:  (text: string, record: { grade: number; }) => <GetGrade recordProp={record.grade}/>,
       width: 30,
       dataIndex: 'grade',
       key: '2'
     },
     {
-      title: getTitle('19-05-2020', 'task2', 100),
-      render: getGrade,
+      title: <GetTitle deadline='25-07-2020' task='task1' fromTo={100} />,
+      render:  (text: string, record: { grade: number; }) => <GetGrade recordProp={record.grade}/>,
       width: 30,
       dataIndex: 'grade',
       key: '2'
     },
     {
-      title: getTitle('17-07-2020', 'task3', 100),
-      render: getGrade,
+      title: <GetTitle deadline='25-08-2020' task='task1' fromTo={100} />,
+      render:  (text: string, record: { grade: number; }) => <GetGrade recordProp={record.grade}/>,
       width: 30,
       dataIndex: 'grade',
       key: '2'
+    },
+  ])
+
+  let [dataSource, setDataSource] = useState<DataType[]>([
+    {
+      key: '1',
+      name: 'Bob',
+      avatar: 'https://avatars.dicebear.com/api/male/john.svg?mood[]=happy&mood[]=sad',
+      overallScore: 'Нет оценки',
+      grade: 50,
+      enabled: true
     },
     {
-      title: getTitle('12-09-2020', 'task4', 100),
-      render: getGrade,
-      width: 30,
-      dataIndex: 'grade',
-      key: '2'
+      key: '2',
+      name: 'Amy',
+      avatar: 'https://avatars.dicebear.com/api/male/john.svg?background=%230000ff',
+      overallScore: 'Нет оценки',
+      grade: 30,
+      enabled: true
     },
-  ];
+    {
+      key: '3',
+      name: 'Cole',
+      avatar: 'https://avatars.dicebear.com/api/human/cole.svg',
+      overallScore: 'Нет оценки',
+      grade: 70,
+      enabled: true
+    },
+    {
+      key: '4',
+      name: 'Snow',
+      avatar: 'https://avatars.dicebear.com/api/initials/snow.svg',
+      overallScore: 'Нет оценки',
+      grade: 10,
+      enabled: true
+    },
+    {
+      key: '5',
+      name: 'Clone',
+      avatar: 'https://avatars.dicebear.com/api/initials/clone.svg',
+      overallScore: 'Нет оценки',
+      grade: 45,
+      enabled: true
+    },
+  ])
+
+  const getSummaryAvarage = () => {
+    let avarageGrade = 0;
+    dataSource.forEach(({ grade }) => {
+      avarageGrade += grade / dataSource.length;
+    });
+    dataSource = [
+      {
+        key: "0",
+        name: "Средняя оценка по классу",
+        avatar: 'https://avatars.dicebear.com/api/pixel-art-neutral/your-custom-seed.svg',
+        overallScore: 'Нет оценки',
+        grade: avarageGrade,
+        enabled: false
+      },
+      ...dataSource
+    ];
+  };
+
+  getSummaryAvarage();
   return (
     <div>
       <Table
         bordered
         columns={columns}
         rowClassName={record => !record.enabled ? 'disabled-row' : ''}
-        dataSource={data}
+        dataSource={dataSource}
         scroll={{ x: 1300 }}
       />
     </div>
