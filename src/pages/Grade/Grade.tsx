@@ -6,7 +6,6 @@ import '../Grade/Grade.scss';
 import { NavLink } from 'react-router-dom';
 import GetGrade from '../../components/GetGrade/GetGrade';
 import GetTitle from '../../components/GetTitle/GetTitle';
-import SelectByName from '../../components/SelectByName/SelectByName';
 
 interface DataType {
   key: Key;
@@ -18,13 +17,16 @@ interface DataType {
   enabled: boolean;
 }
 
-
 const Grade: React.FC = () => {
   const [columns, setColumns] = useState<ColumnsType<DataType>>([
     {
-      title: <SelectByName /> ,
+      title: 'Сортировать по имени',
       width: 50,
       dataIndex: 'name',
+      sorter: (a, b) => {
+        if(a.name === dataSource[0].name || b.name === dataSource[0].name) return 0;
+        return a.name.length - b.name.length
+      },
       fixed: 'left',
       render: (text: string, record: DataType) => {
         return (
@@ -43,6 +45,7 @@ const Grade: React.FC = () => {
     },
     {
       title: <GetTitle deadline='25-05-2020' task='task1' fromTo={100} />,
+      sorter: false,
       render: (text: string, record: { grade: number; }) => <GetGrade recordProp={record.grade}/>,
       width: 30,
       dataIndex: 'grade',
@@ -86,7 +89,7 @@ const Grade: React.FC = () => {
       avatar: 'https://avatars.dicebear.com/api/male/john.svg?background=%230000ff',
       overallScore: 'Нет оценки',
       grade: 30,
-      enabled: true
+      enabled: true,
     },
     {
       key: '3',
@@ -126,7 +129,7 @@ const Grade: React.FC = () => {
         avatar: 'https://avatars.dicebear.com/api/pixel-art-neutral/your-custom-seed.svg',
         overallScore: 'Нет оценки',
         grade: avarageGrade,
-        enabled: false
+        enabled: false,
       },
       ...dataSource
     ];
