@@ -1,5 +1,5 @@
 import { EllipsisOutlined } from '@ant-design/icons';
-import { Dropdown, MenuProps, Input, Typography } from 'antd';
+import { Dropdown, MenuProps, InputNumber, Typography } from 'antd';
 import { useState } from 'react';
 import s from '../../pages/Tasks/Tasks.module.scss';
 
@@ -15,20 +15,24 @@ const items: MenuProps['items'] = [
 ];
 
 const GetGrade = (props: { recordProp: number }) => {
-  const [value, setValue] = useState<string | number>(props.recordProp);
-  const [editing, setEditing] = useState(false)
+  const [value, setValue] = useState<number | null | string>(props.recordProp);
+  const [editing, setEditing] = useState(false);
 
-  const handleClick = () => {
+  const handleChangeEdit = () => {
     setEditing(editing => !editing);
+  }
+
+  const onChange = (valueProp: number | null | string) => {
+    setValue(valueProp);
   }
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
       <div className='table-dropdown-cell-grade'>
         {editing ? (
-          <Input type='text' value={value} onChange={(e) => setValue(e.target.value)} onPressEnter={handleClick} autoFocus onBlur={handleClick} />
+          <InputNumber min={0} style={{ width: '100%' }} value={value} onChange={onChange} onPressEnter={handleChangeEdit} autoFocus onBlur={handleChangeEdit} />
         ) : (
-          <Typography.Text onClick={handleClick}>{value}</Typography.Text>
+          <Typography.Text onClick={handleChangeEdit}>{value ? value : 'Пусто'}</Typography.Text>
         )}
       </div>
       <div className='table-dropdown-cell'>
