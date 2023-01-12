@@ -32,7 +32,7 @@ const GetGrade = (props: { recordProp: number }) => {
         {editing ? (
           <InputNumber min={0} style={{ width: '100%' }} value={value} onChange={onChange} onPressEnter={handleChangeEdit} autoFocus onBlur={handleChangeEdit} />
         ) : (
-          <Typography.Text style={{color: '#0CA000'}} onClick={handleChangeEdit}>
+          <Typography.Text style={{color: '#0B8C00'}} onClick={handleChangeEdit}>
             {value ? value : 'Пусто' ? <Typography.Text style={{color: 'red'}}>Пусто</Typography.Text>: ''}
           </Typography.Text>
         )}
