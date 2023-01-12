@@ -32,7 +32,9 @@ const GetGrade = (props: { recordProp: number }) => {
         {editing ? (
           <InputNumber min={0} style={{ width: '100%' }} value={value} onChange={onChange} onPressEnter={handleChangeEdit} autoFocus onBlur={handleChangeEdit} />
         ) : (
-          <Typography.Text onClick={handleChangeEdit}>{value ? value : 'Пусто'}</Typography.Text>
+          <Typography.Text style={{color: '#0CA000'}} onClick={handleChangeEdit}>
+            {value ? value : 'Пусто' ? <Typography.Text style={{color: 'red'}}>Пусто</Typography.Text>: ''}
+          </Typography.Text>
         )}
       </div>
       <div className='table-dropdown-cell'>
