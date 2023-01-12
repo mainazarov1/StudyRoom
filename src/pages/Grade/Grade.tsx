@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Table } from 'antd';
 import '../Grade/Grade.scss';
-import {columnsGrade, dataSourceGrade} from '../../utils/MockByGrade/tableMockApiGrade';
+import {columns as col, columnsGrade, dataSourceGrade} from '../../utils/MockByGrade/tableMockApiGrade';
 
 const Grade: React.FC = () => {
-  const [columns, setColumns] = useState(columnsGrade);
+  const [columns, setColumns] = useState([...col, ...columnsGrade]);
 
   let [dataSource, setDataSource] = useState(dataSourceGrade);
 
