@@ -1,20 +1,25 @@
+/* eslint-disable camelcase */
 import { makeAutoObservable } from 'mobx';
 import axios from 'axios';
 
 import $api from '../../utils/axios';
 
-import { TaskApi } from './../types/types';
-class TasksStore {
-  tasks: TaskApi[] = [];
+import { User } from './../types/types';
+class RegistrStore {
+  // user: User
   constructor() {
     makeAutoObservable(this);
   }
 
-  fetchTasks = async () => {
+  registerUser = async () => {
     try {
-      const { data } = await $api.get<TaskApi[]>('/tasks');
+      const { data } = await $api.post<User>('/user/register', {
+        display_name: 'bekjan3',
+        email: 'bekjan3@gmail.com',
+        password: '123456789'
+      });
       console.log('data', data);
-      this.tasks = data;
+      // this.user = data;
     } catch (error) {
       // eslint-disable-next-line import/no-named-as-default-member
       if (axios.isAxiosError(error)) {
@@ -25,9 +30,6 @@ class TasksStore {
     }
   };
 
-  setTasks = (cards: TaskApi[]) => {
-    this.tasks = cards;
-  };
 }
 
-export const tasksStore = new TasksStore();
+export const registrStore = new RegistrStore();

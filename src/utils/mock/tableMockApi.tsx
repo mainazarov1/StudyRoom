@@ -27,7 +27,7 @@ export const teachersColumns = [
         <Dropdown menu={{ items }} trigger={['click']}>
           <MoreOutlined
             className={styles.users__icon}
-            // onClick={() => alert('click')}
+          // onClick={() => alert('click')}
           />
         </Dropdown>
       </Space>
@@ -107,7 +107,7 @@ export const studentsColumns = [
         <Dropdown menu={{ items }} trigger={['click']}>
           <MoreOutlined
             className={styles.users__icon}
-            // onClick={() => alert('click')}
+          // onClick={() => alert('click')}
           />
         </Dropdown>
       </Space>

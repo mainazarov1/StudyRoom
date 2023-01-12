@@ -2,7 +2,7 @@
 
 .sider {
    position: absolute;
-   left: 30px;
+   left: -14.625rem;
    &__list {
       flex-shrink: 0;
       padding-top: 3.375rem;
@@ -18,11 +18,11 @@
       align-items: center;
       &:hover {
          // background: $hover-bg;
-         background-color: var(#{--default-hover-color})!important;
+         background-color: var(#{--default-hover-color}) !important;
       }
       &:hover .sider__link {
          // color: $text-color-secondary;
-         color: var(#{--default-color})!important;
+         color: var(#{--default-color}) !important;
       }
    }
    &__link {
@@ -32,6 +32,13 @@
       padding-right: 1.5rem;
       padding-left: 0.75rem;
       flex-grow: 1;
-      color: var(#{--default-color})!important;
+      color: var(#{--default-color}) !important;
+   }
+}
+
+@media screen and (max-width: 80.875em) {
+   .sider {
+      position: initial;
+      flex-shrink: 0;
    }
 }

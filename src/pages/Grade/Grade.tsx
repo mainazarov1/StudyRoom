@@ -2,11 +2,13 @@ import React, { Key, useState } from 'react';
 import { Table, Dropdown, Avatar, Select, Divider, Input, type MenuProps } from 'antd';
 import { CaretDownOutlined, EllipsisOutlined, MoreOutlined, UserOutlined } from '@ant-design/icons';
 
-import type { ColumnsType } from 'antd/es/table'; 
+import type { ColumnsType } from 'antd/es/table';
+ 
 import '../Grade/Grade.scss';
-import s from '../Tasks/Tasks.module.scss';
 import { NavLink } from 'react-router-dom';
 import { array } from 'prop-types';
+
+import s from '../Tasks/Tasks.module.scss';
 
 interface DataType {
   key: string;
@@ -143,9 +145,9 @@ const getTitle = (deadline: string, task: string, fromTo: number) => {
         <Divider />
         <div className='title-fromTo'>{fromTo}</div>
       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
 // const getGrade = (text: any, record: { grade: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
 const getGrade = (text: any, record: IGetGrade) => {
@@ -167,8 +169,8 @@ const getGrade = (text: any, record: IGetGrade) => {
           />
         </Dropdown>
       </div>
-    </div>)
-}
+    </div>);
+};
 
 const Grade: React.FC = () => {
   const columns: ColumnsType<DataType> = [

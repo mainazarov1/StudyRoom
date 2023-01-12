@@ -36,7 +36,7 @@ const AppDropdown: FC<IAppDropdownProps> = ({
         onOpenChange={() => setStudentDropOpen(!studentDropOpen)}
         className={s.course_list}
       >
-        <Form.Item name='student'>
+        <Form.Item >
           <Space>
             {inputTitle}
             <DownOutlined />

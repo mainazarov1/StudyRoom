@@ -11,7 +11,7 @@ interface IInputAppProps extends InputProps {
 export const InputApp = ({ label, name, placeholder, required, ...settings }: IInputAppProps) => {
   return (
     <Form.Item required={required} className={styles.inputAppLabel} label={label} name={name}>
-      <Input
+      <Input 
         className={styles.inputApp}
         placeholder={placeholder}
         autoComplete='off'
