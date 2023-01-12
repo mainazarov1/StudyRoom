@@ -34,30 +34,38 @@ const MenuAside: FC<IProps> = ({ listStudenCurs, ListTeacherCurs, onClose }) => 
           <span>Календарь</span>
         </NavLink>
       </Menu.Item>
-      {isTeacher ? (
-        <>
-          <Divider />
-          <Menu.Item key='11' icon={<ReadOutlined />} onClick={onClose}>
-            <NavLink to='/unverified-tasks'>
-              <span>Не проверенные задание</span>
-            </NavLink>
-          </Menu.Item>
-          {ListTeacherCurs?.map((item) => (
-            <SideBarMenuItem key={item.id} item={item} />
-          ))}
-        </>
-      ) : null}
-      <Divider />
-      <Menu.Item key='3' icon={<UnorderedListOutlined />} onClick={onClose}>
+      {
+        isTeacher 
+          ?
+          <>
+            <Divider />
+            <Menu.Item key='11' icon={<ReadOutlined />} onClick={onClose} >
+              <NavLink to='/unverified-tasks'>
+                <span>Не проверенные задание</span>
+              </NavLink>
+            </Menu.Item>
+            {
+              ListTeacherCurs?.map((item) => (
+                <SideBarMenuItem key={item.id} onClose={onClose} item={item} />
+              ))
+            }
+          </>
+          : 
+          null
+      }
+      <Divider/>
+      <Menu.Item key='3' icon={<UnorderedListOutlined />} onClick={onClose}  >
         <NavLink to='/taskListAssigned'>
           <span>Список Заданий</span>
         </NavLink>
       </Menu.Item>
-      {listStudenCurs?.map((item) => (
-        <SideBarMenuItem key={item.id} item={item} />
-      ))}
-      <Divider />
-      <Menu.Item key='4' icon={<FileSyncOutlined />} onClick={onClose}>
+      {
+        listStudenCurs?.map((item) => (
+          <SideBarMenuItem key={item.id} onClose={onClose} item={item} />
+        ))
+      }
+      <Divider/>
+      <Menu.Item key='4' icon={<FileSyncOutlined />} onClick={onClose} >
         <span>Архив заданий</span>
       </Menu.Item>
       <Menu.Item key='5' icon={<SettingOutlined />} onClick={onClose}>

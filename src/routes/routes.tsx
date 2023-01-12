@@ -21,7 +21,7 @@ import Feed from '../pages/Feed';
 import TaskListAssigned from '../pages/TaskListAssigned';
 import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
 import TaskListCompleted from '../pages/TaskListCompleted';
-import Tasks from '../pages/Tasks/Tasks';
+import { Tasks } from '../pages/Tasks/Tasks';
 import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
 import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
 import Grade from '../pages/Grade/Grade';
@@ -103,7 +103,7 @@ const MainRoutes = () => {
   ];
 
   return (
-    <React.Suspense fallback={<span> Loading...</span>}>
+    <React.Suspense fallback={<span>Loading...</span>}>
       <Routes>
         <Route path={AUTH_PAGE} element={<Auth />} />
         <Route element={<LayoutApp />}>

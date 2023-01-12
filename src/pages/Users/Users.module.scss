@@ -1,39 +1,58 @@
+@import '../../styles/variables.scss';
+
 .users{
 	max-width: 800px;
 	width: 100%;
 	margin: 0 auto;
-	// background-color: grey;
 	&__wrap{
-		
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
 	}
 	&__column{
 		header{
 			display: flex;
 			align-items: center;
-			padding: 8px;
+			gap: 10px;
+			padding: 8px 16px;
 		}
+	}
+	&__divider{
+		background-color: var(#{--default-color});
+		margin: 0;
 	}
 	.users__title{
 		font-size: 2rem;
 		font-weight: 300;
-		// color: red;
+		color: var(#{--default-color});
 		width: 100%;
 		margin: 0;
 	}
-	&__icon{
-		// width: 44px;
-		// height: 44px;
-		// font-size: 22px;
-		// display: flex;
-		// justify-content: center;
-		// align-items: center;
+	.users__text{
+		font-size: 1rem;
+		font-weight: 300;
+		color: var(#{--default-color});
+		min-width: fit-content;
+		margin: 0;
+	}
+	.users__tooltip{
+		width: 44px;
+	}
+	.users__icon{
+		width: 40px;
+		height: 40px;
+		font-size: 22px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent;
+		border-radius: 50%;
+		border: none;
+		color: var(#{--default-color});
 		&:hover{
-			color: white;
+			background-color: var(#{--default-hover-color});
 		}
 	}
-	// .users__icon{
-
-	// }
 
 	&__list{
 
@@ -43,7 +62,9 @@
 		align-items: center;
 		gap: 16px;
 		padding: 8px;
+		margin: 6px 0;
 		&:not(:last-child){
+			color: var(#{--default-color});
 			border-bottom: 1px solid rgba(0,0,0,.1);
 		}
 		&:hover{
@@ -66,5 +87,11 @@
 	&__name{
 		font-size: 16px;
 		font-weight: 400;
+		color: $text-color;
 	}
+}
+
+.users_line {
+	margin: 0;
+	background-color: var(#{--default-color});
 }

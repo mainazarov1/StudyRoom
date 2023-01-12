@@ -30,12 +30,11 @@ export const HeaderLogoPlus: React.FC<IHeaderLogoPlusProps> = ({
     <>
       <div className='item'>
         <Title className='item-title' style={{ margin: 0 }} level={4}>
-          {' '}
           {leftTrigger.path ? (
             <NavLink to={leftTrigger.path}> {leftTrigger.title} </NavLink>
           ) : (
             leftTrigger.title
-          )}{' '}
+          )}
         </Title>
       </div>
       <div className='header-middle'>

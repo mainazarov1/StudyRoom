@@ -16,7 +16,7 @@
 }
 
 .disabled-row td {
-    background-color: hsl(0, 100%, 97%);
+    background-color: var(#{--default-hover-color});
     pointer-events: none;
 }
 
@@ -30,11 +30,15 @@
 }
 
 .task-link:hover {
-    color: #1890ff; // Для изменения цвета ссылки задания
+    color: var(#{--default-color}) // Для изменения цвета ссылки задания
 }
 
 .name-link {
     color: rgba(0, 0, 0, 0.85);
+}
+
+.name-link:hover {
+    color: var(#{--default-color});
 }
 
 .title-deadline {

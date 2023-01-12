@@ -105,8 +105,8 @@ export const LayoutApp: FC = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
-	const handleNavLink = () => {
-		switch (pathname) {
+  const handleNavLink = () => {
+    switch (pathname) {
     case '/taskListCompleted':
       return tasks;
     case '/taskListAssigned':
@@ -119,7 +119,7 @@ export const LayoutApp: FC = () => {
       return middleItemsTeacher;
     case '/feed':
       return middleItemsTeacher;
-    case '/performed':
+    case USERS_PAGE:
       return middleItemsTeacher;
     case '/unverified-tasks':
       return unverifiedPage;

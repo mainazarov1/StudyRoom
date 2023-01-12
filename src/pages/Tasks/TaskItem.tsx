@@ -4,10 +4,11 @@ import { Col, Collapse, Dropdown, Row, Space, Typography } from 'antd';
 import Icon, { CommentOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
 
-import TasksModal from './components/TasksModal/TasksModal';
+import { TasksModal } from './components/TasksModal/TasksModal';
 import s from './Tasks.module.scss';
 
 import type { MenuProps } from 'antd/lib/menu';
+import { TaskApi } from '../../core/types/types';
 
 const { Panel } = Collapse;
 
@@ -28,28 +29,16 @@ const taskDropdownStudents: MenuProps['items'] = [
   { label: 'Пожаловаться', key: 'item-2' },
 ];
 
-interface TaskItemProps {
-  id: string;
-  title: string;
-  points: number;
-  deadLine: string;
-  timePublication: string;
-  htmlContent: string;
-  isTeacher: boolean;
-  countComments: number;
-}
-
-const TaskItem: FC<TaskItemProps> = ({
-  id,
-  title,
-  points,
-  deadLine,
-  timePublication,
-  htmlContent,
-  isTeacher,
-  countComments,
-}) => {
-  const [key, setKey] = useState<string | string[]>();
+// id,
+//   title,
+//   points,
+//   deadLine,
+//   timePublication,
+//   htmlContent,
+//   isTeacher,
+//   countComments,
+const TaskItem = (task: TaskApi, key: string | number) => {
+  const [collapseKey, setCollapseKey] = useState<string | string[]>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const taskDropdownTeacher: MenuProps['items'] = [
@@ -66,7 +55,7 @@ const TaskItem: FC<TaskItemProps> = ({
   ];
 
   const handleActiveCollapse = (key: string | string[]) => {
-    setKey(key);
+    setCollapseKey(collapseKey);
   };
 
   const handleClick = () => {
@@ -95,24 +84,24 @@ const TaskItem: FC<TaskItemProps> = ({
               ellipsis={true}
               className={s.collapse__head__subtitle}
             >
-              {title}
+              {task.title}
             </Typography.Text>
           </Col>
           <Space>
             <Space>
               <CommentOutlined />
-              {countComments ? countComments : ''}
+              {task.countComments ? task.countComments : ''}
             </Space>
             <div>
               <span style={{ color: 'rgba(0,0,0,.549)', fontSize: '0.75rem' }}>Эссе</span>
             </div>
           </Space>
         </Row>
-        <Typography.Text className={s.task__points}> {points}</Typography.Text>
+        <Typography.Text className={s.task__points}> {task.points}</Typography.Text>
         <Row gutter={12} align={'middle'}>
           <Col>
             <Typography.Text className={s.collapse__head__term}>
-              {deadLine ? 'Срок сдачи: 22 июл. 2023 г.' : 'Срок сдачи не задан'}
+              {task.deadLine ? 'Срок сдачи: 22 июл. 2023 г.' : 'Срок сдачи не задан'}
             </Typography.Text>
           </Col>
           <Col onClick={(e) => e.stopPropagation()}>
@@ -120,7 +109,7 @@ const TaskItem: FC<TaskItemProps> = ({
               placement={'bottomRight'}
               className={s.collapse__head__dropdown}
               trigger={['click']}
-              menu={{ items: isTeacher ? taskDropdownTeacher : taskDropdownStudents }}
+              menu={{ items: task.isTeacher ? taskDropdownTeacher : taskDropdownStudents }}
             >
               <EllipsisOutlined
                 className={s.collapse__elipsis}
@@ -145,7 +134,7 @@ const TaskItem: FC<TaskItemProps> = ({
         onChange={(key) => handleActiveCollapse(key)}
       >
         <Panel
-          className={classNames(s.collapse__panel, key === id ? s.collapse__panel__active : '')}
+          className={classNames(s.collapse__panel, key === task.id ? s.collapse__panel__active : '')}
           showArrow={false}
           header={<CollapseHead />}
           key={'1'}
@@ -161,7 +150,7 @@ const TaskItem: FC<TaskItemProps> = ({
                   textOverflow: 'ellipsis',
                 }}
               >
-                <span className={s.task__publication__time}>{timePublication}</span>
+                <span className={s.task__publication__time}>{task.timePublication}</span>
               </Row>
               <Row
                 style={{
@@ -170,12 +159,12 @@ const TaskItem: FC<TaskItemProps> = ({
                   marginLeft: '1rem',
                 }}
               >
-                <span className={s.task__deadline}>{deadLine ? 'Назначено' : 'Не назначено'}</span>
+                <span className={s.task__deadline}>{task.deadLine ? 'Назначено' : 'Не назначено'}</span>
               </Row>
             </Row>
             <Row style={{ marginTop: '1rem' }}>
               <div>
-                {htmlContent}
+                {task.htmlContent}
                 {/* <span>
                   Необходимо создать приложение - аналог ленты в социальной сети, которое будет
                   работать со специально созданным API. Описание API находится далее по тексту.
@@ -355,9 +344,8 @@ const TaskItem: FC<TaskItemProps> = ({
       <TasksModal
         open={isOpen}
         handleClose={handleClose}
-        id={id}
-        title={title}
-        htmlContent={htmlContent}
+        task={task}
+        isModalEdit={false}
       />
     </>
   );

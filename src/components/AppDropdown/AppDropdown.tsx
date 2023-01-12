@@ -1,5 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Menu, Space, Typography } from 'antd';
+import { Dropdown, Form, Menu, Space, Typography } from 'antd';
 import { FC, ReactNode, useState } from 'react';
 
 import s from './appDropdown.module.scss';
@@ -7,12 +7,18 @@ import s from './appDropdown.module.scss';
 const { Paragraph } = Typography;
 
 interface IAppDropdownProps {
-  title: string;
+  inputTitle?: string | [string, string] | undefined | null
+  title?: string | [string, string];
   children: ReactNode;
   width?: string;
 }
 
-const AppDropdown: FC<IAppDropdownProps> = ({ title, children, width }) => {
+const AppDropdown: FC<IAppDropdownProps> = ({
+  inputTitle,
+  title,
+  children,
+  width,
+}) => {
   const [studentDropOpen, setStudentDropOpen] = useState<boolean>(false);
   const menuStudent = (
     <Menu style={{ width: `${width}` }} className={s.modal__menu}>
@@ -30,10 +36,12 @@ const AppDropdown: FC<IAppDropdownProps> = ({ title, children, width }) => {
         onOpenChange={() => setStudentDropOpen(!studentDropOpen)}
         className={s.course_list}
       >
-        <Space>
-          {title}
-          <DownOutlined />
-        </Space>
+        <Form.Item name='student'>
+          <Space>
+            {inputTitle}
+            <DownOutlined />
+          </Space>
+        </Form.Item>
       </Dropdown>
     </>
   );

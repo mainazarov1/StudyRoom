@@ -5,6 +5,7 @@ import { CheckOutlined, EditOutlined } from '@ant-design/icons';
 import ModalSettingsImg from '../ModalSettingsImg/ModalSettingsImg';
 import ModalUploadImg from '../ModalUploadImg/ModalUploadImg';
 import { AppModal } from '../../ModalApp';
+import { handleChangeColor } from '../../../utils/CopyPaste';
 
 import s from './ModalSettings.module.scss';
 
@@ -30,9 +31,7 @@ const ModalSettings: FC = () => {
   const [color, setColor] = useState<string>('blue');
 
   useEffect(() => {
-    const root = document.querySelector(':root') as HTMLElement;
-    root.style.setProperty('--default-color', `var(--${color}-color)`);
-    root.style.setProperty('--default-hover-color', `var(--${color}-hover-color)`);
+    handleChangeColor(color);
   }, [color]);
 
   const showModal = () => {
@@ -54,6 +53,7 @@ const ModalSettings: FC = () => {
         title='Настроить вид'
         open={open}
         onCancel={handleCancel}
+        bodyStyle={{padding: '0 24px 0'}}
         footer={[
           <Button className={s.btn} key='2' type='link' onClick={handleCancel}>
             Отмена
@@ -74,7 +74,7 @@ const ModalSettings: FC = () => {
           </div>
           <div className={s.color_block}>
             <p className={s.color_title}>Выберите цвет темы</p>
-            <Row justify={'space-between'} className={s.colors}>
+            <Row justify={'space-between'}  className={s.colors}>
               {colorArr.map((item, i) => (
                 <span
                   key={i}

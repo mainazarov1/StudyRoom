@@ -1,8 +1,10 @@
 import { useEditor, EditorContent } from '@tiptap/react';
-import { StarterKit } from '@tiptap/starter-kit';
-import { Underline } from '@tiptap/extension-underline';
+// eslint-disable-next-line import/no-named-as-default
+import StarterKit from '@tiptap/starter-kit';
+// eslint-disable-next-line import/no-named-as-default
+import Underline from '@tiptap/extension-underline';
 import { FC } from 'react';
-import {
+import { 
   BoldOutlined,
   FontSizeOutlined,
   ItalicOutlined,

@@ -5,7 +5,7 @@ import type { ModalProps } from 'antd';
 
 export const AppModal = ({ children, ...props }: ModalProps) => {
   return (
-    <Modal {...props}>
+    <Modal {...props} >
       <div style={{ padding: 2 }}>{children}</div>
     </Modal>
   );

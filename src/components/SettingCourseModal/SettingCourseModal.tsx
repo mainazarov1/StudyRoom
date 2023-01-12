@@ -58,7 +58,7 @@ const SettingCourseModal: React.FC = () => {
               required={true}
             />
             <InputApp className={s.input} placeholder='Раздел' name='Раздел' />
-            <InputApp className={s.input} placeholder='Описание курса' name='Раздел' />
+            <InputApp className={s.input} placeholder='Описание курса' name='описание' />
             <InputApp className={s.input} placeholder='Предмет' name='Предмет' />
             <InputApp className={s.input} placeholder='Аудитория' name='Аудитория' />
           </Form>
