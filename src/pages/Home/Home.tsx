@@ -1,15 +1,19 @@
-import { CSSProperties, useState, FC } from 'react';
+import { CSSProperties, useState, FC, useEffect } from 'react';
 import { CalendarTwoTone, FolderTwoTone, ReconciliationTwoTone } from '@ant-design/icons';
 import { Layout, Row, Space, Typography } from 'antd';
 import { NavLink } from 'react-router-dom';
 // eslint-disable-next-line import/named
 import { DragDropContext, DragUpdate, Droppable } from 'react-beautiful-dnd';
+import { observer } from 'mobx-react-lite';
 
 import { Card } from '../../components/Card/Card';
+// eslint-disable-next-line import/order
 import { ButtonApp } from '../../components/ButtonApp/ButtonApp';
 
 const { Content } = Layout;
 const { Link } = Typography;
+
+import { courseStore } from '../../core/store/course';
 
 import s from './Home.module.scss';
 
@@ -52,7 +56,7 @@ const fastLinks = [
   },
 ];
 
-export const Home: FC = () => {
+export const Home: FC = observer(() => {
   const [content, setContent] = useState([
     {
       id: '1',
@@ -152,6 +156,10 @@ export const Home: FC = () => {
     },
   ]);
 
+  useEffect(() => {
+    courseStore.getAllCourses();
+  });
+
   const onDragComplete = (result: DragUpdate) => {
     console.log(result);
 
@@ -213,4 +221,4 @@ export const Home: FC = () => {
       </Content>
     </Layout>
   );
-};
+});

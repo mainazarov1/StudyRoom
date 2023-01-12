@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import { Button } from 'antd';
 import Checkbox, { type CheckboxChangeEvent } from 'antd/es/checkbox';
 
 import CourseAdditionForm from '../CourseAdditionForm/CourseAdditionForm';
+import { AppModal } from '../../components/ModalApp';
 
 import s from './ConditionAgreement.module.scss';
-import { AppModal } from '../../components/ModalApp';
 
 const style = {
   borderRadius: 5,
@@ -66,8 +66,7 @@ const ConditionAgreement: React.FC = () => {
           <a href='https://edu.google.com/intl/ru/why-google/privacy-security/'>
             конфиденциальность и безопасность
           </a>{' '}
-          данных. Учащиеся на территории учебного заведения не смогут входить в сервис "Google
-          Класс" с помощью обычного аккаунта.
+          данных. Учащиеся на территории учебного заведения не смогут входить в сервис Google Класс с помощью обычного аккаунта.
         </p>
         <Checkbox onChange={onChange} style={style}>
           Мне все понятно, и я не использую <br /> Класс в учебном заведении

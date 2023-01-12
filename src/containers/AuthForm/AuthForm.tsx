@@ -1,12 +1,13 @@
 import { GoogleOutlined } from '@ant-design/icons';
 import { Button, Divider, Form, Typography } from 'antd';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 
 import { InputApp } from '../../components/InputApp/InputApp';
 import { InputAppPass } from '../../components/InputApp/InputAppPass';
 
 import styles from './AuthForm.module.scss';
-export const AuthForm: React.FC = () => {
+export const AuthForm: React.FC = observer(() => {
   const { Title } = Typography;
 
   return (
@@ -28,4 +29,4 @@ export const AuthForm: React.FC = () => {
       </Form.Item>
     </Form>
   );
-};
+});

@@ -11,8 +11,8 @@
 .modal {
   &__taskModal {
     :global {
-      .ant-modal-header {
-        border-bottom: #dadce0 1px solid;
+      .ant-modal-body {
+        display: block !important;
       }
     }
   }
