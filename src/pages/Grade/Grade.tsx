@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import '../Grade/Grade.scss';
 import {columns as col, columnsGrade, dataSourceGrade} from '../../utils/MockByGrade/tableMockApiGrade';
+import { gradeStore } from '../../core/store/grade';
 
 const Grade: React.FC = () => {
   const [columns, setColumns] = useState([...col, ...columnsGrade]);
@@ -13,7 +14,7 @@ const Grade: React.FC = () => {
     dataSource.forEach(({ grade }) => {
       avarageGrade += grade / dataSource.length;
     });
-    dataSource = [
+    setDataSource([
       {
         key: "0",
         name: "Средняя оценка по классу",
@@ -23,10 +24,15 @@ const Grade: React.FC = () => {
         enabled: false,
       },
       ...dataSource
-    ];
+    ]);
   };
   
-  getSummaryAvarage();
+  // getSummaryAvarage();
+
+  useEffect(() => {
+    console.log('effect')
+    getSummaryAvarage();
+  }, [])
 
   return (
     <div>

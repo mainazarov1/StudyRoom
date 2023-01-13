@@ -2,6 +2,7 @@ import { EllipsisOutlined } from '@ant-design/icons';
 import { Dropdown, MenuProps, InputNumber, Typography } from 'antd';
 import { useState } from 'react';
 import s from '../../pages/Tasks/Tasks.module.scss';
+import { gradeStore } from '../../core/store/grade';
 
 const items: MenuProps['items'] = [
   {
@@ -15,16 +16,21 @@ const items: MenuProps['items'] = [
 ];
 
 const GetGrade = (props: { recordProp: number }) => {
-  const [value, setValue] = useState<number | null | string>(props.recordProp);
+  const [value, setValue] = useState<number | null>(props.recordProp);
   const [editing, setEditing] = useState(false);
+
+  gradeStore.setValue(value);
+  gradeStore.setEditing(editing)
 
   const handleChangeEdit = () => {
     setEditing(editing => !editing);
   }
 
-  const onChange = (valueProp: number | null | string) => {
+  const onChange = (valueProp: number | null) => {
     setValue(valueProp);
   }
+
+  console.log(gradeStore.value, gradeStore.editing)
 
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -33,7 +39,7 @@ const GetGrade = (props: { recordProp: number }) => {
           <InputNumber min={0} style={{ width: '100%' }} value={value} onChange={onChange} onPressEnter={handleChangeEdit} autoFocus onBlur={handleChangeEdit} />
         ) : (
           <Typography.Text style={{color: '#1e8e3e'}} onClick={handleChangeEdit}>
-            {value ? value : 'Пусто' ? <Typography.Text style={{color: '#c5221f'}}>Пусто</Typography.Text>: ''}
+            {value ? value : 'Не назначено' ? <Typography.Text style={{color: '#c5221f'}}>Не назначено</Typography.Text>: ''}
           </Typography.Text>
         )}
       </div>
