@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/named
 import { Dropdown, Layout, MenuProps, Row, Space, Typography } from 'antd';
-import { CalendarOutlined, PlusOutlined, ContactsOutlined } from '@ant-design/icons';
+import { CalendarOutlined, PlusOutlined, ContactsOutlined, FolderOutlined } from '@ant-design/icons';
 import { observer } from 'mobx-react';
 import { useEffect } from 'react';
 
@@ -12,12 +12,11 @@ import CollapseComponent from '../../components/Collapse/Collapse';
 import { tasksStore } from '../../core/store/tasks';
 // import { TaskApi } from '../../core/types/types';
 
-// eslint-disable-next-line import/order
 import TaskItem from './TaskItem';
 const { Content } = Layout;
-
 import s from './Tasks.module.scss';
 import SiderComponent from './components/Sider/Sider';
+
 
 // const userProfileSvg = (
 //   <svg focusable='false' fill='inherit' width='18' height='18' viewBox='0 0 24 24'>
@@ -26,18 +25,6 @@ import SiderComponent from './components/Sider/Sider';
 //   </svg>
 // );
 
-const Disk = (
-  <svg
-    enableBackground='new 0 0 24 24'
-    focusable='false'
-    height='18'
-    viewBox='0 0 24 24'
-    width='18'
-  >
-    <rect fill='none' height='26' width='26'></rect>
-    <path fill='#1967d2' d='M14.35,2.5h-4.7c-0.71,0-1.37,0.38-1.73,0.99L1.58,14.4c-0.36,0.62-0.36,1.38-0.01,2l2.35,4.09c0.36,0.62,1.02,1,1.73,1 h12.68c0.72,0,1.38-0.38,1.73-1l2.35-4.09c0.36-0.62,0.35-1.38-0.01-2L16.08,3.49C15.72,2.88,15.06,2.5,14.35,2.5z M18.34,19.5H5.66 l-2.35-4.09L9.65,4.5h4.7l6.34,10.91L18.34,19.5z M12.9,7.75h-1.8l-4.58,7.98L7.25,17h9.5l0.73-1.27L12.9,7.75z M9.25,15L12,10.2 l2.75,4.8H9.25z'></path>
-  </svg>
-);
 
 const dataWithTags = [
   {
@@ -64,29 +51,29 @@ const dataWithTags = [
   },
 ];
 
-// const dataWithoutTags = [
-//   {
-//     id: '1',
-//     title:
-//       'Какие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные теги',
-//     points: 50,
-//     deadLine: 'Срок сдачи: 22 июл. 2023 г',
-//     timePublication: 'Опубликовано 10:19',
-//     htmlContent: 'Какой-то хтмл контент',
-//     isTeacher: true,
-//     countComments: 2,
-//   },
-//   {
-//     id: '2',
-//     title: 'Соaoudhaldhawwhdluadhlkawhеть',
-//     points: 50,
-//     deadLine: 'Срок сдачи: 22 июл. 2023 г',
-//     timePublication: 'Опубликовано 10:19',
-//     htmlContent: 'Какой-/* dhaldjaskdjhajlidjaksda */',
-//     isTeacher: true,
-//     countComments: 2,
-//   },
-// ];
+const dataWithoutTags = [
+  {
+    id: '1',
+    title:
+      'Какие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные тегиКакие бывают парные теги',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-то хтмл контент',
+    isTeacher: true,
+    countComments: 2,
+  },
+  {
+    id: '2',
+    title: 'Соaoudhaldhawwhdluadhlkawhеть',
+    points: 50,
+    deadLine: 'Срок сдачи: 22 июл. 2023 г',
+    timePublication: 'Опубликовано 10:19',
+    htmlContent: 'Какой-/* dhaldjaskdjhajlidjaksda */',
+    isTeacher: true,
+    countComments: 2,
+  },
+];
 
 const createItems: MenuProps['items'] = [
   {
@@ -153,12 +140,12 @@ const TasksComponent = () => {
             <ButtonApp
               classNameProp={s.navigation__link}
               label={'Папка курса на диске'}
-              icon={Disk}
+              icon={<FolderOutlined />}
             />
           </Space>
         </Row>
         <div>
-          {tasksStore.tasks.map((task) => (
+          {dataWithoutTags.map((task) => (
             <TaskItem key={task.id} {...task} />
           ))}
           {dataWithTags.map((item) => (

@@ -11,7 +11,6 @@
       font-size: 0.875rem;
       letter-spacing: 0.0107142857em;
       border: none;
-      margin-bottom: 1rem;
       box-shadow: none;
       &:hover,
       &:focus,
@@ -24,6 +23,7 @@
 
 .collapse {
    background-color: $white-color;
+   margin-bottom: 10px;
    &__head {
       &__wrap {
          padding: 5px 10px 6px 14px;
@@ -173,11 +173,11 @@
    }
    &__createButton {
       cursor: pointer;
-      background-color: var(#{--default-color});
+      background-color: var(--default-color);
       box-shadow: 0 1px 2px 0 rgb(32 33 36 / 30%), 0 2px 6px 2px rgb(32 33 36 / 15%);
-      height: 3rem;
+      height: 2.7rem;
       margin: 0;
-      padding: 0 1.25rem 0 1rem;
+      padding: 0 2.25rem 0 1.6rem;
       border-radius: 99px;
       color: #fff;
    }
@@ -187,7 +187,6 @@
       align-items: center;
       justify-content: flex-start;
       overflow: hidden;
-      padding: 0;
       padding-left: 16px;
       padding-right: 16px;
       height: 48px;
