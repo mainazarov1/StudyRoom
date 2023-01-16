@@ -159,4 +159,4 @@ const TasksComponent = () => {
   );
 };
 
-export const Tasks = observer(TasksComponent);
+export default observer(TasksComponent);

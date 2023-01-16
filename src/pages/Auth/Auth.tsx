@@ -5,7 +5,7 @@ import { Content } from 'antd/lib/layout/layout';
 import { AuthForm } from './../../containers/AuthForm/AuthForm';
 import styles from './Auth.module.scss';
 
-export const Auth: FC = () => {
+const Auth: FC = () => {
   return (
     <Layout className={styles.auth}>
       <Content className={styles.auth__wrapper}>
@@ -14,3 +14,5 @@ export const Auth: FC = () => {
     </Layout>
   );
 };
+
+export default Auth;

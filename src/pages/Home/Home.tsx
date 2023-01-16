@@ -56,7 +56,7 @@ const fastLinks = [
   },
 ];
 
-export const Home: FC = observer(() => {
+const Home: FC = observer(() => {
   const [content, setContent] = useState([
     {
       id: '1',
@@ -222,3 +222,5 @@ export const Home: FC = observer(() => {
     </Layout>
   );
 });
+
+export default Home;

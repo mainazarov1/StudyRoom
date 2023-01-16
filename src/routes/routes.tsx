@@ -1,9 +1,7 @@
 import React, { useId } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Home } from '../pages/Home/Home';
-import { Auth } from '../pages/Auth/Auth';
-import { LayoutApp } from '../containers/LayoutApp/LayoutApp';
+// eslint-disable-next-line import/order
 import {
   AUTH_PAGE,
   MAIN_PAGE,
@@ -17,15 +15,20 @@ import {
   VERIFIED_TASKS_PAGE,
   UNVERIFIED_TASKS_PAGE
 } from '../utils/path/path';
-import Feed from '../pages/Feed';
-import TaskListAssigned from '../pages/TaskListAssigned';
-import TaskListMissedDeadline from '../pages/TaskListMissedDeadline';
-import TaskListCompleted from '../pages/TaskListCompleted';
-import { Tasks } from '../pages/Tasks/Tasks';
-import UnverifiedTasks from '../pages/UnverifiedTasks/UnverifiedTasks';
-import VerifiedTasks from '../pages/VerifiedTasks/VerifiedTasks';
-import Grade from '../pages/Grade/Grade';
-import { Users } from '../pages/Users/Users';
+
+const LayoutApp = React.lazy(() => import('../containers/LayoutApp/LayoutApp'));
+const Auth = React.lazy(() => import('../pages/Auth/Auth'));
+const Home = React.lazy(() => import('../pages/Home/Home'));
+const Feed = React.lazy(() => import('../pages/Feed'));
+const TaskListAssigned = React.lazy(() => import('../pages/TaskListAssigned'));
+const TaskListMissedDeadline = React.lazy(() => import('../pages/TaskListMissedDeadline'));
+const TaskListCompleted = React.lazy(() => import('../pages/TaskListCompleted'));
+const Tasks = React.lazy(() => import('../pages/Tasks/Tasks'));
+const UnverifiedTasks = React.lazy(() => import('../pages/UnverifiedTasks/UnverifiedTasks'));
+const VerifiedTasks = React.lazy(() => import('../pages/VerifiedTasks/VerifiedTasks'));
+const Grade = React.lazy(() => import('../pages/Grade/Grade'));
+const Users = React.lazy(() => import('../pages/Users/Users'));
+
 
 interface RouterData {
   id?: string;

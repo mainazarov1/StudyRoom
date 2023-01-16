@@ -34,7 +34,7 @@ const users = [
   },
 ];
 
-export const Users = () => {
+const Users = () => {
   return (
     <div className={styles.users}>
       <div className={styles.users__wrap}>
@@ -78,3 +78,5 @@ export const Users = () => {
     </div>
   );
 };
+
+export default Users;

@@ -100,8 +100,7 @@ const leftTrigger = {
 };
 
 const isTeacher = true;
-
-export const LayoutApp: FC = () => {
+const LayoutApp: FC = () => {
   const { pathname } = useLocation();
   console.log(pathname);
 
@@ -147,3 +146,5 @@ export const LayoutApp: FC = () => {
     </Layout>
   );
 };
+
+export default LayoutApp;
